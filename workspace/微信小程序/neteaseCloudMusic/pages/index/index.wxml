@@ -1,0 +1,27 @@
+<view class="container">
+  <scroll-view>
+  <!-- 轮播图 -->
+    <swiper class="slide-swiper" indicator-dots="true" autoplay="true" interval="3000" circular="true" width="355" height="180" indicator-active-color="red" current="1" previous-margin="30rpx">
+      <block wx:for="{{imgUrl}}" wx:key="{{index}}">
+        <swiper-item>
+          <image class="slide-image" src="{{item.picUrl}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 功能行 -->
+    <view class="function-list">
+      <view class="flex-item" wx:for="{{functionList}}" wx:key="{{index}}">
+        <image class="function-list__icon" src="{{item.iconPath}}"></image>
+        <text class="function-list__text">{{item.text}}</text>
+      </view>
+    </view>
+    <!-- 推荐歌单 -->
+    <view class="playlist-list">
+    
+    </view>
+    <!-- 新歌上架 -->
+    <view class="newSong-list">
+    </view>
+    <!--  -->
+  </scroll-view>
+</view>

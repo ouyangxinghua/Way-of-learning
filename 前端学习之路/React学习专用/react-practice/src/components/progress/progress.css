@@ -1,0 +1,28 @@
+.progress-container{
+  margin-top: 50px;
+}
+.progress{
+  position: relative;
+  margin: 0 auto;
+  width: 90%;
+  height: 10px;
+  background-color: #aaa;
+  border-radius: 5px;
+}
+.circle{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: aqua;
+  border-radius: 50%;
+  top: -5px;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+.progress-color{
+  position: absolute;
+  height: 10px;
+  background-color: yellow;
+  top: 0;
+  left: 0;
+}

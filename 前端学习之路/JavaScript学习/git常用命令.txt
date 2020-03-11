@@ -1,0 +1,43 @@
+1. 正常提交
+git add . -> git commit -m "备注信息" -> git push 
+多人协作提交
+在本地修改与远程代码无冲突的情况下，优先使用：pull->commit->push
+在本地修改与远程代码有冲突的情况下，优先使用：commit->pull->push
+
+2. 查看本地工作区、暂存区文件的修改状态
+git status
+
+3. 查看提交日志
+git log xx  查看xx文件的commit记录
+git log --graph   查看当前分支commit生成的树状图
+git reflog 可以查看所有分支的所有操作记录（包括已经被删除的 commit 记录和 reset 的操作）
+
+4. 查看不同版本之间的差异
+git diff HEAD HEAD^1 .........→ 查看xx文件不同版本之间的差异 ^代表版本
+git diff HEAD -- <filename> 查看某文件的具体修改内容
+
+5. git reset 回滚相关操作
+git reset --hard HEAD 回滚到指定版本，同时清空工作目录的所有改动
+git reset --soft HEAD 回滚到指定版本，同时保留工作目录和暂存区的内容，并把重置的位置所导致的新的文件差异放进暂存区
+git reset --mixed HEAD 回滚到指定版本，同时保留工作目录的内容，并清空暂存区
+
+6. 关联远程仓库
+git remote add origin 远程仓库git地址
+
+7. 查看最后一次的修改
+git show --stat
+git show HEAD 查看指定版本的修改（可省略HEAD，默认当前版本）
+
+8. 把当前的工作隐藏起来 等以后恢复现场后继续工作
+git stash
+git stash pop 恢复工作现场（恢复隐藏的文件，同时删除stash列表中对应的内容）
+
+9. 使用Git 克隆指定分支命令为：
+git clone -b <分支名> <仓库地址>
+
+10. 分支操作
+git branch -a  查看远程所有分支
+git remote update origin --prune  更新远程最新分支
+git  checkout <分支名>  切换分支
+合并分支操作（想将dev分支合并到master分支）
+先切换分支  git  checkout master -> git pull origin master拉取代码(如果为多人开发的话) -> git  merge dev(合并分支)

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+    function EditInPlace(id, value, parentElement){
+        this.id = id;
+        this.value = value;
+        this.parentElement = parentElement;
+        this.createElement(this.id);
+    }
+        // <div id="ep1">
+        //     <span id="content">
+        //         明德厚学 爱国荣校
+        //     </span>
+        //     <input type="button" id="reset" value="Reset">
+        //     <input type="text" id="input" value="明德厚学爱国荣校">
+        //     <input type="button"  id="save" value="Save">
+        //     <input type="button" id="cancle" value="Cancle">
+        // </div>
+    EditInPlace.prototype.createElement = function(id){
+        this.containerElement = document.createElement('div');
+        this.containerElement.id = id;
+        this.parentElement.appendChild(this.containerElement);
+        // 值
+        this.staticElement = document.createElement('span');
+        this.staticElement.innerHTML = this.value;
+        this.containerElement.appendChild(this.staticElement);
+        // 重置框
+        this.resetButton = document.createElement('input')
+        this.resetButton.type = 'button';
+        this.resetButton.value = 'Reset';
+        this.containerElement.appendChild(this.resetButton);
+        // 输入框
+        this.fieldElement = document.createElement('input');
+        this.fieldElement.type = 'text';
+        this.fieldElement.value = this.value;
+        this.containerElement.appendChild(this.fieldElement);
+        // save Btn
+        this.saveButton = document.createElement('input');
+        this.saveButton.type = 'button';
+        this.saveButton.value = 'Save';
+        this.containerElement.appendChild(this.saveButton);
+        // cancle Btn
+        this.cancleButton = document.createElement('input');
+        this.cancleButton.type = 'button';
+        this.cancleButton.value = 'Cancle';
+        this.containerElement.appendChild(this.cancleButton);
+        // view 
+        this.convertToText();
+        this.attachEvent();
+    }
+        EditInPlace.prototype.convertToText = function(){
+            this.resetButton.style.display = 'none';
+            this.saveButton.style.display = 'none';
+            this.cancleButton.style.display = 'none';
+            this.fieldElement.style.display = 'none';
+            this.staticElement.style.display = 'inline';
+        }
+        // 编辑
+        EditInPlace.prototype.convertToEditAble = function(){
+            this.resetButton.style.display = 'inline';
+            this.saveButton.style.display = 'inline';
+            this.cancleButton.style.display = 'inline';
+            this.fieldElement.style.display = 'inline';
+            this.staticElement.style.display = 'none';
+        }
+        EditInPlace.prototype.attachEvent = function(){
+            this.staticElement.addEventListener('click',() => {
+                console.log(1);
+                this.convertToEditAble();
+            });
+            this.resetButton.addEventListener('click',()=>{
+                console.log('重置成功了');
+                this.fieldElement.value = '';
+            })
+            this.saveButton.addEventListener('click',() => {
+                setTimeout(() => {
+                    const val = this.fieldElement.value;
+                    console.log('保存成功了', val)
+                    // 读
+                    console.log(this.staticElement.innerHTML)
+                    // 写
+                    this.staticElement.innerHTML = val
+                    this.convertToText();
+                }, 1000);
+            });
+            this.cancleButton.addEventListener('click',() => {
+                setTimeout(() => {
+                    console.log('撤销成功')
+                    this.convertToText();
+                }, 1000);
+            })
+        }
+        const ed1 = new EditInPlace(
+            'ep1',
+            '明德厚学，爱国荣校',
+            document.getElementById('app')
+        );
+        const ed2 = new EditInPlace(
+            'ep2',
+            '崇义奉公',
+            document.getElementById('app')
+        );
+    </script>
+</body>
+</html>

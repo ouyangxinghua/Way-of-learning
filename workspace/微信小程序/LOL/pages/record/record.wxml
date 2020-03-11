@@ -1,0 +1,26 @@
+<view class="header">
+    全部战绩 
+    <image class="drop-down" src="./2.png" />
+</view>
+<view class="record-list">
+    <block wx:for="{{record}}">
+        <view class="image-section">
+            <image class="image"  mode="aspectFit" src="{{item.picsrc}}"/>
+            <view class="main-section">
+                <text class="result">{{item.result}}</text>
+                <text class="grade">{{item.grade}}</text>
+                <text class="date">{{item.date}}</text>
+                <text class="Gametype">{{item.Gametype}}</text>
+            </view>
+        </view>
+    </block>
+</view>
+<!-- <script>
+function resultColor() {
+    let
+    for(let item of record){
+        if(item.result === '失败'){
+        }
+    }
+}
+</script> -->

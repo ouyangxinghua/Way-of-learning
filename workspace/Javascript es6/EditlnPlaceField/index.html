@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>edit in place</title>
+</head>
+<body>
+    <div id="app">
+        <div id="ep1">
+            <span id="content">
+                明德厚学 爱国荣校
+            </span>
+            <input type="button" id="reset" value="Reset">
+            <input type="text" id="input" value="明德厚学爱国荣校">
+            <input type="button"  id="save" value="Save">
+            <input type="button" id="cancle" value="Cancle">
+        </div>
+        <div id="ep2">
+                <span id="content">
+                    明德厚学 爱国荣校
+                </span>
+                <input type="text" id="input" value="明德厚学爱国荣校">
+                <input type="button"  id="save" value="Save">
+                <!-- <input type="button" id="cancle" value="Cancle"> -->
+            </div>
+    </div>
+    <script>
+        const reset = document.getElementById('reset');
+        const save = document.getElementById('save');
+        const cancle = document.getElementById('cancle');
+        const input = document.getElementById('input');
+        const content = document.getElementById('content');
+        content.addEventListener('click',convertToEditAble);
+        convertToText();
+        // -> 查看状态
+        function convertToText(){
+            reset.style.display = 'none';
+            save.style.display = 'none';
+            cancle.style.display = 'none';
+            input.style.display = 'none';
+            content.style.display = 'inline';
+        }
+        function convertToEditAble(){
+            reset.style.display = 'inline';
+            save.style.display = 'inline';
+            cancle.style.display = 'inline';
+            input.style.display = 'inline';
+            content.style.display = 'none';
+        }
+        reset.addEventListener('click',()=>{
+            console.log('重置成功了');
+            content.innerHTML = '';
+            input.value = '';
+        })
+        save.addEventListener('click',()=>{
+            setTimeout(() => {
+                const val = input.value;
+                console.log('保存成功了', val)
+                // 读
+                console.log(content.innerHTML)
+                // 写
+                content.innerHTML = val
+                convertToText();
+            }, 1000);
+        })
+        cancle.addEventListener('click',()=>{
+            console.log('撤销成功了')
+            convertToText();
+        })
+    </script>
+</body>
+</html>

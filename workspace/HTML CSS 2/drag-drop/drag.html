@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 5px solid green;
+        }
+
+        #box2{
+            margin-top: 100px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box1" draggable="true">
+        <P>辣条</P>
+    </div>
+    <div class="box" id="box2" draggable="true">
+        <img src="http://ppsm0t3x8.bkt.clouddn.com/wonniu.jpg" alt="">
+    </div>
+    <script>
+    const box1 = document.getElementById('box1')
+    const box2 = document.getElementById('box2')
+    // box1.addEventListener('dragstart',function(event){
+    //     // event.data
+    // })
+    // box2.addEventListener('dragover',function(event){
+    //     event.preventDefault();
+    // })
+    // box2.addEventListener('drop',function(){
+    //     this.innerHTML = box1.innerHTML;
+    // })
+
+
+
+    // 循环注册
+    // dragstart drag dragend 源对象上 拖动的那个     
+    // 目标对象 放的那个  有个 dragenter 源对象进入目标对象的时候 触发1次 
+    // dragover源对象进入目标对象的时候 触发N次 
+    // dragleave 源对象离开目标对象时 
+    // drop放上去的时候
+    const boxs = document.querySelectorAll('.box');
+    let srcDiv = null;
+    for(let i = 0,length = boxs.length;i < length;i ++){
+        let box = boxs[i];
+        box.addEventListener('dragstart',function(event){
+            srcDiv = this;
+            // 源对象(鼠标上的对象) 目标对象
+            event.dataTransfer.setData('text/html',this.innerHTML)//text/html 规定一下内容的类型
+            // a = 1, b = 2
+        })
+        // 被拖拽对象的事件 即源对象
+        box.addEventListener('dragend',function(){
+            console.log('dragend')
+        })
+        box.addEventListener('drag',function(){
+            console.log('drag');
+        })
+        box.addEventListener('dragstart',function(){
+            console.log('dragstart');
+        })
+        // 目标对象的
+        box.addEventListener('dragenter',function(){
+            console.log('dragenter');
+        })
+        box.addEventListener('dragover',function(){
+            console.log('dragover');
+        })
+        box.addEventListener('dragleave',function(){
+            console.log('dragleave');
+        })
+        box.addEventListener('drop',function(event){
+            console.log('drop');
+        })
+
+        // 共有事件
+        box.addEventListener('dragover',function(event){
+            event.preventDefault();
+        })
+        box.addEventListener('drop',function(event){
+            // srcDiv 辣条  this 表情包
+            srcDiv.innerHTML = this.innerHTML;
+            this.innerHTML = event.dataTransfer.getData('text/html')
+        })
+    }
+    // 1、被拖对象：dragstart事件，被拖动的元素，开始拖放触发
+    // 2、被拖对象：drag事件，被拖放的元素，拖放过程中
+    // 3、经过对象：dragenter事件，拖放过程中鼠标经过的元素，被拖放的元素“开始”进入其它元素范围内（刚进入）
+    // 4、经过对象：dragover事件，拖放过程中鼠标经过的元素，被拖放的元素正在本元素范围内移动(一直)
+    // 5、经过对象：dragleave事件，拖放过程中鼠标经过的元素，被拖放的元素离开本元素范围
+    // 6、目标地点：drop事件，拖放的目标元素，其他元素被拖放到本元素中
+    // 7、被拖对象：dragend事件，拖放的对象元素，拖放操作结束
+    </script>
+</body>
+
+</html>

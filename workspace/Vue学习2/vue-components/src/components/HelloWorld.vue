@@ -1,0 +1,50 @@
+<template>
+  <div class="hello">
+    <button @click="submit">登录</button>
+    <i-button size="default">按钮</i-button>
+    <i-menu></i-menu>
+  </div>
+</template>
+
+<script>
+import button from './com/button';
+import menu from './com/menu'
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      
+    }
+  },
+  methods: {
+    submit(){
+      this.$toast('登录成功', 'top')
+    }
+  },
+  mounted() {
+    console.log(this.$children) 
+    console.log(this.$parent) 
+  },
+  components: {
+    "i-button": button,
+    "i-menu": menu
+  }
+}
+</script>
+
+<style scoped>
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>

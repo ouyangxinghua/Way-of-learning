@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="box">
+            <span>xxxx</span>
+            <img src="https://www.baidu.com/img/bd_logo1.png"/>
+            <input type="" name="" id="" value="" />
+        </div>
+    </body>
+</html>
+
+<style type="text/css">
+    /* 无任何操作的情况下 */
+    /* .box {
+        height: 128px;
+        border: 1px solid;
+    }
+    
+    img {
+        height: 96px;
+        border: 1px solid green;
+    } */
+    /* 第一种解决方案  .box的line-height设置跟它自己的高度一样，所有子元素都设置vertical-align的值为middle */
+    .box { height: 128px; border: 1px solid; }
+    img { height: 96px; border: 1px solid green;}
+    .box {line-height: 128px;}
+    .box>*{vertical-align: middle;}
+</style>

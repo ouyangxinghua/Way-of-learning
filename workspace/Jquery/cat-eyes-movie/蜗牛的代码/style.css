@@ -1,0 +1,615 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4;
+}
+html .flex,
+body .flex {
+  display: flex;
+}
+html .flex1,
+body .flex1 {
+  flex: 1;
+}
+html .section-til,
+body .section-til {
+  font-size: 17px;
+  color: #000;
+}
+html .action-list.section-til,
+body .action-list.section-til {
+  padding-left: 0.4rem;
+}
+html .page,
+body .page {
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #555;
+  min-width: 3.1rem;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  font: 14px/1.5 Arial, Helvetica, sans-serif;
+}
+html .page .nav,
+body .page .nav {
+  height: 1.167rem;
+  font-size: 0.4343rem;
+  text-align: center;
+  background-color: rgba(0,0,0,0.8);
+  padding: 0.265rem;
+  box-sizing: border-box;
+}
+html .page .nav .arrow-left,
+body .page .nav .arrow-left {
+  float: left;
+  height: 100%;
+  position: relative;
+}
+html .page .nav .arrow-left:after,
+body .page .nav .arrow-left:after {
+  content: '';
+  width: 0.29rem;
+  height: 0.29rem;
+  position: absolute;
+  top: 40%;
+  left: 16px;
+  border: 2px solid #fff;
+  border-width: 0 0 2px 2px;
+  box-sizing: border-box;
+  transform: rotateZ(45deg) translateY(-50%);
+}
+html .page .nav span,
+body .page .nav span {
+  color: #fff;
+  display: inline-block;
+}
+html .page section,
+body .page section {
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+html .page .movie-header,
+body .page .movie-header {
+  border-bottom: none;
+  padding: 0;
+  background: #f8f8f8;
+}
+html .page .movie-header .movie,
+body .page .movie-header .movie {
+  color: #fff;
+  padding: 0.4rem;
+  line-height: 1;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  filter: blur(0);
+}
+html .page .movie-header .movie .movie-background,
+body .page .movie-header .movie .movie-background,
+html .page .movie-header .movie .movie-filter,
+body .page .movie-header .movie .movie-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+html .page .movie-header .movie .movie-background,
+body .page .movie-header .movie .movie-background {
+  z-index: 0;
+  filter: blur(0.6rem);
+  background-image: url("./images/header-bg.jpg");
+  background-size: cover;
+  background-position-y: 40%;
+  background-repeat: no-repeat;
+}
+html .page .movie-header .movie .movie-filter,
+body .page .movie-header .movie .movie-filter {
+  background-color: #40454d;
+  opacity: 0.55;
+}
+html .page .movie-header .movie .movie-container,
+body .page .movie-header .movie .movie-container {
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+}
+html .page .movie-header .movie .movie-container .movie-cover,
+body .page .movie-header .movie .movie-container .movie-cover {
+  float: left;
+  width: 2.854rem;
+  height: 4rem;
+  border: 1px solid #f0f2f3;
+  position: relative;
+}
+html .page .movie-header .movie .movie-container .movie-cover .link,
+body .page .movie-header .movie .movie-container .movie-cover .link {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+html .page .movie-header .movie .movie-container .movie-cover .link .img,
+body .page .movie-header .movie .movie-container .movie-cover .link .img {
+  width: 100%;
+}
+html .page .movie-header .movie .movie-container .movie-content,
+body .page .movie-header .movie .movie-container .movie-content {
+  overflow: hidden;
+  padding-left: 0.4rem;
+}
+html .page .movie-header .movie .movie-container .movie-content .movie-name,
+body .page .movie-header .movie .movie-container .movie-content .movie-name {
+  font-size: 17px;
+  margin: 0.08rem 0;
+}
+html .page .movie-header .movie .movie-container .movie-content .movie-ename,
+body .page .movie-header .movie .movie-container .movie-content .movie-ename {
+  font-size: 12px;
+  margin-bottom: 0.2rem;
+}
+html .page .movie-header .movie .movie-container .movie-content .movie-score,
+body .page .movie-header .movie .movie-container .movie-content .movie-score {
+  font-size: 12px;
+  margin-bottom: 0.4rem;
+}
+html .page .movie-header .movie .movie-container .movie-content .movie-score .rating .img,
+body .page .movie-header .movie .movie-container .movie-content .movie-score .rating .img {
+  width: 0.28rem;
+  height: 0.28rem;
+  margin-right: 6px;
+}
+html .page .movie-header .movie .movie-container .movie-content .movie-score .rating .rating-score,
+body .page .movie-header .movie .movie-container .movie-content .movie-score .rating .rating-score {
+  font-size: 0.38rem;
+  color: #ffc600;
+}
+html .page .movie-header .movie .movie-container .movie-content .movie-score .score-num,
+body .page .movie-header .movie .movie-container .movie-content .movie-score .score-num {
+  font-size: 8px;
+  color: #fff;
+  opacity: 0.7;
+}
+html .page .movie-header .movie .movie-container .movie-content .movie-detail,
+body .page .movie-header .movie .movie-container .movie-content .movie-detail {
+  font-size: 12px;
+  margin-bottom: 0.16rem;
+  opacity: 0.7;
+}
+html .page .movie-header .movie .movie-container .movie-content .movie-detail p,
+body .page .movie-header .movie .movie-container .movie-content .movie-detail p {
+  margin-bottom: 0.2rem;
+}
+html .page .movie-header .movie .operating,
+body .page .movie-header .movie .operating {
+  margin-top: 0.5rem;
+}
+html .page .movie-header .movie .operating div,
+body .page .movie-header .movie .operating div {
+  border: 1px solid rgba(255,255,255,0.4);
+  background-color: rgba(255,255,255,0.4);
+  font-size: 14px;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0.25rem 0;
+  border-radius: 4px;
+}
+html .page .movie-header .movie .operating div img,
+body .page .movie-header .movie .operating div img {
+  vertical-align: middle;
+}
+html .page .movie-header .movie .operating div span,
+body .page .movie-header .movie .operating div span {
+  vertical-align: middle;
+}
+html .page .movie-header .movie .operating .movie-watch,
+body .page .movie-header .movie .operating .movie-watch {
+  margin-right: 0.3rem;
+}
+html .page .movie-header .movie .operating .movie-watch img,
+body .page .movie-header .movie .operating .movie-watch img {
+  width: 14px;
+  height: 14px;
+}
+html .page .movie-header .movie .operating .movie-mark img,
+body .page .movie-header .movie .operating .movie-mark img {
+  width: 18px;
+  height: 18px;
+}
+html .page .section-seperate,
+body .page .section-seperate {
+  padding-top: 0.4rem;
+  margin-bottom: 0.3rem;
+  border-top: 1px solid #e5e5e5;
+}
+html .page .section-expander,
+body .page .section-expander {
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+html .page .section-expander .text-expander .text-expander__content.close,
+body .page .section-expander .text-expander .text-expander__content.close {
+  min-height: 65px;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+html .page .section-expander .text-expander .text-expander__button,
+body .page .section-expander .text-expander .text-expander__button {
+  height: 0.7rem;
+  text-align: center;
+}
+html .page .section-expander .text-expander .text-expander__button .icon-chevron__down,
+body .page .section-expander .text-expander .text-expander__button .icon-chevron__down {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #aaa;
+  display: inline-block;
+  border-width: 0 2px 2px 0;
+  box-sizing: border-box;
+  transform: rotateZ(45deg);
+  transition: transform 0.5s;
+}
+html .page .section-expander .text-expander .text-expander__button .icon-chevron__down.up,
+body .page .section-expander .text-expander .text-expander__button .icon-chevron__down.up {
+  transform: rotateZ(-135deg);
+  transition: transform 0.5s;
+}
+html .page .footer_buy,
+body .page .footer_buy {
+  width: 100%;
+  background-color: #e54847;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 0.4343rem;
+  line-height: 3;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+}
+html .page .movie-actor,
+body .page .movie-actor {
+  padding: 0.3rem;
+  font-size: 0.35rem;
+}
+html .page .movie-actor .title .text,
+body .page .movie-actor .title .text {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+}
+html .page .movie-actor .movie-actor__lists .items,
+body .page .movie-actor .movie-actor__lists .items {
+  list-style: none;
+  height: 3.3rem;
+  display: -webkit-box;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+html .page .movie-actor .movie-actor__lists .items::-webkit-scrollbar,
+body .page .movie-actor .movie-actor__lists .items::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+html .page .movie-actor .movie-actor__lists .items .item,
+body .page .movie-actor .movie-actor__lists .items .item {
+  width: 18%;
+  font-size: 0.32rem;
+  text-align: center;
+  list-style: none;
+  margin-right: 0.25rem;
+}
+html .page .movie-actor .movie-actor__lists .items .item img,
+body .page .movie-actor .movie-actor__lists .items .item img {
+  width: 100%;
+  height: 10%;
+}
+html .page .movie-actor .movie-actor__lists .items .item .name,
+body .page .movie-actor .movie-actor__lists .items .item .name {
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+html .page .movie-actor .movie-actor__lists .items .item .work,
+body .page .movie-actor .movie-actor__lists .items .item .work {
+  color: rgba(0,0,0,0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+html .page .Boxoffice,
+body .page .Boxoffice {
+  box-sizing: border-box;
+  padding: 0.3rem 0.4rem;
+  margin: 0.4rem auto;
+  width: 100%;
+}
+html .page .Boxoffice .title,
+body .page .Boxoffice .title {
+  font-size: 0.35rem;
+}
+html .page .Boxoffice .content,
+body .page .Boxoffice .content {
+  display: flex;
+  justify-content: space-around;
+}
+html .page .Boxoffice .content .message,
+body .page .Boxoffice .content .message {
+  margin-top: 0.15rem;
+  text-align: center;
+}
+html .page .Boxoffice .content .number,
+body .page .Boxoffice .content .number {
+  color: #f00;
+  font-size: 0.6rem;
+}
+html .page .Boxoffice .content .text,
+body .page .Boxoffice .content .text {
+  font-size: 0.3rem;
+  color: rgba(0,0,0,0.5);
+}
+html .page .movie-photo,
+body .page .movie-photo {
+  width: 100%;
+  height: 22%;
+  margin-top: 0.2rem;
+  margin-bottom: 0.3rem;
+  padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+  box-sizing: border-box;
+}
+html .page .movie-photo .title,
+body .page .movie-photo .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+html .page .movie-photo .title .left,
+body .page .movie-photo .title .left {
+  font-size: 0.35rem;
+  color: rgba(0,0,0,0.7);
+}
+html .page .movie-photo .title .right,
+body .page .movie-photo .title .right {
+  font-size: 0.3rem;
+  color: rgba(0,0,0,0.6);
+}
+html .page .movie-photo .movie-photo_lists,
+body .page .movie-photo .movie-photo_lists {
+  list-style: none;
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin-top: 0.4rem;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+html .page .movie-photo .movie-photo_lists::-webkit-scrollbar,
+body .page .movie-photo .movie-photo_lists::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+html .page .movie-photo .movie-photo_lists .list,
+body .page .movie-photo .movie-photo_lists .list {
+  list-style: none;
+  display: inline-block;
+  width: 2.7rem;
+  height: 2.2rem;
+  margin-right: 0.15rem;
+}
+html .page .movie-photo .movie-photo_lists .list:nth-child(2),
+body .page .movie-photo .movie-photo_lists .list:nth-child(2) {
+  width: 3.5rem;
+}
+html .page .movie-photo .movie-photo_lists .list:last-child,
+body .page .movie-photo .movie-photo_lists .list:last-child {
+  margin-right: 0;
+}
+html .page .movie-photo .movie-photo_lists .list img,
+body .page .movie-photo .movie-photo_lists .list img {
+  width: 100%;
+  height: 100%;
+}
+html .page .section6,
+body .page .section6 {
+  overflow: hidden;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0;
+}
+html .page .pos_r,
+body .page .pos_r {
+  position: relative;
+  font-size: 15px;
+}
+html .page .pos_r .join-comment,
+body .page .pos_r .join-comment {
+  position: absolute;
+  font-size: 14px;
+  background-color: #e54847;
+  color: #fff;
+  padding: 0.1rem 0.3rem;
+  border-radius: 20px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+html .page .movie-comment,
+body .page .movie-comment {
+  padding: 0.2rem 0 0.4rem 0;
+}
+html .page .movie-comment .comment-item,
+body .page .movie-comment .comment-item {
+  float: left;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  padding: 0.1rem 0.25rem;
+  margin-top: 0.2rem;
+  margin-right: 0.3rem;
+}
+html .page .section7,
+body .page .section7 {
+  padding-bottom: 0.2rem;
+  margin-bottom: 0;
+  border-top: 0;
+  padding-right: 0;
+  overflow: hidden;
+}
+html .page .section7-title,
+body .page .section7-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+html .page .section7-main .section7-main__item,
+body .page .section7-main .section7-main__item {
+  position: relative;
+}
+html .page .section7-main .section7-share,
+body .page .section7-main .section7-share {
+  width: 2.5rem;
+  height: 0.8rem;
+  background-color: rgba(0,0,0,0.7);
+  position: absolute;
+  right: 0.7rem;
+  top: 0.1rem;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  font-size: 12px;
+  line-height: 0.8rem;
+  text-align: center;
+  display: none;
+}
+html .page .section7-main .section7-share::before,
+body .page .section7-main .section7-share::before {
+  content: "";
+  width: 1px;
+  height: 0.3rem;
+  background-color: rgba(255,255,255,0.6);
+  position: absolute;
+  top: 0.25rem;
+  right: 1.25rem;
+}
+html .page .section7-main .section7-share span,
+body .page .section7-main .section7-share span {
+  display: inline-block;
+  width: 50%;
+}
+html .page .section7-main .user-pic img,
+body .page .section7-main .user-pic img {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  float: left;
+  vertical-align: middle;
+}
+html .page .section7-main .section7-content,
+body .page .section7-main .section7-content {
+  margin-left: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+html .page .section7-main .section7-content .name,
+body .page .section7-main .section7-content .name {
+  font-size: 12px;
+  color: #000;
+}
+html .page .section7-main .section7-content .vip,
+body .page .section7-main .section7-content .vip {
+  width: 0.7rem;
+  height: 0.3rem;
+}
+html .page .section7-main .section7-content .icongou,
+body .page .section7-main .section7-content .icongou {
+  width: 0.3rem;
+  height: 0.3rem;
+}
+html .page .section7-main .section7-content .icondian,
+body .page .section7-main .section7-content .icondian {
+  width: 0.5rem;
+  height: 0.3rem;
+  float: right;
+  margin-right: 0.2rem;
+  margin-top: 0.3rem;
+}
+html .page .section7-main .section7-content .grade,
+body .page .section7-main .section7-content .grade {
+  font-size: 10px;
+  color: rgba(0,0,0,0.6);
+}
+html .page .section7-main .section7-content .text,
+body .page .section7-main .section7-content .text {
+  margin-top: 0.2rem;
+  text-align: left;
+  margin-bottom: 0.3rem;
+  padding-right: 0.4rem;
+  color: #000;
+}
+html .page .section7-main .section7-content .footer,
+body .page .section7-main .section7-content .footer {
+  margin-bottom: 0.3rem;
+  padding-right: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+html .page .section7-main .section7-content .footer img,
+body .page .section7-main .section7-content .footer img {
+  width: 0.3rem;
+  height: 0.3rem;
+}
+html .page .section7-main .section7-content .footer .date,
+body .page .section7-main .section7-content .footer .date {
+  flex: 1;
+}
+html .page .section7-main .section7-content .footer .like,
+body .page .section7-main .section7-content .footer .like {
+  padding: 0 0.3rem;
+  height: 0.6rem;
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: 0.3rem;
+  line-height: 0.6rem;
+  margin-right: 0.4rem;
+}
+html .page .section7-main .section7-content .footer .comment,
+body .page .section7-main .section7-content .footer .comment {
+  padding: 0 0.3rem;
+  height: 0.6rem;
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: 0.3rem;
+  line-height: 0.6rem;
+}
+html .page .section7-main .section7-content .footer .comment img,
+body .page .section7-main .section7-content .footer .comment img {
+  position: relative;
+  top: 1px;
+}
+html .page .section8,
+body .page .section8 {
+  margin-bottom: 1.35rem;
+  padding: 0;
+}
+html .page .section8 .comment-num,
+body .page .section8 .comment-num {
+  height: 1.2rem;
+  text-align: center;
+  line-height: 1.2rem;
+  color: #f00;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+#toast {
+  display: none;
+}

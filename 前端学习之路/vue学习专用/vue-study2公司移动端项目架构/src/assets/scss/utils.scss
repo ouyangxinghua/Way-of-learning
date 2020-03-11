@@ -1,0 +1,84 @@
+@import './reset.scss';
+@function px2rem ($px) {
+    @return $px / $designWidth * 10 * 1rem;
+}
+
+@function px2vw ($px) {
+    @return $px / $designWidth * 1vw;
+}
+
+// 修改mint-ui 弹框字体大小
+.mint-msgbox-wrapper .mint-msgbox-header .mint-msgbox-title,
+.mint-msgbox-wrapper .mint-msgbox-btns .mint-msgbox-btn{
+    font-size: px2rem(36px);
+}
+// 重置 Mint UI 开始
+//单选框按钮radio样式重置
+.mint-radio-input:checked + .mint-radio-core{
+    background-color: $main-color;
+    border-color: $main-color;
+}
+//复选框按钮样式重置
+.mint-checkbox-input:checked + .mint-checkbox-core{
+    background-color: $main-color;
+    border-color: $main-color;
+}
+.mint-field .mint-cell-wrapper .mint-cell-value input{
+    background: transparent!important;
+    color:#888888;
+}
+.mint-popup-bottom{
+    width: 100%!important;
+}
+// 修改mint-ui 弹框样式
+.mint-msgbox{
+    border-radius: px2rem(14px);
+}
+.mint-msgbox-wrapper .mint-msgbox-header{
+    padding: px2rem(42px) 0 0!important;
+}
+.mint-msgbox-wrapper .mint-msgbox-header .mint-msgbox-title{
+    font-size: px2rem(36px)!important;
+}
+.mint-msgbox-wrapper .mint-msgbox-content{
+    padding: px2rem(16px) px2rem(42px) px2rem(30px)!important;
+}
+.mint-msgbox-wrapper .mint-msgbox-content .mint-msgbox-message{
+    line-height: px2rem(45px);
+    font-size: px2rem(30px)!important;
+}
+.mint-msgbox-wrapper .mint-msgbox-btns{
+    padding: px2rem(20px) 0!important;
+    height: initial!important;
+}
+.mint-msgbox-wrapper .mint-msgbox-btns .mint-msgbox-btn{
+    font-size: px2rem(36px)!important;
+}
+// 修改mint-ui 表单样式
+.mint-field .mint-cell-wrapper .mint-cell-title .mint-cell-text{
+    line-height: px2rem(50px)!important;
+    font-size: px2rem(34px)!important;
+}
+.mint-field .mint-cell-wrapper .mint-cell-value input,.mint-field .mint-cell-wrapper .mint-cell-value textarea{
+    line-height: px2rem(48px)!important;
+    font-size: px2rem(32px)!important;
+    color: #888888!important;
+    background-color: white!important;
+}
+.fill-information-container .custom-form-input .mint-cell:first-child .mint-cell-wrapper{
+    background-origin: content-box!important;
+}
+.fill-information-container .custom-form-input .mint-cell:last-child{
+    background-image: initial!important;
+    background-size: initial!important;
+    background-repeat: initial!important;
+    background-position: initial!important;
+}
+.situational-questionnaire .mint-radiolist-title{
+    margin: 0!important;
+}
+.situational-questionnaire .mint-checklist-title{
+    margin: 0!important;
+}
+// 重置 Mint UI 结束
+

@@ -1,0 +1,11 @@
+<view class="map-box">
+  <map id="myMap" longitude="{{longitude}}" latitude="{{latitude}}"
+  scale="{{scale}}" show-location="true" markers="{{markers}}"
+  bindmarkertap="toDrive" polyline="{{polyline}}"
+  >
+  <!-- 中心坐标 -->
+  <cover-image src="/images/2.png" class="map-icon_point"></cover-image>
+  <!-- icon -->
+  <cover-image src="/images/1.png" class="map-icon map-icon_reset" bindtap="toCurrentLocation"></cover-image>
+  </map>
+</view>

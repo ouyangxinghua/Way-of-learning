@@ -1,0 +1,344 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
+body{
+    font-size: 1.6rem;
+    background-color: rgba(0,0,0,0.8);
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.vedio{
+    width: 100%;
+    height: 100%;
+}
+.swiper-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.header{
+    z-index: 9999;
+}
+.search{
+    width: 18px;
+    height: 18px;
+    background: url(./images/搜索.png)no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    opacity: 0.4;
+}
+.live{
+    width: 20px;
+    height: 20px;
+    background: url(./images/live.svg)no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 29px;
+    right: 55px;
+    opacity: 0.6;
+}
+.suipai{
+    width: 20px;
+    height: 20px;
+    background: url(./images/随拍.svg)no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    opacity: 0.6;
+}
+.wenzi{
+    color:#a7a7a4;
+    display: block;
+    position: absolute;
+    top: 29px;
+    left: 40px;
+}
+.tuijian{
+    color: #ffffff;
+    display: block;
+    position: absolute;
+    top: 29px;
+    left: 145px;
+}
+.line{
+    height: 10px;
+    position: absolute;
+    top: 35px;
+    left: 185px;
+    border-left: 1px solid #a7a7a4;
+}
+.location{
+    color: #a7a7a4;
+    display: block;
+    position: absolute;
+    top: 29px;
+    left: 195px;
+}
+/* footer */
+.footer{
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+}
+.footer .text{
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    line-height: 40px;
+    color: #a7a7a4;
+    font-size: 14px;
+    position: relative;
+}
+.footer .text:hover{
+    color: white;
+    font-size: 15px;
+}
+.footer .text:hover::after{
+    content: "";
+    width: 27px;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    right: 24px;
+    bottom: 0;
+}
+.footer .text .pic{
+    width: 30px;
+    height: 30px;
+    background: url(./images/添加.svg)no-repeat;
+    background-size: 100% 100%;
+    margin: auto;  
+    position: absolute;  
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+.swiper-wrapper{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position:relative;
+}
+.swiper-slide{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.swiper-slide .middle{
+    position: absolute;
+    right: 0;
+    bottom: 22%;
+    width: 15%;
+    height: 40%;
+    /* background-color: white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.swiper-slide .middle .userpic{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* border: 1px solid #fff; */
+    margin-bottom: 20px;
+    position: relative;
+}
+.swiper-slide .middle .userpic.ouyang{
+    background: url(./images/ouyang.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.swiper-slide .middle .userpic.fenfen{
+    background: url(./images/fenfen.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.swiper-slide .middle .userpic.three{
+    background: url(./images/three.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.swiper-slide .middle .userpic::after{
+    /* display: none; */
+    content: "";
+    width: 18px;
+    height: 18px;
+    background: url(./images/添加成功.svg)no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: -9px;
+    left: 13px;
+}
+.swiper-slide .middle .pic{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+.swiper-slide .middle .pic.xin{
+    background: url(./images/喜欢.png);
+    background-size: 100% 100%;
+    position: relative;
+}
+.swiper-slide .middle .pic.xin .redxin{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    background: url(./images/红心.png)no-repeat;
+    background-size: 100% 100%;
+    opacity: 1;
+}
+.swiper-slide .middle .pic.remark{
+    background: url(./images/评论.png);
+    background-size: 100% 100%;
+}
+.swiper-slide .middle .pic.zf{
+    background: url(./images/转发.png);
+    background-size: 100% 100%;
+}
+.swiper-slide .middle .text{
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    text-align: center;
+}
+.swiper-slide .detail{
+    width: 100%;
+    height: 15%;
+    /* background-color: pink; */
+    position: absolute;
+    bottom: 40px;
+    padding: 15px 10px;
+    line-height: 1.8;
+}
+.swiper-slide .detail .user{
+    font-size: 14px;
+    color: #fff;
+}
+.swiper-slide .detail .message{
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+}
+.swiper-slide .detail .bottom{
+    margin-top: 5px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+}
+.swiper-slide .detail .bottom .yinfu{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(./images/音符.svg)no-repeat;
+    background-size: 100% 100%;
+}
+.swiper-slide .detail .bottom p{
+    overflow: hidden;
+    display: inline-block;
+    height: 20px;
+    width: 150px;
+}
+.swiper-slide .detail .bottom .span{
+    animation: span 3s linear infinite;
+}
+@keyframes span{
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(-100px,0);
+    }
+}
+.swiper-slide .detail .cd{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background:linear-gradient(black 20%,#303030 50%,black 80%);
+    float: right;
+    position: relative;
+    bottom: 41px;
+    animation: rotating 10s linear infinite;
+}
+@keyframes rotating{
+    0%{
+        transform: rotateZ(0);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+.swiper-slide .detail .cd .pic{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: url(./images/music.jpg)no-repeat;
+    background-size: 100% 100%;
+    margin: auto;  
+    position: absolute;  
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+.swiper-slide .detail .animate{
+    width: 10px;
+    height: 10px;
+    background: url(./images/音乐.png)no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: 0;
+    right: 26px;
+    animation: yinfu 4s linear infinite;
+}
+@keyframes yinfu {
+    0%{
+        transform: translate(0,0);
+        /* transform: scale(1,1); */
+        /* transform: rotateZ(0); */
+        opacity: 0;
+    }
+    20%{
+        transform: translate(-25px,-4px);
+        /* transform: scale(1.5,1.5); */
+        opacity: 0.5;
+    }
+    50%{
+        /* transform: rotateZ(60deg); */
+        transform: translate(-40px,-30px);
+        /* transform: scale(3,3); */
+        opacity: 1;
+    }
+    70%{
+        transform: translate(-45px,-45px);
+        /* transform: scale(1.5,1.5); */
+        opacity: 0.5;
+    }
+    100%{
+        transform: translate(-50px,-60px);
+        /* transform: scale(3,3); */
+        opacity: 0;
+    }
+}
+.swiper-container .pause{
+    /* display: none; */
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: url(./images/2.1.1.1暂停.png)no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.4;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+/* 第一屏 */

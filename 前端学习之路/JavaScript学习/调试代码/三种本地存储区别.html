@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="aa()">djasadskdhsa</button>
+    </div>
+    <div>
+        <button onclick="bb()">ndjksahdjkasdhsajdjasd</button>
+    </div>
+</body>
+<script>
+    function aa() {
+        sessionStorage.setItem('name', 'ouyangxinghua');  //关闭标签之后就没了  不同源不共享
+        localStorage.setItem('name1', 'ouyangxinghua1')   //一直存在，需要手动删除  不同源不共享
+        document.cookie = "name=xxxxx";   //关闭浏览器还是存在，但是过期时间到了就会清除，或者手动清除  不同源不共享
+        // cookie作用域
+        // js 操作: document.cookie
+        // 后端: 响应头
+        // Set - Cookie: name1 = value1; path = /; httponly
+        // 浏览器检查所有存储的 cookie, 把符合当前作用范围的cookie 放在 http 请求头发给服务器。
+        // cookie 有可能被用户禁用。
+        // 内容:
+        // name
+        // value
+        // path: 规定 cookie 生效的路径
+        //     / 所有的路径都会拿到cookie
+        //     / user / user以及 / user / xxx下的
+        //     / user / xxx / user / xxx以及 / user / xxx / xxx....
+        // httponly: true false
+        // true 就不能通过 js 获取 cookie
+        // max - age: 在 几秒 过后过期
+        // 1.ajax会自动带上同源的cookie，不会带上不同源的cookie
+        // 2. 可以通过前端设置withCredentials为true， 后端设置Header的方式让ajax自动带上不同源的cookie，但是这个属性对同源请求没有任何影响。会被自动忽略。
+    }
+    function bb() {
+        window.location.href = "http://www.baidu.com";
+    }
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>q2</title>
+</head>
+
+<body>
+  <!-- <script>
+    let a = {
+      user: '蜗牛',
+      fn: function(e, m) {
+        console.log(this.user)
+        console.log(e + m)
+      }
+    }
+    let b = a.fn
+    // b.call(a, 2, 3);
+    // b.apply(a,[2, 4])
+    b.bind(a, 3, 4)()
+  </script> -->
+
+  <!-- 原理实现 -->
+  <script>
+    // call() 原理
+    Function.prototype.call = function () {
+      let [thisArg, ...args] = [...arguments]
+      if (!thisArg) {
+        thisArg = typeof window === 'undefined' ? global : window;
+      }
+      // this的指向是当前函数 func
+      thisArg.func = this
+      // 执行函数
+      let result = thisArg.func(...args)
+      // thisArg上并没有func属性
+      delete thisArg.func
+      return result
+    }
+
+
+    // 第二种方法
+    // 函数原型上添加 myCall方法 来模拟call
+    Function.prototype.myCall = function (obj) {
+      //我们要让传入的obj成为, 函数调用时的this值.
+      obj._fn_ = this;  //在obj上添加_fn_属性，值是this(要调用此方法的那个函数对象)。
+      obj._fn_();       //在obj上调用函数,那函数的this值就是obj.
+      delete obj._fn_; // 再删除obj的_fn_属性,去除影响.
+      //_fn_ 只是个属性名 你可以随意起名，但是要注意可能会覆盖obj上本来就有的属性
+    }
+  </script>
+</body>
+
+</html>

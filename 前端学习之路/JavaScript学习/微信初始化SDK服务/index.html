@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击请求数据</button>
+
+    <script>
+        axios({
+            url: 'http://ouyang.com:3000/api/getWX',
+            method: 'post',
+            data: {
+                url: location.href.split('#')[0] // 把url的#及其后面的部分截取掉
+            }
+        }).then(res => {
+            console.log('------');
+            console.log(res.data);
+            wx.config({
+                debug: true, // 开发模式开启，便于调试是否成功初始化js-sdk
+                appId: '.....', // appId
+                timestamp: res.data.timestamp, // 时间戳
+                nonceStr: res.data.noncestr, // 随机数 （注意，前面的nonceStr的S是大写的）
+                signature: res.data.signature, // 签名
+                jsApiList: ['checkJsApi', // 需要调用的js-sdk功能接口列表
+                    'chooseImage',
+                    'previewImage',
+                    'uploadImage',
+                    'downloadImage',
+                    'scanQRCode'
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

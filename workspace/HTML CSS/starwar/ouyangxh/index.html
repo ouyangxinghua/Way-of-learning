@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lan   g="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>星球大战，原力觉醒</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url("./images/1551270787501.jpg");
+}
+img{
+    width: 100%;
+}
+.starwars-demo{
+    height: 17em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 34em;
+    transform: translate(-50%,-50%);
+    perspective:800px;/*透视点，3d效果，800px是眼睛离屏幕的距离*/
+    transform-style: preserve-3d;
+}
+.star, .wars,.oyxh {
+    /*有绝对定位，相对于某元素定位*/
+    position: absolute;
+}
+.star{
+    top: -0.75em;
+    animation:star 10s ease-out  infinite;
+}
+/*动作导演,animation声明一下，keyframes 关键帧*/
+@keyframes star{
+    0%{
+        opacity: 0;/*透明度*/
+        transform: scale(1.5);
+    }
+    20%{
+        opacity: 1;
+    }
+    89%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: translateZ(-400em);
+    }
+}
+
+.wars{
+    bottom: -0.5em ;
+    animation: wars 10s ease-out infinite;
+}
+@keyframes wars{
+    0%{
+        opacity: 0;
+        transform: scale(1.5);
+    }
+    20%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+        transform:scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: translateZ(-400em);
+    }
+}
+.oyxh span {
+        display: inline-block;/*行内快捷元素*/
+        animation: spin-letters 10s linear infinite;
+    }
+@keyframes spin-letters{
+        0%,100%{
+            opacity: 0;
+            transform: rotateY(90deg);
+        }
+        30%{
+            opacity: 1;
+        }
+        70%,80%{
+            opacity: 1;
+            transform: rotateY(0deg);
+        }
+        88%,100%{
+            opacity: 0;
+        }
+    }
+
+.oyxh{
+        top: 43%;
+        color:#FFF;
+        /* left: -2em; */
+        right: 4em;
+        text-transform: uppercase;
+        animation: byline 10s linear infinite;/*线性匀速运动*/
+
+}
+@keyframes move-oyxh{
+        0%{
+            transform: translateZ(5em);
+        }
+        100%{
+            transform: translateZ(0);
+        }
+    }
+
+</style>
+</head>
+<body>
+<div class="starwars-demo">
+    <img src="./images/star.svg" alt="" class="star"> 
+    <img src="./images/wars.svg" alt="" class="wars">
+    <h2 class="oyxh">
+        <span>R</span>
+        <span>u</span>
+        <span>s</span>
+        <span>s</span>
+        <span>e</span>
+        <span>l</span>
+        <span>l</span>
+        <span>W</span>
+        <span>e</span>
+        <span>s</span>
+        <span>t</span>
+        <span>b</span>
+        <span>r</span>
+        <span>o</span>
+        <span>o</span>
+        <span>k</span>
+    </h2>
+</div>
+
+    
+</body>
+</html>

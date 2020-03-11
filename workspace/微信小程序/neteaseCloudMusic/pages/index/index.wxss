@@ -1,0 +1,27 @@
+.slide-image {
+  width: 95%;
+  height: 100%;
+  border-radius: 10px;
+}
+.function-list{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 10px; 
+}
+.flex-item{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+}
+.function-list__icon{
+  width: 30px;
+  height: 25px;
+}
+.function-list__text{
+  font-size: 12px;
+  margin-top: 10px;
+}

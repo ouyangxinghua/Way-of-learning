@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽alloy-Finger源码</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100px;
+            width: 100px;
+            background-color: #bbbbbb;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div2">
+    </div>
+    <script>
+        const div = document.getElementById('div2');
+        let cur = {
+            x: 0,
+            y: 0
+        }
+        let dx, dy, mx, my;
+        let flag = false;
+        div.addEventListener('mousedown', function (event) {
+            console.log('mousedown');
+            flag = true;
+            cur.x = event.clientX;
+            cur.y = event.clientY;
+            // console.log(cur.x);
+            // console.log(cur.y);
+            dx = div.offsetLeft;
+            dy = div.offsetTop;
+        })//鼠标点击
+        div.addEventListener('mousemove', function (event) {
+            if (!flag) return false;
+            mx = event.clientX;
+            my = event.clientY;
+            // console.log(mx);
+            // console.log(my);
+            console.log('mousemove');
+
+            div.style.left = `${mx - cur.x + dx}px`;
+            div.style.top = `${my - cur.y + dy}px`;
+        })//鼠标移动
+        div.addEventListener('mouseup', function () {
+            flag = false;
+            console.log('mouseup');
+        })//鼠标放开
+        // 移动端触屏事件
+        div.addEventListener('touchstart', function (event) {//手指放到屏幕上时触发
+            console.log('touchstart');
+            flag = true;
+            cur.x = event.pageX;
+            cur.y = event.pageY;
+            console.log(cur.x);
+            console.log(cur.y);
+            dx = div.offsetLeft;
+            dy = div.offsetTop;
+        })
+        div.addEventListener('touchmove', function (event) {//手指在屏幕上滑动式触发
+            console.log('touchmove');
+            if (!flag) return false;
+            mx = event.pageX;
+            my = event.pageY;
+            console.log(mx);
+            console.log(my);
+            // console.log('mousemove');
+
+            div.style.left = `${mx - cur.x + dx}px`;
+            div.style.top = `${my - cur.y + dy}px`;
+        })
+        div.addEventListener('touchend', function (event) {//手指离开屏幕时触发
+            console.log('touchend');
+            flag = false;
+        })
+    </script>
+</body>
+
+</html>

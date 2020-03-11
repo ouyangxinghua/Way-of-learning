@@ -1,0 +1,73 @@
+page {
+  background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555650894842&di=38dedebfbd01feb04f4005aedd923b13&imgtype=0&src=http%3A%2F%2Fimg.lygou.cc%2Ffeed%2F2d6b14f956f886c8c5f53689b1d080f5%401e_2o_0l_1334h_750w_90q.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+.header {
+  /* text-align: center; */
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 2.5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 0, 0, 0.5);
+  text-indent: 10px;
+}
+
+.drop-down {
+  width: 16px;
+  height: 14px;
+  vertical-align: middle;
+  margin-bottom: 3px;
+}
+
+.record-list {
+  overflow: hidden;
+}
+
+.image-section {
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.image {
+  float: left;
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  background-color: #eee;
+}
+
+.main-section {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.result {
+  color: blue;
+  font-size: 17px;
+  margin-right: 10px;
+  line-height: 1.5;
+}
+
+.grade {
+  color: black;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.date {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  margin-right: 20px;
+  margin-top: 15px;
+  float: right;
+}
+
+.Gametype {
+  color: rgba(0, 0, 0, 0.5);
+  display: block;
+  font-size: 15px;
+  margin-bottom: 10px;
+}

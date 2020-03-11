@@ -1,0 +1,3 @@
+<view class="container" wx:for="{{playlistHot}}" wx:key="{{index}}">
+{{item.name}}
+</view>

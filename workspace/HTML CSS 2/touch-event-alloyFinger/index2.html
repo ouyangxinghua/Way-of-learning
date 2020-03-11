@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="example">
+        <div class="title"> tap </div>
+        <div class="id">
+            <img src="./ouyang.jpg" alt="">
+        </div>
+    </div>
+
+
+        <script src="./vconsole.min.js"></script>
+        <script src="./alloy_finger.js"></script>
+        <script >
+            new VConsole();
+            var el = document.getElementById("#id");
+            new AlloyFinger(el, {
+                pointStart: function () {
+                    //手指触摸屏幕触发
+                },
+                multipointStart: function () {
+                    //一个手指以上触摸屏幕触发
+                },
+                rotate: function (e) {
+                    //e.angle代表两个手指旋转的角度
+                    console.log(e.angle);
+                },
+                pinch: function (e) {
+                    //e.scale代表两个手指缩放的比例
+                    console.log(e.scale);
+                },
+                multipointEnd: function () {
+                    //当手指离开，屏幕只剩一个手指或零个手指触发
+                },
+                pressMove: function (e) {
+                    //e.deltaX和e.deltaY代表在屏幕上移动的距离
+                    console.log(e.deltaX);
+                    console.log(e.deltaY);
+                },
+                tap: function (e) {
+                    //点按触发
+                },
+                doubleTap: function (e) {
+                    //双击屏幕触发
+                },
+                longTap: function (e) {
+                    //长按屏幕750ms触发
+                },
+                swipe: function (e) {
+                    //e.direction代表滑动的方向
+                    console.log("swipe" + e.direction);
+                },
+                singleTap: function (e) {
+                    //单击
+                }
+            });
+        </script>
+</body>
+
+</html>

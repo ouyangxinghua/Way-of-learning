@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="userinfo">
+    <button bindtap="showpopup">点我</button>
+  </view>
+  <popup id="popup" title="小弹窗"
+  content="组件化思想是现代化前端编程的主要思想，你学会了吗？"
+  btn_no="没有"
+  btn_ok="学会了"
+  catch:error="_error"
+  catch:success="_success">
+  </popup>
+  <test catch:onTextChange="onChange" id="myComponent"></test>
+  <button catch:tap="change">点击改变文字内容</button>
+</view>

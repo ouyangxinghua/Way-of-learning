@@ -1,0 +1,27 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: #111;
+}
+ul li {
+  list-style: none;
+}
+body {
+  padding-top: 30px;
+  font-size: 12px;
+  line-height: 1.62;
+}
+.annoy-nav {
+  width: 950px;
+  margin: 0 auto 25px;
+}
+.annoy-nav .anony-nav-links {
+  width: 464px;
+  height: 21px;
+  background-image: url("./images/annoy_nav_logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: right;
+  margin-top: 6px;
+}

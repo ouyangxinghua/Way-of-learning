@@ -1,0 +1,341 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: #f5fafe;
+    /* box-sizing: border-box; */
+    /* overflow: hidden; */
+}
+.page-top{
+    width: 100%;
+    height: 58px;
+    background-color: #48a6fd;
+    position: relative;
+    color:#ffffff;
+}
+.page-top__circle{
+    width: 80px;
+    height: 26px;
+    border-radius: 13px;
+    background:rgba(0,0,0,0.3);
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+    /* opacity: 0.3; */
+}
+.page-top__lefts{
+    width: 29.5px;
+    height: 16px;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    border-right: 1px solid #a1a1a1;
+}
+.page-top__rights{
+    width: 29.5px;
+    height: 16px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.page-top__left{
+    float: left;
+}
+.fir{
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: white;
+    margin: 5.5px 4px 3px 0;
+}
+.sec{
+    width: 9px;
+    height: 9px;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 4px;
+}
+.thr{
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: white;
+    margin: 5.5px 0 3px 4px;
+}
+.page-top__right{
+    float: left;
+}
+#autoplay:hover{
+    background-color: red;
+}
+.big{
+    width: 14px;
+    height: 14px;
+    border: 1.2px solid white;
+    border-radius:15px;
+    position: absolute;
+    right: 3px; 
+    top: 0;
+}
+.small{
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 7px;
+    position: absolute;
+    right: 8.3px;
+    top: 5.3px;
+}
+.page-top__hd{
+    font-size: 23px;
+    position: absolute;
+    left: 27px;
+    bottom: 10px;
+}
+.page-top__bd{
+    position: absolute;
+    left: 160px;
+    bottom: 13px;
+}
+/* 主界面 */
+.userInfo{
+    width: 100%;
+    background-color: #48a6fd;
+    box-sizing: border-box;
+    padding: 20px 15px 36px 15px;
+}
+.userInfo .main{
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.userInfo .main .picture{
+    width: 54px;
+    height: 54px;
+    border-radius: 50px;
+    background: url(./images/ouyang.jpg)no-repeat;
+    background-size: 100% 100%;
+}
+/* .userInfo .main .content .bottom{
+    display: flex;
+    justify-content: space-between;
+} */
+.userInfo .main .content{
+    flex: 1;
+    padding-left:8px ;
+    padding-right: 10px;
+}
+.userInfo .main .content .first{
+    width: 90px;
+    height: 21px;
+    border-radius: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.userInfo .main .content .first .image{
+    width: 20px;
+    height: 15px;
+    background: url(./images/crown1.png)no-repeat;
+    background-size: 100% 100%;
+}
+.userInfo .main .content .first .text{
+    display: inline-block;
+    font-size: 12px;
+    color: #999999;
+}
+.userInfo .main .content .bottom{
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.userInfo .main .content .bottom .second{
+    color: gold;
+}
+.money{
+    width: 345px;
+    height: 85px;
+    background-color: white;
+    border-radius: 8px;
+    position: absolute;
+    top: 145px;
+    left: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.money .div{
+    width: 115px;
+    padding-top: 12px;
+    text-align: center;
+    line-height: 2;
+}
+.money .text{
+    color: #494949;
+}
+.money .first{
+    color: #48a6fd;
+}
+.money .second{
+    color: #f20000;
+}
+.money .three{
+    color:#ffa200;
+}
+/* main */
+.middle{
+    width: 345px;
+    height: 170px;
+    background-color: white;
+    margin: 78px auto 11px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.middle .div{
+    width: 115px;
+    height: 85px;
+    font-size: 12px;
+    text-align: center;
+    color: #b3b3b3;
+}
+.middle .icon{
+    margin: 20px auto 10px;
+}
+.middle .leida{
+    width: 28px;
+    height: 28px;
+    background: url(./images/leida.png)no-repeat;
+    background-size: 100% 100%;
+}
+.middle .tutorial{
+    width: 28px;
+    height: 28px;
+    background: url(./images/tutorial.png)no-repeat;
+    background-size: 100% 100%;
+}
+.middle .customer{
+    width: 28px;
+    height: 28px;
+    background: url(./images/customer.png)no-repeat;
+    background-size: 100% 100%;
+}
+.middle .find-group{
+    width: 28px;
+    height: 28px;
+    background: url(./images/find-group.png)no-repeat;
+    background-size: 100% 100%;
+}
+.middle .editer{
+    width: 28px;
+    height: 28px;
+    background: url(./images/edit.png)no-repeat;
+    background-size: 100% 100%;
+}
+.middle .suggest{
+    width: 28px;
+    height: 28px;
+    background: url(./images/suggest.png)no-repeat;
+    background-size: 100% 100%;
+}
+.footer{
+    width: 345px;
+    height: 102px;
+    border-radius: 8px;
+    background-color: white;
+    margin: 0 auto 109px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 17px 14px; */
+}
+.footer .picture{
+    margin-left: 14px;
+    width: 72px;
+    height: 70px;
+    background: url(./images/superMe.png)no-repeat;
+    background-size: 100% 100%;
+    margin-right: 10px;
+}
+.footer .content{
+    /* flex-shrink: 10; */
+    flex:1;
+}
+.footer .content .title{
+    font-size: 15px;
+    font-weight: bold;
+}
+.footer .content .introduce{
+    font-size: 13px;
+    color: #747474;
+}
+.footer .button{
+    width: 70px;
+    height: 24px;
+    font-size: 13px;
+    line-height: 24px;
+    border-radius: 50px;
+    margin-right: 14px;
+    background-color:  #3f97ff;
+    text-align: center;
+    color: white;
+}
+.tabbar{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.tabbar .text{
+    font-size: 13px;
+    color: #b3b3b3;
+}
+.tabbar .icon{
+    width: 26px;
+    height:21px;
+    /* background-position: 0 0; */
+}
+.tabbar .one{
+    background: url(./images/1.png) no-repeat;
+    background-size: 100% 100%;
+}
+.tabbar .two{
+    background: url(./images/xiaoxi.png)no-repeat;
+    opacity: 0.8;
+    background-size: 100% 100%;
+    position: relative;
+}
+.tabbar .three{
+    background: url(./images/1.png)no-repeat;
+    background-size: 100% 100%;
+}
+.tabbar .flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.tabbar .two::after{
+    content: "1";
+    /* text-align: center; */
+    line-height: 11px;
+    color: #fff;
+    font-size: 1px;
+    width: 11px;
+    height: 11px;
+    border-radius: 10px;
+    background-color: #f20000;
+    position: absolute;
+    top: 2px;
+    left: 22px;
+}

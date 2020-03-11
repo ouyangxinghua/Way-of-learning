@@ -1,0 +1,34 @@
+<html style="font-size: 110.4px;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <style type="text/css">
+        html {
+            font-size: 100px;
+        }
+        .p1 {
+            font-size: .4rem;
+        }
+        .p2 {
+            font-size: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p class="p1">设计稿给的是20px</p>
+        <p class="p2">20px在不同屏幕分辨率的大小</p>
+    </div>
+    <script type="text/javascript">
+        window.onresize = function(){
+            // console.log('ouyang') 只要屏幕大小变了，window.onresize就会一直执行，起到监听的作用。
+            // 获取当前屏幕宽度
+        var currentWidth = document.body.clientWidth;
+            // 计算公式(假设设计图是按375，根源是设置为100情况)；
+            var currentHtml =  100*currentWidth/375;
+            document.getElementsByTagName('html')[0].style.fontSize = currentHtml + 'px'; 
+        }    
+    </script>
+
+
+</body></html>

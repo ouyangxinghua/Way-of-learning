@@ -1,0 +1,85 @@
+@import '../../style/themes/default.scss';
+@import '../../style/themes/mixin.scss';
+$alert-cls: #{$prefix}-alert;
+$alert-max-width: 600px;
+$alert-min-width: 150px;
+.#{$alert-cls} {
+    padding: $padding-xs;
+    display: block;
+    overflow: hidden;
+    border: 1px solid $border-color;
+    max-width:$alert-max-width;
+    min-width: $alert-min-width;
+    border-radius: $border-radius;
+    color: $text-color;
+    @include margin-mid($margin-xs, $margin-xs);
+	
+    &-icon,
+    &-txt {
+        @include pull-l();
+        line-height: $line-height-base;
+    }
+
+    &-icon {
+    	max-width: 20%;
+		min-width: 10%;
+        margin-right: $margin-sm;
+        text-align: center;
+        i{
+        	font-size: $font-size-lg;
+        }
+    }
+
+    &-txt {
+        max-width: 80%;
+		min-width: 70%;
+        p {
+            display: block;
+            width: 100%;
+            word-wrap:break-word;
+        }
+
+        .#{$alert-cls}-msg {
+            font-size: $font-size;
+            line-height: 2;
+        }
+
+        .#{$alert-cls}-description {
+            font-size: $font-size-sm;
+        }
+    }
+    &-close{
+        float: right;
+    	cursor: pointer;
+    	color: $error-color;
+    }
+    &-info{
+		border-color: transparentize( $info-color, .5);
+		background-color: transparentize( $info-color, .9);
+		.#{$alert-cls}-icon{
+			color:  transparentize( $info-color, .1);
+		}
+
+    }
+    &-success{
+		border-color:transparentize( $success-color, .5);
+		background-color: transparentize( $success-color, .9);
+		.#{$alert-cls}-icon{
+			color:  transparentize( $success-color, .1);
+		}
+    }
+    &-warning{
+		border-color: transparentize( $warning-color, .5);
+		background-color: transparentize( $warning-color, .9);
+		.#{$alert-cls}-icon{
+			color:  transparentize( $warning-color, .1);
+		}
+    }
+    &-error{
+		border-color: transparentize( $error-color, .5);
+		background-color: transparentize( $error-color, .9);
+		.#{$alert-cls}-icon{
+			color:  transparentize( $error-color, .1);
+		}
+    }
+}

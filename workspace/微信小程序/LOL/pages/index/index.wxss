@@ -1,0 +1,38 @@
+/**index.wxss**/
+page{
+  background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555650303419&di=4afa9b06e76aa14df113c4f2e7d5edb1&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201702%2F10%2F20170210203426_kQVej.jpeg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 148rpx;
+  height: 148rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  text-align: center;
+  margin-top: 100px;
+  color: white;
+}
+
+.freeLegend{
+  margin-top: 30px;
+  color: rgb(255, 136, 0);
+}
+.latestBattle{
+  margin-top: 30px;
+  color: rgb(0, 162, 255);
+}

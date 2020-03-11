@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 1 通过浮动*/
+        /* .left {
+            width: 300px;
+            height: 100px;
+            background: red;
+            float: left;
+        }
+
+        .right {
+            height: 100px;
+            background: blue;
+            overflow: hidden;
+        } */
+        /* 2 通过定位*/
+        .left {
+            width: 300px;
+            height: 500px;
+            background: red;
+            position: absolute; 
+        }
+        .right {
+            height: 500px;
+            margin-left: 300px;
+            background: blue;
+        }
+        /* 3  通过calc实现*/
+        /* .left{
+            width: 300px;
+            height: 500px;
+            background: red;
+            float: left;
+        }
+        .right{
+            height: 500px;
+            float: right;
+            width: calc(100% - 300px);
+            background: blue;
+        }  */
+        /* 4  通过flex布局实现*/
+        /* body {
+            display: flex;
+        }
+        .left {
+            height: 500px;
+            flex: 0 0 300px; //或者 min-width: 300px;
+            background: red;
+        }
+        .right {
+            height: 500px;
+            flex: 1;
+            background: blue;
+        } */
+        /* 5  网格布局 https://www.jianshu.com/p/e2a0aa64931b*/
+        /* body {
+            display: grid;
+            grid-template-columns: 200px auto;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="left">111</div>
+    <div class="right">2224545
+    </div>
+</body>
+
+</html>

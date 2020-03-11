@@ -1,0 +1,9 @@
+{
+  "name": "ouyang",
+  "version": "1.0.1",
+  "dependencies": {
+    "express": "^4.17.1",
+    "js-sha1": "^0.6.0",
+    "request": "^2.88.0"
+  }
+}

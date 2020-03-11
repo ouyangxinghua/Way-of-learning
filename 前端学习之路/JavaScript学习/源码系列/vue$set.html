@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .ouyang {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            text-align: center;
+            line-height: 100px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div v-for="(item, index) in ajaxData.taskNewsVos" :key="index" v-if="control[item.id-1].show" class="ouyang"
+            @click="control[item.id-1].show=!control[item.id-1].show">{{item.name}}</div> -->
+        <div v-for="(item, index) in ajaxData.taskNewsVos" :key="index" v-if="item.show" class="ouyang"
+            @click="item.show=!item.show">{{item.name}}</div>
+
+        <p>{{name}}-{{age}}</p>
+        <ul>
+            <li v-for="(item, index) in hobby" :key="index">{{item}}</li>
+        </ul>
+        <button type="button" @click="innerAlter">改变值</button>
+
+
+        <div v-for="(item, index) in control" :key="index" @click="ouyang(index)">jfkdsjfsdkl{{item.name}}</div>
+    </div>
+    <script>
+        // 在Vue.js里面只有data中已经存在的属性才会被Observe为响应式数据, 如果你是新增的属性是不会成为响应式数据, 因此Vue提供了一个api(vm.$set)来解决这个问题。
+        const app = new Vue({
+            el: "#app",
+            data: {
+                arr: {
+                    taskNewsVos: [
+                        {
+                            name: '欧阳兴华'
+                        },
+                        {
+                            name: 'hdasjkfd'
+                        },
+                        {
+                            name: '使劲按劳动'
+                        },
+                        {
+                            name: '说的那句看'
+                        },
+                    ]
+                },
+                ajaxData: {
+                    taskNewsVos: []
+                },
+                control: [
+                    {
+                        name: 'dsfj'
+                    },
+                    {
+                        name: 'sadhjsadh'
+                    },
+                    {
+                        name: 'sadj'
+                    }
+                ],
+                name: "小明",
+                age: 12,
+                hobby: ["baseball", "basketball", "football"]
+            },
+            created() {
+                this.ajaxData = this.arr;
+                for (let i = 0; i < this.arr.taskNewsVos.length; i++) {
+                    // 以下代码并不能让show和id动态更新
+                    // this.ajaxData.taskNewsVos[i].id = i + 1;
+                    // this.ajaxData.taskNewsVos[i].show = true;
+                    // 解决方案如下，利用vue原型方法$set来实现监听，把这些属性全部转为 getter/setter,在属性被访问和修改时通知变化。
+                    this.$set(this.ajaxData.taskNewsVos, i, { id: i + 1, show: true, ...this.ajaxData.taskNewsVos[i] });
+                    // this.control.push({
+                    //     show: true
+                    // })
+                }
+            },
+            methods: {
+                ouyang(index) {
+                    delete this.control[index].name //this.$forceUpdate()删除属性也不能监听到
+                    this.$forceUpdate()  //强制刷新，解决页面不会重新渲染的问题
+                },
+                innerAlter() {
+                    // this.name = "小红";
+                    this.hobby[0] = "reading";
+                    // this.$forceUpdate() //强制渲染方法可触发重新渲染
+                    // this.hobby.push('ajsdljf')push()pop()shift()unshift()splice()sort()reverse()数组的这些操作可直接触发重新渲染
+                    // Vue.set(this.hobby, 0, "reading") //改变数组
+                    // Vue.set(this.hobby, this.hobby.length, "reading") //改变数组长度都可以
+                    // this.hobby.splice(1,1); //有效
+                    // this.hobby[3] = "reading"; //无效
+                    console.log(this.name);
+                    console.log(this.hobby);
+                },
+                aa(index) {
+                    console.log('1111', index)
+                    // this.name = `${index}`;
+                    // this.hobby[0] = "reading";
+                    this.ajaxData.taskNewsVos[index].show = !this.ajaxData.taskNewsVos[index].show;
+                    // console.log(this.name);
+                    // console.log(this.hobby);
+                }
+                // 至于为什么只修改this.hobby[0] = "reading"不会发生变化，但同时执行this.name = "小红"就会更新habby数组在页面的渲染这个问题。下面来解答
+                //1. 当修改了data中一个数据的值，vue把模板全部重新渲染了，而不是被修改数据对应模板的那一块。
+                // 虽然数组不能监听到，但是因为修改name值导致重新执行diff算法导致所有数据改变了的地方重新渲染，这样就带来一个问题--性能问题，那么这个性能问题怎么解决呢
+                // vue中的computed就是用来解决这个问题的。computed相当于显式地告诉Vue，只要依赖项没变，函数返回值就不会变，就不需要刷新。这样的话，只修改data中一个数据的值，其他部分不会刷新。
+                // 2. 每个vue实例都有一个根元素id的属性el，Vue对象通过它来找到要渲染的部分。之后使用createDocumentFragment()方法创建一个documentFragment，
+                // 遍历根元素的所有子元素，依次劫持并插入文档片段，将根元素掏空。然后执行Vue的编译：遍历documentFragment中的节点，对其中的v-for,v-text等属性进行相应的处理。
+                // 最后，把编译完成后的documentFragment还给根元素。
+                // 这样也就是说其实它实际上是对  整体  注意是整体 都进行了处理，如果要改变的话可能需要重写一些方法......
+
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+<!-- vue.$set原理 -->
+https://www.cnblogs.com/heavenYJJ/p/9559439.html
+https://www.cnblogs.com/shy1766IT/p/11043253.html
+
+function set (target: Array<any> | Object, key: any, val: any): any {
+    if (process.env.NODE_ENV !== 'production' &&
+      (isUndef(target) || isPrimitive(target))
+    ) {
+      warn(`Cannot set reactive property on undefined, null, or primitive value: ${(target: any)}`)
+    }
+    if (Array.isArray(target) && isValidArrayIndex(key)) {
+      target.length = Math.max(target.length, key)
+      target.splice(key, 1, val)
+      return val
+    }
+    if (key in target && !(key in Object.prototype)) {
+      target[key] = val
+      return val
+    }
+    const ob = (target: any).__ob__
+    if (target._isVue || (ob && ob.vmCount)) {
+      process.env.NODE_ENV !== 'production' && warn(
+        'Avoid adding reactive properties to a Vue instance or its root $data ' +
+        'at runtime - declare it upfront in the data option.'
+      )
+      return val
+    }
+    if (!ob) {
+      target[key] = val
+      return val
+    }
+    defineReactive(ob.value, key, val)
+    ob.dep.notify()
+    return val
+  }

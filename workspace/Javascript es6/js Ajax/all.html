@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Ajax 源码</title>
+</head>
+<body>
+    <script>
+        var xhr = null
+        if(window.XMLHttpRequest){
+            xhr = new XMLHttpRequest()//存在
+        }else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP")//一般指IE浏览器，没有以上方法
+        }
+        xhr.open('get','./mock.json',true)//true异步 false同步
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+        xhr.send()
+        //console.log(xhr.readyState,xhr.status)//状态值，状态码
+        var p = new Promise((resolve,reject) => {
+            xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                // 成功
+                console.log(xhr.responseText)
+                resolve('xhr.responseText')
+            }
+        }
+        })
+        function xq(){
+            return new Promise((resolve,reject) => {
+                setTimeout(()=>{
+                console.log("猛哥要相亲了")
+                resolve('相亲很顺利')
+            },100)
+            })
+        }
+        function marry(){
+            return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                console.log('猛哥结婚了！')
+                resolve('success')
+            },500)
+            })
+        }
+        function child(){
+            setTimeout(() => {
+                console.log('猛哥要生小孩了！')
+            },1500)
+        }
+        // p
+        //     .then(xq)
+        //     .then(marry)
+        //     .then(child)
+        //     .catch(()=>{
+        //         console.log('猛哥出家了！')//catch()用来捕捉错误，前面只要有错误，就直接到catch()这一步来了
+        //     })
+        Promise.all([p,xq(),marry()]).then(child)
+    </script>
+</body>
+</html>

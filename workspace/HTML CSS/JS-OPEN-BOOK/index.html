@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: 0;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            font: 100%/1.25 Helvetica, Arial;
+            color: #fff;
+            perspective: 1000px;
+            background-color: #444;
+            background-image: -webkit-gradient(linear, left top,
+                left bottom, from(#444), to(#999));
+            background-image: -webkit-linear-gradient(top, #444, #999);
+            background-image: linear-gradient(to bottom, #444, #999);
+        }
+
+        .book {
+            width: 300px;
+            height: 300px;
+            margin-top: -150px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: rotateX(60deg);
+            user-select: none;
+        }
+
+        .page {
+            width: 300px;
+            height: 300px;
+            padding: 1em;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-indent: 2em;
+        }
+
+        .front {
+            background-color: #d93e2b;
+        }
+
+        .back {
+            background-color: #fff;
+        }
+
+        .front-cover {
+            cursor: move;
+            transform-origin: 0 50%;
+            transform: rotateY(0deg);
+        }
+
+        .front-cover .back {
+            background: url(./4.jpg);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            transform: translateZ(3px);
+        }
+
+        .back-cover .back {
+            transform: translateZ(-3px);
+        }
+
+        .p3d {
+            transform-style: preserve-3d;
+        }
+
+        .flip {
+            transform: rotateY(180deg);
+        }
+        .page.front.flip.p3d{
+            font-size: 14.5px;
+        }
+        .dino,
+        .shadow {
+            width: 196px;
+            height: 132px;
+            position: absolute;
+            left: 60px;
+            top: 60px;
+            transform-origin: 0 100%;
+        }
+
+        .dino {
+            background: url(./1.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        .shadow {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="book p3d">
+        <div class="back-cover p3d">
+            <div class="page back flip"></div>
+            <div class="page front p3d">
+                <div class="shadow"></div>
+                <div class="dino"></div>
+            </div>
+        </div>
+        <div class="front-cover p3d">
+            <div class="page front flip p3d">
+                <p>拉塞尔·威斯布鲁克（Russell Westbrook），1988年11月12日出生于美国加利福尼亚州长滩（Long Beach, CA），美国职业篮球运动员，司职控球后卫，效力于NBA俄克拉荷马城雷霆队。 [1] 
+                    拉塞尔·威斯布鲁克于2008年通过选秀进入NBA，新秀赛季入选最佳新秀阵容第一阵容，2016-17赛季荣膺常规赛MVP；8次入选全明星阵容，2015、2016连续两年当选全明星赛MVP；2次入选最佳阵容第一阵容，4次入选最佳阵容第二阵容。 [2] 
+                    拉塞尔·威斯布鲁克于2010年随美国队获得土耳其篮球世锦赛冠军，2012年随美国男篮获得伦敦奥运会冠军。2017-18赛季荣获最佳风尚奖。 [3] </p>
+            </div>
+            <div class="page back"></div>
+        </div>
+    </div>
+    <script>
+        (function (window, document) {
+            var prefixes = ['Webkit', 'Moz', 'ms', 'o', ''],
+                book = document.querySelectorAll('.book')[0],
+                page = document.querySelectorAll('.front-cover')[0],
+                dino = document.querySelectorAll('.dino')[0],
+                shadow = document.querySelectorAll('.shadow')[0],
+                hold = false,
+                centerPoint = window.innerWidth / 2,
+                pageSize = 300,
+                clamp = function (val, min, max) {
+                    return Math.max(min, Math.min(val, max));
+                };
+            // 按下⿏标时候的执⾏事件
+            page.onmousedown = function () {
+                hold = true;
+            };
+            // 放开⿏标的时候执⾏的事件
+            window.onmouseup = function () {
+                if (hold) {
+                    hold = false;
+                }
+            };
+            // 在窗⼝被调整⼤⼩的时候执⾏的事件
+            window.onresize = function () {
+                centerPoint = window.innerWidth / 2;
+            };
+            // ⿏标移动时候执⾏的事件
+            window.onmousemove = function (evt) {
+                if (!hold) {
+                    return
+                }
+                var angle = clamp((centerPoint - evt.pageX +
+                    pageSize) / pageSize * -90, -180, 0), i, j;
+                for (i = 0, j = prefixes.length; i < j; i++) {
+                    book.style[prefixes[i] + 'Transform'] = 'rotateX(' + (60 + angle / 8) + 'deg)';
+                    page.style[prefixes[i] + 'Transform'] = 'rotateY(' + angle + 'deg)';
+                    dino.style[prefixes[i] + 'Transform'] = 'rotateX(' + (angle / 2) + 'deg)';
+                    shadow.style[prefixes[i] + 'Transform'] = 'translateZ(1px) skewX(' + (angle / 8) + 'deg)';
+                }
+            }
+        })(window, document);
+    </script>
+</body>
+
+</html>

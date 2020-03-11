@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>防抖节流</title>
+</head>
+
+<body>
+    <div>ouyangxinghua</div>
+</body>
+<script>
+    // 防抖函数  当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。
+    // function debounce(fn, wait) {
+    //     var timeout = null;
+    //     // 借助闭包保存定时器，并防止污染全局变量
+    //     return function () {
+    //         console.log('每一次')
+    //         if (timeout !== null) clearTimeout(timeout);
+    //         timeout = setTimeout(fn, wait);
+    //     }
+    // }
+    // // 处理函数
+    // function handle() {
+    //     console.log(Math.random());
+    // }
+    // // 滚动事件
+    // window.onresize = debounce(handle, 1000);
+    // 节流函数  当持续触发事件时，保证一定时间段内只调用一次事件处理函数。
+    var throttle = function (func, delay) {
+        // console.log('每一次')
+        var prev = Date.now();
+        return function () {
+            // console.log('333333')
+            var now = Date.now();
+            if (now - prev >= delay) {
+                func.apply(this, arguments);
+                prev = Date.now();
+            }
+        }
+    }
+    function handle() {
+        console.log(Math.random());
+    }
+    window.onresize = throttle(handle, 2000);
+</script>
+
+</html>

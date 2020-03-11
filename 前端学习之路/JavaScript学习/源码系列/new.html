@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    function _new() {
+        // console.log(arguments);
+        let target = {}
+        let [constructor, ...args] = [...arguments]
+        // console.log(constructor, args);
+        target.__proto__ = constructor.prototype//执行原型连接
+        // console.log(constructor, target.__proto__)
+        let result = constructor.apply(target, args) //执行构造函数，将函数的属性或者方法添加到创建的空对象上
+        // console.log(result, target) //undefined People {name: "Rose", age: 18, func: ƒ}
+        return typeof result === "object" ? result : target;//如果返回值是一个对象就返回该对象，否则返回构造函数的一个实例对象
+    }
+    function People(name, age) {
+        this.name = name;
+        this.age = age;
+        // console.log('dhasj')
+        this.func = function(){
+            console.log(this.name + this.age)
+        }
+    }
+    //通过new创建构造实例
+    // let people1 = new People('Jack', 20);
+    // console.log(people1.name) //Jack
+    // console.log(people1.age) //20
+
+    // //通过create方法创造实例
+    let people2 = _new(People, 'Rose', 18);//调用自定义create实现new
+    console.log(people2.name) //Rose
+    console.log(people2.age) //18
+    people2.func()
+    // People('dsa', 12)
+</script>
+
+</html>
