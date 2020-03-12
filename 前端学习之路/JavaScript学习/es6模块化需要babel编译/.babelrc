@@ -1,5 +1,5 @@
 {
-    "presets": [
-        "es2015"
-    ]
+    "presets": ["stage-3", "es2015"],
+    // "plugins": ["transform-object-rest-spread"]
+    // "plugins": ["@babel/plugin-transform-async-to-generator"]
 }

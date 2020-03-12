@@ -1,3 +1,5 @@
+'use strict';
+
 // import { a } from './index'
 // a(2)
 
@@ -18,9 +20,9 @@
 
 // let rst = main();
 
-let b = () => {
-    console.log('ouyang')
-}
-b()
+var b = function b() {
+    console.log('ouyang');
+};
+b();
 
 // babel-node app.js  要用这个命令执行，不能直接用node

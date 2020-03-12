@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js"></script>
+</head>
+
+<body>
+    ouyangxinghua
+</body>
+<script type="text/babel">
+    // import { a } from './index'
+    // a(2)
+    function sleep(time) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(Math.random() * 10 >> 0);
+            }, time * 1000);
+        });
+    };
+
+    async function main() {
+        console.log('Random is: ');
+        let d = await sleep(2);
+        console.log(d);
+        return d;
+    };
+
+    let rst = main();
+
+    let b = () => {
+        console.log('ouyang')
+    };
+    b()
+</script>
+
+</html>
