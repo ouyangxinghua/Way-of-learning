@@ -1,22 +1,22 @@
 // import { a } from './index'
 // a(2)
 
-// function sleep(time) {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             resolve(Math.random() * 10 >> 0);
-//         }, time * 1000);
-//     });
-// }
+function sleep(time) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(Math.random() * 10 >> 0);
+        }, time * 1000);
+    });
+}
 
-// async function main() {
-//     console.log('Random is: ');
-//     let d = await sleep(2);
-//     console.log(d);
-//     return d;
-// }
+async function main() {
+    console.log('Random is: ');
+    let d = await sleep(2);
+    console.log(d);
+    return d;
+}
 
-// let rst = main();
+let rst = main();
 
 let b = () => {
     console.log('ouyang')

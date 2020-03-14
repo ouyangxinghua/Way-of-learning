@@ -8,7 +8,7 @@ git add . -> git commit -m "备注信息" -> git push
 git status
 
 3. 查看提交日志
-git log xx  查看xx文件的commit记录
+git log xx  查看xx文件的commit记录（同时提交时间也可以看到）
 git log --graph   查看当前分支commit生成的树状图
 git reflog 可以查看所有分支的所有操作记录（包括已经被删除的 commit 记录和 reset 的操作）
 
@@ -17,8 +17,9 @@ git diff HEAD HEAD^1 .........→ 查看xx文件不同版本之间的差异 ^代
 git diff HEAD -- <filename> 查看某文件的具体修改内容
 
 5. git reset 回滚相关操作
-git reset --hard HEAD 回滚到指定版本，同时清空工作目录的所有改动
+git reset --hard HEAD 回滚到指定版本，同时清空工作目录的所有改动  git reset --hard  版本号
 git reset --soft HEAD 回滚到指定版本，同时保留工作目录和暂存区的内容，并把重置的位置所导致的新的文件差异放进暂存区
+(也就是说上次提交时的代码改动还在，但是--hard是直接回到上次提交修改代码前的状态)
 git reset --mixed HEAD 回滚到指定版本，同时保留工作目录的内容，并清空暂存区
 
 6. 关联远程仓库

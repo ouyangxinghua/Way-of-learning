@@ -159,3 +159,4 @@ async function logInOrder(urls) {
 // 上面代码中，虽然map方法的参数是async函数，但它是并发执行的，因为只有async函数内部是继发执行，外部不受影响。后面的for..of循环内部使用了await，因此实现了按顺序输出。
 
 // https://www.jianshu.com/p/98bfa80c6ae7   用async await相对于promise的优点
+// https://www.jianshu.com/p/e0778b004596   理解 ES6 Generator 函数
