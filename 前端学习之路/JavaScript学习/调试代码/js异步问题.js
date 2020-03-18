@@ -119,21 +119,21 @@ function ajax1() {
 //     const value2 = await promise2(value1)
 //     return promise3(value1, value2)
 // }
-function a() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log('1')
-            resolve()
-        }, 2000)
-    })
-}
-async function b() {
-    for (let i = 0; i < 5; i++) {
-        await a()
-    }
-    console.log('ouyang')
-}
-b()  // 1 1 1 1 1 ouyang
+// function a() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log('1')
+//             resolve()
+//         }, 2000)
+//     })
+// }
+// async function b() {
+//     for (let i = 0; i < 5; i++) {
+//         await a()
+//     }
+//     console.log('ouyang')
+// }
+// b()  // 1 1 1 1 1 ouyang
 
 
 // 用async 并发请求数据
@@ -159,4 +159,40 @@ async function logInOrder(urls) {
 // 上面代码中，虽然map方法的参数是async函数，但它是并发执行的，因为只有async函数内部是继发执行，外部不受影响。后面的for..of循环内部使用了await，因此实现了按顺序输出。
 
 // https://www.jianshu.com/p/98bfa80c6ae7   用async await相对于promise的优点
-// https://www.jianshu.com/p/e0778b004596   理解 ES6 Generator 函数
+// https://www.jianshu.com/p/e0778b004596   理解 ES6 Generator 函数   yield的原理是靠驱动    Promises的原理是等待
+
+
+// promise的串行和并行
+// 并行执行
+function makePromise(value) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(value)
+            resolve();
+        }, 1000)
+    })
+}
+let promises = [1, 3, 4, 5, 6].map((item, index) => {
+    return makePromise.bind(null, item)  //bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。
+});
+console.log(promises)
+Promise.all(promises)
+    .then((res) => {
+        console.log('done', res)
+    })
+    .catch(() => {
+        console.log('error')
+    })
+串行执行
+function print(value) {
+    return value
+}
+async function b() {
+    for (let i = 0; i < 5; i++) {
+        await promises[i]()
+    }
+    console.log('ouyang')
+}
+b() // 1 3 4 5 6 ouyang
+
+

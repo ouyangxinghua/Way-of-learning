@@ -39,7 +39,14 @@
       delete thisArg.func
       return result
     }
+    Function.prototype.bind = function (context) {
+      var _this = this
+      var args = Array.prototype.slice.call(arguments, 1)
 
+      return function () {
+        return _this.apply(context, args)
+      }
+    }
 
     // 第二种方法
     // 函数原型上添加 myCall方法 来模拟call

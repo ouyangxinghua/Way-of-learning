@@ -7,3 +7,20 @@
 const p = new Proxy({}, function(){
     
 })
+
+function add(x,y){
+    return x + y;
+}
+
+var newFoo = add.bind(this, 3,5)
+console.log(newFoo())
+
+// 链式调用
+function jia(str){
+    // console.log('name:' + str)
+    setTimeout(() => {
+        console.log(str)
+    }, Math.random()* 1000)
+    return jia
+}
+jia('ouyang')('xinghua')('dkasl')  //此操作类似于连续promise连续.then 但是.then 里面是异步的，且并未用promise包装
