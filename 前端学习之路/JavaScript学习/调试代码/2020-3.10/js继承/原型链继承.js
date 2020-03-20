@@ -1,6 +1,8 @@
-// https://www.cnblogs.com/chaixiaozhi/p/8515087.html
-// https://www.jb51.net/article/81766.htm
+// https://www.cnblogs.com/chaixiaozhi/p/8515087.html    javascript 面向对象(实现继承的几种方式)以及他们各自的优缺点
 
+// 1. 原型链继承
+// 核心： 将父类的实例作为子类的原型
+// 缺点： 父类新增原型方法/原型属性，子类都能访问到，父类一变其它的都变了
 function Parent(name, height) {
     this.sex = 0;
     this.name = name;
@@ -19,13 +21,13 @@ Parent.prototype.fn2 = function(){
 function Child(age) {
     this.age = age;
 }
-// Child.prototype = new Parent('hahaha', 171);
-// Child.prototype.fn3 = function(){
-//     console.log('ouyang1')
-// }
-// Child.prototype.fn4 = function(){
-//     console.log('ouyang2')
-// }
+Child.prototype = new Parent('hahaha', 171); //原型链继承的关键
+Child.prototype.fn3 = function(){
+    console.log('ouyang1')
+}
+Child.prototype.fn4 = function(){
+    console.log('ouyang2')
+}
 let m = new Parent('hahha', 184)
 let n = new Parent('djas', 180)
 console.log(m.name, n.name)

@@ -42,3 +42,5 @@ const numbers = [1, 2, 3];
 numbers[10] = 11;
 console.log(numbers);
 
+console.log('dasdsa'.split('').toString())   // d,a,s,d,s,a  逗号分隔字符串
+
