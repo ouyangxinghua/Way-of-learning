@@ -1,9 +1,18 @@
 // 浅析为什么a="abc" 不等于 a=new String("abc")     https://www.jb51.net/article/126716.htm
-
+// JavaScript--函数的形参和函数内部声明的变量或函数重名时的问题   https://www.cnblogs.com/vlovecode/p/6030241.html
+function ab(x) {
+    console.log(x); //[Function: x]
+    function x() {
+        console.log("我是函数")
+    };
+    var x = 1;  //函数提升优先级高于变量提升，但是变量声明且重名不会覆盖，赋值了才会覆盖
+    console.log(x); // 1
+};
+ab()
 // a="abc"
 // typeof a //string
 // b=new String("abc")
-// typeof b // object
+// typeof b //object
 // a==b //true
 // a===b //false
 // 在js中，区分原始资料类型和包装类型。

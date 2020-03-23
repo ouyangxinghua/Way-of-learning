@@ -183,7 +183,7 @@ Promise.all(promises)
     .catch(() => {
         console.log('error')
     })
-串行执行
+// 串行执行
 function print(value) {
     return value
 }
@@ -195,4 +195,4 @@ async function b() {
 }
 b() // 1 3 4 5 6 ouyang
 
-
+// https://www.cnblogs.com/kainanhong/p/6671340.html   回调地狱——JavaScript异步编程指南
