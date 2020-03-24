@@ -64,7 +64,8 @@ class MyPromise {
       }
     }
     // 为了支持同步的Promise，这里采用异步调用
-    setTimeout(run, 0)
+    setTimeout(run, 0)  //宏任务是错的
+    // process.nextTick(run)  //then分发微任务
   }
   // 添加reject时执行的函数
   _reject (err) { 
@@ -199,16 +200,38 @@ class MyPromise {
   }
 }
 
-function aa(){
-  return new MyPromise((resolve, reject) => {
-    var bb = 'nba2'
-    console.log('nba3');
-    resolve(bb);
-    console.log('nba1')
-  })
-}
-aa().then((res) => {
-  console.log(res)
-}).then(() => {
-  console.log('nba4')
-})
+// function aa(){
+//   return new MyPromise((resolve, reject) => {
+//     var bb = 'nba2'
+//     console.log('nba3');
+//     resolve(bb);
+//     console.log('nba1')
+//   })
+// }
+// aa().then((res) => {
+//   console.log(res)
+// }).then(() => {
+//   console.log('nba4')
+// })
+// setTimeout(function(){
+//   console.log(1);
+// },0);
+// new MyPromise(function(a,b){
+//   console.log(2);
+//   for(var i=0;i<10;i++){
+//       i==9&&a();
+//   }
+//   console.log(3)
+// }).then(function(){
+//       console.log(4);
+// }).then(function(){
+//   console.log('ou')
+// });
+// console.log(5);
+
+// console.log(new Date, 1);
+
+
+// promise解决了什么问题  https://juejin.im/post/5b45bea65188251b1c3ce1ec
+// 1. 可读性问题
+// 2. 信任问题

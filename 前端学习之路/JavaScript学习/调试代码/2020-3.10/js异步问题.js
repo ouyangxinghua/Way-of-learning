@@ -93,7 +93,7 @@ function ajax1() {
 //     return p
 // }
 // // 等待两个ajax异步操作执行完了后执行的方法
-// // await关键字只能用在aync定义的函数内。async函数会隐式地返回一个promise，该promise的reosolve值就是函数return的值
+// // await关键字只能用在async定义的函数内。async函数会隐式地返回一个promise，该promise的reosolve值就是函数return的值
 // async function myFunction() {
 //     const x = await ajax1()
 //     console.log(x)
@@ -196,3 +196,5 @@ async function b() {
 b() // 1 3 4 5 6 ouyang
 
 // https://www.cnblogs.com/kainanhong/p/6671340.html   回调地狱——JavaScript异步编程指南
+
+// 那么promise的出现到底解决了什么问题呢

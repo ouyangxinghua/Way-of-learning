@@ -42,3 +42,10 @@
 // console.log(s1, aa); // Symbol(debug)
 
 // symbol 还有另一个重要的用途,它们可以用作对象中的键  防止属性名称冲突
+
+
+var a = {n: 1} 
+var b = a; 
+a.x = a = {n: 2}  //a.x的优先级高
+console.log(a) //{ n: 2 }
+console.log(b)  //{ n: 1, x: { n: 2 } }
