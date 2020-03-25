@@ -1,4 +1,6 @@
 https://juejin.im/post/5a2cdfe26fb9a0452936b07f   git常用操作总结
+https://blog.csdn.net/qq_32863631/article/details/77053290   程序员必须要学会Google搜索技巧
+只在stackOverflow 上找 后面加后缀site:https://stackoverflow.com/
 1. 正常提交
 git add . -> git commit -m "备注信息" -> git push 
 多人协作提交

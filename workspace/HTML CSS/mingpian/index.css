@@ -128,6 +128,7 @@ ul,li{
 .name{
     line-height: 1;
     position: relative;
+    vertical-align: middle;
 }
 #sex{
     width: 23px;
@@ -135,18 +136,12 @@ ul,li{
     background: url(./images/sex.png)no-repeat;
     background-size: 100% 100%;
     display: inline-block;
+    vertical-align: bottom;
+    margin-left: 3px;
 }
-/* .name::after{
-    content: "";
-    width: 29px;
-    height: 18px;
-    background: url(./images/sex.png)no-repeat;
-    background-size: 100% 100%;
-    position: absolute;
-    left: 38px;
-} */
 .labels{
     margin-top: 10px;
+    overflow: hidden;
 }
 .label{
     padding: 5px 10px;
@@ -273,11 +268,11 @@ ul,li{
     background-size: cover;
 }
 .shen{
-    background: url(./images/shen.jpg)no-repeat;
+    background: url(./images/xinghua.jpg)no-repeat;
     background-size: cover;
 }
 .luo{
-    background: url(./images/luo.jpg)no-repeat;
+    background: url(./images/mengyao.jpg)no-repeat;
     background-size: cover;
 }
 .text1{
@@ -289,7 +284,7 @@ ul,li{
 .text2{
     font-size: 20px;
     position: absolute;
-    top: 8.5px;
+    top: 7.5px;
     right: 6px;
 }
 .page-content{
@@ -380,8 +375,14 @@ ul,li{
 .page-buttons{
     width: 100%;
     height: 79px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 .page-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 168px;
     height: 49px;
     border-radius: 25px;
@@ -390,31 +391,16 @@ ul,li{
     letter-spacing:3px;
     position: relative;
     box-shadow: 0 0 10px #FB8800;
-    outline: none;
-    border:none;
 }
 .edit{
-    /* font-weight: bold; */
     background-color: #ffffff;
 }
 .share{
     color: #ffffff;
     background-color: #48a6fd;
 }
-.edit::before{
-    content: "";
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    background: url(./images/edit.png)no-repeat;
-    background-size: 100% 100%;
-    top: 15px;
-    left: 43px;
-}
-.page-button:active{
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-}
-.share:hover{
-    background-color: #3e8e41;
+.button-img{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
 }

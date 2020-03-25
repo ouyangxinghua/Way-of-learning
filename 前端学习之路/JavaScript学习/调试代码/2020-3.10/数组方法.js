@@ -61,3 +61,6 @@ function next(){
     }
 }
 next()
+
+
+// js 数组和类数组的区别   https://www.cnblogs.com/jiayeyuan/p/10886568.html
