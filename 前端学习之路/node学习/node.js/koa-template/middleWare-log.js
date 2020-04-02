@@ -12,7 +12,9 @@ app.use(async (ctx, next) =>{
     console.log(`spend ${diff}ms`)
 })
 // 这个中间件负责响应给用户看到的 response
-app.use(async (ctx) => {
+app.use(async (ctx, next) => {
+    console.log('ouyang')
     ctx.body = 'hello Koa';
+    next()
 })
 app.listen(3001);

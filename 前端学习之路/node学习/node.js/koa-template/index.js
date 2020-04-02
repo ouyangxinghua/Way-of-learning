@@ -26,5 +26,5 @@ app.listen(3000, () => {
   console.log('server is running 3000');
 })
 admin.listen(4000, () => {
-  // console.log('admin server is running 4000')
+  console.log('admin server is running 4000')
 })

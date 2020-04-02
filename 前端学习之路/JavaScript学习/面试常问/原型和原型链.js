@@ -3,25 +3,25 @@
 
 // JavaScript 常被描述为一种基于原型的语言 (prototype-based language)——每个对象拥有一个原型对象，对象以其原型为模板、从原型继承方法和属性。
 // 原型对象也可能拥有原型，并从中继承方法和属性，一层一层、以此类推。这种关系常被称为原型链 (prototype chain)，它解释了为何一个对象会拥有定义在其他对象中的属性和方法。
-function Parent(name, height) {
-    this.name = name;
-    this.height = height;
-}
-Parent.prototype.fn = function(){
-    console.log('ouyang')
-}
+// function Parent(name, height) {
+//     this.name = name;
+//     this.height = height;
+// }
+// Parent.prototype.fn = function(){
+//     console.log('ouyang')
+// }
 
-function Child(age) {
-    this.age = age;
-}
-Child.prototype = new Parent('ouyang',184)
-Child.prototype.fn1 = function(){  //一定要写在继承后面，否则会被覆盖
-    console.log('xinghua')
-}
-let ch = new Child(21)
-ch.fn()
-ch.fn1()
-console.log(ch.name)
+// function Child(age) {
+//     this.age = age;
+// }
+// Child.prototype = new Parent('ouyang',184)
+// Child.prototype.fn1 = function(){  //一定要写在继承后面，否则会被覆盖
+//     console.log('xinghua')
+// }
+// let ch = new Child(21)
+// ch.fn()
+// ch.fn1()
+// console.log(ch.name)
 
 // 原型
 // 每个函数都有prototype(原型)属性，这个属性是一个指针，指向一个对象，这个对象的用途是包含特定类型的所有实例共享的属性和方法，即这个原型对象是用来给实例共享属性和方法的。
@@ -66,7 +66,25 @@ function F() {}
 };
 
 // 初看这种方式并无问题，但是你会发现下面的代码失效了：
-var f = new F();
-alert(f.constructor === F); // output false  原因是构造函数 F 的原型被开发者重写了，而且用constructor 不能判断 null 和 undefined
+// var f = new F();
+// alert(f.constructor === F); // output false  原因是构造函数 F 的原型被开发者重写了，而且用constructor 不能判断 null 和 undefined
 
+// a instanceOf FOO   在a的整条原型链中是否有指向FOO.prototype的对象
+// https://blog.csdn.net/StoneG_G/article/details/82663058   JS instanceof 判断类型 问题
+// 语法 object instanceof constructor   object 某个实例对象(注意是对象)   constructor 某个构造函数
+// 手写instancof方法
+function instanceOf(left,right) {
+    if(typeof left != 'object') return false;
+    let proto = left.__proto__;
+    let prototype = right.prototype
+    while(true) {
+        if(proto === null) return false
+        if(proto === prototype) return true
+        proto = proto.__proto__;
+    }
+}
+var a = 'ouyang';
+var b = new String('xinghua')
+console.log(instanceOf(a, String), a instanceof String)
+console.log(instanceOf(b, String), b instanceof String)
 
