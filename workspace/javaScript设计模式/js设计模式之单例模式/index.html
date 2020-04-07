@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>单例模式</title>
 </head>
+
 <body>
+    <!-- https://zhuanlan.zhihu.com/p/34754447    从ES6重新认识JavaScript设计模式(一): 单例模式-->
+    <!-- https://www.aubreyling.com/?p=883   JavaScript单例模式以及应用场景-->
     <script>
-        function Model(html,show){
+        function Model(html, show) {
             this.html = html;
             this.show = show;
         }
-        Model.prototype.open = function(){
+        Model.prototype.open = function () {
             this.show = true;
         }
-        Model.prototype.close = function(){
+        Model.prototype.close = function () {
             this.show = false;
         }
         // 静态方法不需要new即可调用
         // 只生成一个实例
-        Model.getInstance = function(html,show){
-            if(this.instance){
+        Model.getInstance = function (html, show) {
+            if (this.instance) {
                 return this.instance;
-            }else{
-                this.instance = new Model(html,show)
+            } else {
+                this.instance = new Model(html, show)
                 return this.instance;
             }
         }
@@ -35,15 +39,23 @@
         // 解决实例过多的问题 
         // 弹窗也应该是唯一的。
         // 单例模式  只生成一个实例
-        const m1 = Model.getInstance(`<span>hello</span>`,false)
-        const m2 = Model.getInstance(`<span>world</span>`,false)
-        const m3 = Model.getInstance(`<span>me</span>`,true)
+        const m1 = Model.getInstance(`<span>hello</span>`, false)
+        const m2 = Model.getInstance(`<span>world</span>`, false)
+        const m3 = Model.getInstance(`<span>me</span>`, true)
         console.log(m1 === m2);
         console.log(m1 === m3);
         // 幂等  一个函数无论执行多少次  结果都一样
         // 简单
         // 破坏了 传统的生成实例的方法   传统通过new(),  破坏开发者的习惯
         // 需要调用 getInstance()
+
+        // 最简单的单例模式    由于let和const不允许重复声明的特性，确保了timeTool不能被重新覆盖。
+        let timeTool = {
+            name: '处理时间工具库',
+            getISODate: function () { },
+            getUTCDate: function () { }
+        }
     </script>
 </body>
+
 </html>

@@ -21,12 +21,20 @@ Express是一个自身功能极简，完全是路由和中间件构成一个web�
 
 
 <!-- 以下为express和koa的区别，原理区别等 -->
+https://www.jianshu.com/p/bc0e1f46f84a  koa2源码详细解析
 https://www.jianshu.com/p/6f7930687835     NodeJS框架Express与Koa
 https://segmentfault.com/a/1190000006145114     Koa2的Context对象
 https://www.zhihu.com/question/38879363         Express和koa各有啥优缺点?
 https://yq.aliyun.com/articles/3062             Node.js框架之express与koa对比分析
+https://blog.csdn.net/sinat_17775997/article/details/82898312     Koa2 中间件原理解析
+https://www.jianshu.com/p/2a11705b5de2    koa2中间件原理剖析
 
 koa1(this对象上下文) 用的Generator函数作为异步控制，而koa2(ctx对象上下文)用的async await
+
+https://www.jianshu.com/p/2a11705b5de2      koa2中间件原理剖析
+
+koa中间件可以简单的由递归操作实现，但递归操作是低效的、且存在栈溢出等问题，koa2采用的不是这种方式，而是用到了Promise、尾调用、闭包等技术，实现了洋葱模型的数据流入流出能力，是一种优化后的递归调用，
+
 
 
 

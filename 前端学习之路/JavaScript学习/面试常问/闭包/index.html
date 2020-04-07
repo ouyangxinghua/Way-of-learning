@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function a(){
+            var localVar = new Uint8Array(1000000000)
+            function dirtyFunc3() { console.log(localVar) }
+            function cleanFunc() { console.log('ouyang') }
+            return {
+                ouyang: dirtyFunc3,
+                xinghua: cleanFunc
+            }
+        }
+        // a()  直接运行不会内存泄漏
+        var jinmengyao = a()
+        // console.dir(jinmengyao.ouyang)
+        // console.dir(jinmengyao.xinghua)
+        // jinmengyao.ouyang()
+        // jinmengyao.xinghua()
+        jinmengyao = null; //如果不删除jinmengyao对a()的引用，就一直占用内存
+    </script>
+</body>
+
+</html>

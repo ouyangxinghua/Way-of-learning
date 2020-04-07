@@ -1,0 +1,1 @@
+// https://www.cnblogs.com/pssp/p/5321506.html    Nodejs中的this(全局中的this指向的是module.exports。)
