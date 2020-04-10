@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            a: '1',
+            b: '2'
+        }
+        function data(){
+            return {
+                count: obj
+            }
+        }
+        var data1 = data()
+        console.log(data1, obj)
+        obj.a = '3';
+        console.log(data1,obj)
+    </script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 // store 独立于组件之外， 
 // 应用App的中央数据管理中心
 // 1. 公司: CEO state {count: 0} 共享的状态 2. actions 日常动(工)作 修改状态
-// 3. 修改: dispatch 派发 action('name', payload) => action commit('mutationname') mutations => state
+// 3. 修改: this.$store.dispatch 用来派发 action('name', payload) => action this.$store.commit('mutationname') mutations => state   this.$store.commit用来执行mutations
 // 4. mutations 类似公司财务部  可以跟老板接触 state 审核对状态的修改是否合公司规定
 // 组件 读操作 this.$store.state.count
 // 写 actions(组件调用方法，) 
@@ -54,8 +54,9 @@ const actions = {
     })
   }
 }
-
+// https://www.jianshu.com/p/d37f5fd0594f   005-vuex是如何实现严格模式的？
 export default new Vuex.Store({
+  strict: true,  //加了严格模式之后直接用this.$state.的方式修改tstate的数据会报错
   state,
   mutations,
   actions,
