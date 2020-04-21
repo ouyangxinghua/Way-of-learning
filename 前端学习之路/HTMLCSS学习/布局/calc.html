@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>calc</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .grid-3 {
+        width: calc(100%/3 - 5px);
+        float: left;
+        margin-right: calc(5px*3 /2);
+        background: #eee;
+        color: #333;
+        height: auto;
+        text-align: center;
+        margin-bottom: calc(5px*3 /2);
+        font-size: 18px;
+        line-height: 100px;
+    }
+
+    .grid-3:nth-child(3n) {
+        margin-right: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="grid-3">1</div>
+        <div class="grid-3">2</div>
+        <div class="grid-3">3</div>
+        <div class="grid-3">4</div>
+        <div class="grid-3">5</div>
+        <div class="grid-3">6</div>
+        <div class="grid-3">7</div>
+        <div class="grid-3">8</div>
+        <div class="grid-3">9</div>
+    </div>
+</body>
+</html>

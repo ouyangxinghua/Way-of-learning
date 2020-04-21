@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <title>JSONP</title>
+</head>
+
+<body>
+    <div>
+        jsonp跨域拿到的数据
+        <p id="jsonp"></p>
+    </div>
+    <script>
+        // function ouyang() {
+        //     $.ajax({
+        //         url: 'http://localhost:4000/jsonp',
+        //         dataType: 'jsonp',
+        //         jsonpCallback: "handleCallback",
+        //         type: 'get',
+        //     })
+        // }
+        // function handleCallback(res) {
+        //     console.log('jsonp跨域拿到的数据', res)
+        // }
+        // ouyang() 
+    </script>
+    <script>
+        function jsonp(obj){
+            return new Promise((resolve, reject) => {
+                let {url, params, cb } = obj;
+                // 拼接param参数，方便等下放到url上去
+                // {a: '1'; name: '2'} => a=1&name=2
+                let arg = [];
+                for(let i in params){
+                    arg.push(`${i}=${params[i]}`)
+                }
+                let Url = `${url}?${arg.join('&')}&callback=${cb}`;
+                console.log(Url);
+                let script = document.createElement('script');
+                script.src = Url;
+                document.body.appendChild(script);
+                window[cb] = function(res){
+                    console.log('jsonp跨域拿到的数据', res)
+                    document.getElementById('jsonp').innerHTML = `姓名：${res.name} 年龄：${res.age}`
+                }
+            })
+        }
+        jsonp({url: 'http://localhost:4000/jsonp', params: {name: 'xinghua', laopo: 'jinmengyao'}, cb: 'ouyang'})
+    </script>
+    <!-- <script>
+        let script = document.createElement('script');
+        script.type = 'text/javascript';
+        // 传参一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数
+        script.src = `http://localhost:4000/jsonp?callback=ouyang`;
+        document.body.appendChild(script);
+        // 回调执行函数
+        function ouyang(res) {
+            console.log('jsonp跨域拿到的数据', res)
+            document.getElementById('jsonp').innerHTML = `姓名：${res.name} 年龄：${res.age}`
+        }
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>子页面</title>
+</head>
+
+<body>
+	<button id="close" onclick="xinghua()">关闭按钮</button>
+	<p id="canshu">父页面传过来的参数显示</p>
+	<script type="text/javascript">
+		function update(canshujuti) {
+			document.getElementById("canshu").innerHTML = canshujuti;
+		}
+		function closeParentWindow() {
+			window.parent.closeParentWindow();
+		}
+		//回调函数
+		function receiveMessageFromIndex(event) {
+			console.log('receiveMessageFromIndex', event)
+			document.getElementById("canshu").innerHTML = event.data;
+		}
+		function xinghua(){
+			parent.postMessage( {msg: '子页面传回给了靳萌瑶'}, '*');
+		}
+		//监听message事件
+		window.addEventListener("message", receiveMessageFromIndex, false);
+	</script>
+</body>
+
+</html>

@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>CORS</title>
 </head>
 <body>
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
   <script>
-    document.cookie = "name=helloCORS";
+    document.cookie = "name=CORS";
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/api/post',
+      url: 'http://localhost:4000/cors',
       dataType: 'json',
       contentType: 'application/json',
       headers: {
@@ -24,11 +24,13 @@
       },
       success: function(res) {
         console.log('得到数据', res);
+        console.log(document.cookie)
       },
       error: function(e) {
         console.log(e);
       }
     })
+    // https://www.jianshu.com/p/6b9a7892fdc7  有关cors跨域的一些知识点
   </script>
 </body>
 </html>

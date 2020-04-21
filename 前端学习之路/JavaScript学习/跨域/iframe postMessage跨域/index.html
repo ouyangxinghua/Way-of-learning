@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>父页面</title>
+</head>
+
+<body>
+	<div id="ss" style="width: 400px;height: 400px; background: darkmagenta;">
+		<button id="chuancan" onclick="ouyang()">欧阳兴华</button>
+		<p id="msg"></p>
+	</div>
+
+	<div id="main" style="position: fixed;left: 200px;top: 200px;background: red;">
+		<iframe id="childFrame"
+			src="http://127.0.0.1:5500/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/HTMLCSS%E5%AD%A6%E4%B9%A0/iframe/frame.html"
+			width="150" height="150"></iframe>
+	</div>
+
+	<script type="text/javascript">
+		//调用子页面方法
+		function chuandicanshu() {
+			console.log('点击了欧阳兴华')
+			document.getElementById("childFrame").contentWindow.update("欧阳兴华从html传值到iframe");
+		};
+		function ouyang() {
+			console.log('点击了ouyang方法')
+			document.getElementById("childFrame").contentWindow.postMessage('靳萌瑶从html传值到iframe', 'http://127.0.0.1:5500/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/HTMLCSS%E5%AD%A6%E4%B9%A0/iframe/frame.html');
+		};
+		window.addEventListener("message", function(e){
+			console.log('-----', e.data.msg),
+			document.getElementById("msg").innerHTML = e.data.msg;
+			var ele = document.getElementById("main");
+			ele.parentNode.removeChild(ele);
+		}, false);
+		// https://blog.csdn.net/willspace/article/details/49003963     iframe父子页面间通信总结
+	</script>
+</body>
+
+</html>

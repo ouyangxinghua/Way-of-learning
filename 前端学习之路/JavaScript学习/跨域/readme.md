@@ -1,4 +1,4 @@
-## 跨域
+## 跨域   https://juejin.im/post/5d1ecb96f265da1b6d404433   9种常见的前端跨域解决方案（详解）
 浏览器的安全策略
 协议 域名 端口 有一个不一致的时候就存在跨域
 https://www.abc.com/a  https://www.abc.com/b 协议 域名 端口相同 所有不跨域
