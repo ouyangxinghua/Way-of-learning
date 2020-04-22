@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
-    <title>http-proxy-middleware</title>
+    <title>Document</title>
 </head>
 
 <body>
+    <input type="file" id="inputfile">
     <script>
         function ouyang() {
             $.ajax({
-                url: 'http://localhost:4000/get',
+                url: 'http://localhost:5000/cors',
                 type: 'get',
                 success: function (res) {
                     console.log('ouyang', res)

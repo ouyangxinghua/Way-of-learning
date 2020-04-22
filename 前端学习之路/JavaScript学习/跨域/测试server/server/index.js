@@ -52,7 +52,7 @@ router.get('/get', async (ctx) => {
   // console.log(ctx)
   ctx.status = 200;
   ctx.response.body = data;
-  console.log(ctx)
+  // console.log(ctx)
 })
 // jsonp跨域测试接口
 router.get('/jsonp', async (ctx) => {
