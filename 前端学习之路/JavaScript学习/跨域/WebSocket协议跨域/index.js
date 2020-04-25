@@ -17,7 +17,7 @@ socket.listen(server).on('connection', function(client) {
     // 接收信息
     client.on('message', function(msg) {
         if(msg === 'ouyang'){
-            client.send('hello：' + msg);
+            client.send('success');
         }else {
             client.send('不知道你在写啥---' + msg);
         }

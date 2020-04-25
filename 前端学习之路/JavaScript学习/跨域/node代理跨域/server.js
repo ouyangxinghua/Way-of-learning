@@ -14,3 +14,5 @@ Object.keys(proxyConfig).map(key=>{
 app.listen(5000, ()=>{
     console.log(`server is running on port ${5000}`);
 })
+
+// 原生nodejs实现代理服务器    https://cloud.tencent.com/developer/article/1467377

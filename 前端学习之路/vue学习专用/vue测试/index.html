@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>snap</title>
+    <style>
+        body {
+            /* background: url(http://img4.imgtn.bdimg.com/it/u=2799393502,4173479968&fm=26&gp=0.jpg);
+            background-repeat: no-repeat;
+            background-size: cover; */
+            background-color: #fff;
+        }
+
+        .field {
+            color: yellow;
+            display: inline-block;
+            margin-top: 10%;
+        }
+
+        .toast {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40vw;
+            height: 10vh;
+            background-color: rgba(255, 0, 0, 0.7);
+            ;
+            border-radius: 3vw;
+            text-align: center;
+            line-height: 10vh;
+            color: #fff;
+        }
+
+        .button {
+            margin-top: 10%;
+            width: 40vw;
+            height: 15vh;
+            background-color: rgba(0, 0, 255, 0.8);
+            overflow: hidden;
+            line-height: 15vh;
+            text-align: center;
+            color: #fff;
+            border-radius: 10vw;
+        }
+
+        .button:active {
+            background-color: rgba(0, 0, 255, 0.4);
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .images {
+            width: 100vw;
+            height: 40vh;
+            background-image: url(../images/ku.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 50% 0;
+        }
+
+        .images1 {
+            margin-top: 10vh;
+            width: 100vw;
+            height: 40vh;
+            background-image: url(../images/success.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 50% 0;
+        }
+
+        .images2 {
+            margin-top: 10vh;
+            width: 100vw;
+            height: 40vh;
+            background-image: url(../images/success.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 45% 0;
+        }
+
+        .text {
+            text-align: center;
+            font-size: 2rem;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="add">
+            <Snap :id="argObj.parkID" :add="argObj.parkID"/>
+        </div>
+        <div v-if="!add">
+            <Leave :id="argObj.parkID" />
+        </div>
+    </div>
+    <div id="app1">
+        <Name></Name>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/mint-ui/2.2.13/toast/index.min.js"></script>
+    <script>
+        // MVVM 组件思维
+        Vue.component('Snap', {
+            name: 'Snap',
+            data() {
+                return {
+                    youName: '',
+                    license: '',
+                    phone: '',
+                    hidden: true,
+                    showToast: false,
+                    toastInfo: '请输入姓名',
+                    name1:''
+                }
+            },
+            props: ['id', 'add'],
+            watch: {
+                add(){
+                    this.name1 = this.add
+                }
+            },
+            methods: {
+                // 提示消息
+                showText(title) {
+                    this.showToast = true;
+                    this.toastInfo = title
+                    setTimeout(() => {
+                        this.showToast = false;
+                    }, 1500)
+                },
+                // 提交信息使用车位
+                submit: function () {
+                   console.dir(this)
+                   this.$data.youName = '靳萌瑶'
+                //    this.$parent.$children[1].name = '萌萌' //兄弟组件修改值
+                }
+            },
+            template: `
+            <div>
+                <div class="main" v-if="hidden">
+                    <div class="field">
+                        姓&nbsp &nbsp 名  {{name1}}
+                        <input name="name" type="text" v-model="youName" placeholder="请输入姓名">
+                    </div>
+                    <div class="field">
+                        车牌号
+                        <input name="license" type="text" v-model="license" placeholder="请输入车牌号">
+                    </div>
+                    <div class="field">
+                        手机号
+                        <input name="phone" type="text" v-model="phone" placeholder="请输入手机号">
+                    </div>
+                    <div @click="submit" class="button">提交</div>
+                    <Name></Name>
+                </div>
+                <div v-if="!hidden">
+                    <div class="images2"></div>
+                    <p class="text">请进入停车场</p>
+                </div>
+                <div class="toast" v-if="showToast">{{toastInfo}}</div>
+            </div>
+        `
+        })
+        Vue.component('Leave', {
+            data() {
+                return {
+                    hidden: true
+                }
+            },
+            props: ['id'],
+            methods: {
+                // 点击按钮离开车位
+                shanchu() {
+                    
+                }
+            },
+            template: `
+        <div class="main">
+            <div class="images" v-if="hidden"></div>
+            <div @click="shanchu" class="button" v-if="hidden">确定离开</div>
+            <div v-if="!hidden">
+                <div class="images1"></div>
+                <p class="text">请放心离开</p>
+            </div>
+        </div>
+        `
+        })
+        Vue.component('Name', {
+            data() {
+                return {
+                    name: '靳萌瑶'
+                }
+            },
+            methods: {
+                
+            },
+            mounted(){
+                // console.log('333')
+            },
+            template: `
+        <div>
+            {{name}}
+        </div>
+        `
+        })
+        Vue.extend({
+            template: `<div>欧阳</div>`
+        })
+        new Vue({
+            el: '#app',
+            data: {
+                argObj: {
+                    parkID: 'park_3'
+                },
+                add: true
+            },
+            mounted(){
+                console.log('11111111',this)
+                this.$children[0].youName = '欧阳兴华'
+            }
+        })
+        new Vue({
+            el: '#app1'
+        })
+    </script>
+</body>
+
+</html>

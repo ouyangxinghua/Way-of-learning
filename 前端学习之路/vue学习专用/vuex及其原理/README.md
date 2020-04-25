@@ -18,3 +18,12 @@ https://segmentfault.com/a/1190000019924674   从Vuex 模块化使用分析源�
 https://www.cnblogs.com/greatdesert/p/11431007.html   vuex 源码分析(一) 使用方法和代码结构
 https://juejin.im/post/5cafeb515188251aeb3ec6a2   [Vue.js进阶]从源码角度剖析Vue的生命周期
 https://www.jqhtml.com/54255.html  从零开始实现一个vue-router插件
+
+
+vuex里面的store数据之所以是响应式的是因为内部 创建new Vue()实例把$$state和computed变成响应式的
+store._vm = new Vue({                                  
+  data: {
+    $$state: state
+  },
+  computed: computed
+});
