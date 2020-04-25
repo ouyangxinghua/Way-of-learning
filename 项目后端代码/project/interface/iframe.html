@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>snap</title>
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            background: url(https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4193090942,857888087&fm=26&gp=0.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .field {
+            color: yellow;
+            display: inline-block;
+            margin-top: 10%;
+        }
+
+        .toast {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40vw;
+            height: 10vh;
+            background-color: rgba(255, 0, 0, 0.7);
+            border-radius: 3vw;
+            text-align: center;
+            line-height: 10vh;
+            color: #fff;
+        }
+
+        .button {
+            margin-top: 10%;
+            width: 40vw;
+            height: 15vh;
+            background-color: rgba(0, 0, 255, 0.8);
+            overflow: hidden;
+            line-height: 15vh;
+            text-align: center;
+            color: #fff;
+            border-radius: 10vw;
+            font-size: 6vw;
+        }
+
+        .button:active {
+            background-color: rgba(0, 0, 255, 0.4);
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .images {
+            width: 100vw;
+            height: 40vh;
+            background-image: url(../images/ku.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 50% 0;
+        }
+
+        .images1 {
+            width: 100vw;
+            height: 30vh;
+            background-image: url(../images/success.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 50% 0;
+        }
+
+        .images2 {
+            margin-top: 10vh;
+            width: 100vw;
+            height: 40vh;
+            background-image: url(../images/success.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 45% 0;
+        }
+
+        .text {
+            text-align: center;
+            font-size: 1.6rem;
+            color: yellow;
+        }
+        .moneyInfo{
+            color:yellow;
+            font-weight: bolder;
+            text-align: center;
+            font-size: 5vh;
+        }
+        .moneyInfo span {
+            color: red;
+            font-size: 7vh;
+        }
+        .code-container {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: black;
+        }
+        .codeImg {
+            width: 50vw;
+            height: 50vh;
+            background-image: url(../images/mobile.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            top: 15%;
+            left: 25%;
+        }
+        .code-msg {
+            margin-top: 12vh;
+            color: yellow;
+            font-size: 7vw;
+            text-align: center;
+        }
+        .codeImg2 {
+            width: 50vw;
+            height: 50vh;
+            background-image: url(../images/success.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            top: 15%;
+            left: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="add">
+            <Snap :id="argObj.parkID" />
+        </div>
+        <div v-if="!add">
+            <Leave :id="argObj.parkID" />
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="../utils/time.js"></script>
+    <script>
+        // MVVM 组件思维
+        Vue.component('Snap', {
+            data() {
+                return {
+                    youName: '',
+                    license: '',
+                    phone: '',
+                    hidden: true,
+                    showToast: false,
+                    toastInfo: '请输入姓名'
+                }
+            },
+            props: ['id'],
+            methods: {
+                // 提示消息
+                confirm(){
+                    parent.postMessage( {msg: true}, '*');
+                },
+                showText(title) {
+                    this.showToast = true;
+                    this.toastInfo = title
+                    setTimeout(() => {
+                        this.showToast = false;
+                    }, 1500)
+                },
+                // 提交信息使用车位
+                submit: function () {
+                    console.log(this.youName, this.license, this.phone, this.id);
+                    var that = this;
+                    let checkPhone = /^[1][3,4,5,6,7,8][0-9]{9}$/;
+                    let checkName = /^([\u4e00-\u9fa5]{1,20}|[a-zA-Z\.\s]{1,20})$/;
+                    let checkLicense = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+                    if (!this.youName) {
+                        this.showText('姓名不能为空!');
+                        return false;
+                    }
+                    if (!checkName.test(this.youName)) {
+                        this.showText('姓名格式错误!');
+                        return false;
+                    }
+                    if (!this.license) {
+                        this.showText('车牌号不能为空!');
+                        return false;
+                    }
+                    if (!checkLicense.test(this.license)) {
+                        this.showText('车牌号格式错误!');
+                        return false;
+                    }
+                    if (!this.phone) {
+                        this.showText('手机号不能为空!')
+                        return false;
+                    }
+                    if (!checkPhone.test(this.phone)) {
+                        this.showText('手机号格式错误!')
+                        return false;
+                    }
+                    $.ajax({
+                        url: 'http://localhost:3000/add/AddCarInfo',
+                        data: { 'parkID': that.id, 'name': that.youName, 'license': that.license, 'phone': that.phone },
+                        dataType: 'json',
+                        type: 'POST',
+                        success: function (res) {
+                            console.log('AddCarInfo', res)
+                            console.log(that.youName, that.license, that.phone, that.id);
+                            $.ajax({
+                                url: 'http://localhost:3000/add/AddParkInfo',
+                                data: { 'parkID': that.id, 'name': that.youName, 'status': 1, 'deadline': '2020-4-20' },
+                                dataType: 'json',
+                                type: 'POST',
+                                success: function (res) {
+                                    console.log('AddParkInfo', res)
+                                    let time = new Date().toLocaleString();
+                                    $.ajax({
+                                        url: 'http://localhost:3000/add/AddEntryInfo',
+                                        data: { 'name': that.youName, 'sign': that.license, 'time': time, 'date': new Date().getTime().toString() },
+                                        dataType: 'json',
+                                        type: 'POST',
+                                        success: function (res) {
+                                            console.log('AddEntryInfo', res)
+                                            that.hidden = false;
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
+            },
+            template: `
+            <div>
+                <div class="main" v-if="hidden">
+                    <div class="field">
+                        姓&nbsp &nbsp 名  
+                        <input name="name" type="text" v-model="youName" placeholder="请输入姓名">
+                    </div>
+                    <div class="field">
+                        车牌号
+                        <input name="license" type="text" v-model="license" placeholder="请输入车牌号">
+                    </div>
+                    <div class="field">
+                        手机号
+                        <input name="phone" type="text" v-model="phone" placeholder="请输入手机号">
+                    </div>
+                    <div @click="submit" class="button">提交</div>
+                </div>
+                <div v-if="!hidden">
+                    <div class="images2"></div>
+                    <p class="text">请进入停车场</p>
+                    <div @click="confirm" class="button" style="margin-left: 30vw">确认</div>
+                </div>
+                <div class="toast" v-if="showToast">{{toastInfo}}</div>
+            </div>
+        `
+        })
+        Vue.component('Leave', {
+            data() {
+                return {
+                    hidden: true,
+                    parkTime: '',
+                    money: '',
+                    showCodeImg: false,
+                    show: true
+                }
+            },
+            props: ['id'],
+            methods: {
+                // 点击按钮离开车位
+                shanchu() {
+                    console.log('Leave', this.id)
+                    var that = this;
+                    $.ajax({
+                        url: 'http://localhost:3000/get/getSingleCarInfo',
+                        data: { parkID: that.id },
+                        type: 'get',
+                        success: function (res) {
+                            console.log('getSingleCarInfo', res)
+                            let sign = res.data[0].License_num;
+                            let time = new Date().toLocaleString();
+                            let name = res.data[0].owner_name;
+                            let number = MillisecondToDate(new Date().getTime() - Number(res.data[0].timestamps));
+                            that.parkTime = transform(Number(res.data[0].timestamps), new Date().getTime())
+                            that.money = money(number);
+                            console.log(number, that.parkTime, that.money)
+                            $.ajax({
+                                url: 'http://localhost:3000/add/AddOutInfo',
+                                data: { 'name': name, 'sign': sign, 'time': time },
+                                dataType: 'json',
+                                type: 'POST',
+                                success: function (res) {
+                                    console.log('AddEntryInfo', res)
+                                    $.ajax({
+                                        url: 'http://localhost:3000/delete/SCCarInfo',
+                                        data: { 'parkID': that.id },
+                                        dataType: 'json',
+                                        type: 'get',
+                                        success: function (res) {
+                                            console.log('SCCarInfo', res)
+                                            $.ajax({
+                                                url: 'http://localhost:3000/delete/SCParkInfo',
+                                                data: { 'parkID': that.id },
+                                                dataType: 'json',
+                                                type: 'get',
+                                                success: function (res) {
+                                                    console.log('修改车位为空位置', res)
+                                                    that.hidden = false
+                                                }
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                },
+                // 点击确认
+                confirm(){
+                    this.showCodeImg = true;
+                    this.show = false;
+                    setTimeout(() => {
+                        this.showCodeImg = false;
+                        setTimeout(() => {
+                            parent.postMessage( {msg: true}, '*');
+                        }, 2000);
+                    }, 5000);
+                }
+            },
+            template: `
+        <div class="main">
+            <div class="flex" v-if="show">
+                <div class="images" v-if="hidden"></div>
+                <div @click="shanchu" class="button" v-if="hidden">确定离开</div>
+                <div v-if="!hidden">
+                    <div class="images1"></div>
+                    <div class="moneyInfo">
+                        <p>您共停车<span>{{parkTime}}</span></p>
+                        <p>需缴纳<span>{{money}}</span>元停车费</p>
+                    </div>
+                    <div @click="confirm" class="button" style="margin-left: 30vw">前往缴费</div>
+                </div>    
+            </div>
+            <div v-if="!show">
+                <div class="code-container" v-if="showCodeImg">
+                    <div class="codeImg"></div>
+                    <p class="code-msg">请扫码支付停车费</p>
+                </div>
+                <div class="code-container" v-if="!showCodeImg">
+                    <div class="codeImg2"></div>
+                    <p class="code-msg">您已成功缴费，请放心离开停车场，祝您旅途愉快!</p>
+                </div>    
+            </div>
+        </div>
+        `
+        })
+        new Vue({
+            el: '#app',
+            data: {
+                argObj: {},
+                add: ''
+            },
+            created() {
+                // 解析url参数
+                var args = location.search.split("?")[1].split('&')
+                for (item of args) {
+                    var key = item.split('=')[0];
+                    this.argObj[key] = item.split('=')[1];
+                }
+                // console.log(argObj)
+                this.add = this.argObj.name === 'true' ? true : false;
+                // console.log(this.add)
+            }
+        })
+    </script>
+</body>
+
+</html>
