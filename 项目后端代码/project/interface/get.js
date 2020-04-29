@@ -7,7 +7,21 @@ const entryInfo = sequelize.model('entryInfo')
 const outInfo = sequelize.model('outInfo')
 ParkInfo.belongsTo(carInfo, { as: 'info', foreignKey: 'parkID', targetKey: 'parkID' });
 carInfo.belongsTo(entryInfo, { as: 'info', foreignKey: 'License_num', targetKey: 'sign' });
-
+// 获取验证码
+Router.get('/getCheckCode', function (req, res) {
+    let fn = function(){
+        let res = '';
+        for(let i = 0; i < 6; i++){
+            res += parseInt(Math.random()*10).toString()
+        }
+        return parseInt(res)
+    };
+    let checkCode = fn();
+    res.status(200).send({
+        code: 0,
+        checkCode: checkCode
+    })
+})
 // 获取和查询数据
 Router.get('/getParkInfo', function (req, res) {
     let parkID = req.query.parkID;
@@ -127,6 +141,13 @@ Router.get('/getCarAndPark', function (req, res) {
             code: 500,
             data: `服务器错误${err}`
         })
+    })
+})
+// XSS攻击
+Router.get('/xss', function (req, res) {
+    res.status(200).send({
+        code: 0,
+        xss: '<script>alert("aaa")</script>'
     })
 })
 

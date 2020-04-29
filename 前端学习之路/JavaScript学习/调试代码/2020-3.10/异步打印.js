@@ -1,7 +1,7 @@
 // https://www.qdtalk.com/2019/01/09/javascript-async-5/         关于引用类型打印问题的文章，跟异步有关系，之前的新申办问超哥的打印问题类似。
 const json = { a: 1, b: 2 };
 console.log(json);  // {a: 1, b: 2} a: 3 b: 2 __proto__: Object  浏览器才会这样
-json.a = 3; // 在console.log 后面改的但是却能先打印出来  console.log在打印应用类型的时候，可能会不太靠谱
+json.a = 3; // 在console.log 后面改的但是却能先打印出来  console.log在打印引用类型的时候，可能会不太靠谱
 // 但是  拿同样的代码放到node环境下跑你就会发现打印出的是{a: 1, b: 2}
 // 事实上，执行结果是一样的，只不过你看到的不一样罢了！原因就出在浏览器控制台所见不一定为实。
 // 实际上相当于一种懒加载，这也是为什么你可以在控制台无限查看Object的prototype了。

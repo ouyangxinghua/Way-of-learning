@@ -11,8 +11,9 @@
             width: 100%;
             height: 100%;
         }
+
         body {
-            background: url(https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4193090942,857888087&fm=26&gp=0.jpg);
+            background: url(http://img5.imgtn.bdimg.com/it/u=1742037434,284591451&fm=26&gp=0.jpg);
             background-repeat: no-repeat;
             background-size: 100% 100%;
         }
@@ -60,6 +61,7 @@
             justify-content: center;
             align-items: center;
         }
+
         .flex {
             display: flex;
             flex-direction: column;
@@ -100,16 +102,19 @@
             font-size: 1.6rem;
             color: yellow;
         }
-        .moneyInfo{
-            color:yellow;
+
+        .moneyInfo {
+            color: yellow;
             font-weight: bolder;
             text-align: center;
             font-size: 5vh;
         }
+
         .moneyInfo span {
             color: red;
             font-size: 7vh;
         }
+
         .code-container {
             width: 100vw;
             height: 100vh;
@@ -118,6 +123,7 @@
             left: 0;
             background-color: black;
         }
+
         .codeImg {
             width: 50vw;
             height: 50vh;
@@ -128,12 +134,14 @@
             top: 15%;
             left: 25%;
         }
+
         .code-msg {
             margin-top: 12vh;
             color: yellow;
             font-size: 7vw;
             text-align: center;
         }
+
         .codeImg2 {
             width: 50vw;
             height: 50vh;
@@ -143,6 +151,21 @@
             position: relative;
             top: 15%;
             left: 25%;
+        }
+
+        input[name="checkCode"] {
+            width: 33vw;
+        }
+
+        .getCode {
+            padding: 1px;
+            display: inline-block;
+            vertical-align: bottom;
+            background-color: #fff;
+            color: blue;
+            height: 100%;
+            width: 28vw;
+            text-align: center;
         }
     </style>
 </head>
@@ -167,16 +190,54 @@
                     youName: '',
                     license: '',
                     phone: '',
+                    checkCode: '',
                     hidden: true,
                     showToast: false,
-                    toastInfo: '请输入姓名'
+                    toastInfo: '请输入姓名',
+                    time: '获取验证码',
+                    showCode: true,
+                    resCode: ''
                 }
             },
             props: ['id'],
             methods: {
+                // 获取验证码
+                getcode() {
+                    this.showCode = false;
+                    let _this = this;
+                    let phone = this.phone;
+                    let checkPhone = /^[1][3,4,5,6,7,8][0-9]{9}$/;
+                    if (!this.phone) {
+                        this.showText('手机号不能为空!')
+                        return false;
+                    }
+                    if (!checkPhone.test(this.phone)) {
+                        this.showText('手机号格式错误!')
+                        return false;
+                    }
+                    $.ajax({
+                        url: 'http://localhost:3000/get/getCheckCode',
+                        data: { 'phone': phone },
+                        dataType: 'json',
+                        type: 'get',
+                        success: function (res) {
+                            console.log('获取验证码', res.checkCode)
+                            _this.resCode = res.checkCode
+                        }
+                    })
+                    let num = 60;
+                    let timer = setInterval(() => {
+                        this.time = `${num--}后重新发`
+                        if (num === -1) {
+                            clearInterval(timer);
+                            this.time = '获取验证码'
+                            this.showCode = true;
+                        }
+                    }, 1000);
+                },
                 // 提示消息
-                confirm(){
-                    parent.postMessage( {msg: true}, '*');
+                confirm() {
+                    parent.postMessage({ msg: true }, '*');
                 },
                 showText(title) {
                     this.showToast = true;
@@ -187,7 +248,7 @@
                 },
                 // 提交信息使用车位
                 submit: function () {
-                    console.log(this.youName, this.license, this.phone, this.id);
+                    // console.log(this.youName, this.license, this.phone, this.id);
                     var that = this;
                     let checkPhone = /^[1][3,4,5,6,7,8][0-9]{9}$/;
                     let checkName = /^([\u4e00-\u9fa5]{1,20}|[a-zA-Z\.\s]{1,20})$/;
@@ -214,6 +275,14 @@
                     }
                     if (!checkPhone.test(this.phone)) {
                         this.showText('手机号格式错误!')
+                        return false;
+                    }
+                    if (!this.checkCode) {
+                        this.showText('请填写验证码!')
+                        return false;
+                    }
+                    if (Number(this.checkCode) !== this.resCode) {
+                        this.showText('验证码错误!')
                         return false;
                     }
                     $.ajax({
@@ -263,6 +332,12 @@
                         手机号
                         <input name="phone" type="text" v-model="phone" placeholder="请输入手机号">
                     </div>
+                    <div class="field">
+                        验证码
+                        <input name="checkCode" type="text" v-model="checkCode" placeholder="请输入验证码">
+                        <span v-if="showCode" class="getCode" style="font-size: 10px;" @click="getcode">{{time}}</span>
+                        <span v-if="!showCode" class="getCode" style="font-size: 10px;">{{time}}</span>
+                    </div>
                     <div @click="submit" class="button">提交</div>
                 </div>
                 <div v-if="!hidden">
@@ -281,35 +356,104 @@
                     parkTime: '',
                     money: '',
                     showCodeImg: false,
-                    show: true
+                    show: true,
+                    phone: '',
+                    checkCode: '',
+                    showToast: false,
+                    toastInfo: '',
+                    time: '获取验证码',
+                    showCode: true,
+                    resCode: ''
                 }
             },
             props: ['id'],
             methods: {
+                showText(title) {
+                    this.showToast = true;
+                    this.toastInfo = title
+                    setTimeout(() => {
+                        this.showToast = false;
+                    }, 1500)
+                },
+                // 获取验证码
+                getcode() {
+                    this.showCode = false;
+                    let _this = this;
+                    let phone = this.phone;
+                    let checkPhone = /^[1][3,4,5,6,7,8][0-9]{9}$/;
+                    if (!this.phone) {
+                        this.showText('手机号不能为空!')
+                        return false;
+                    }
+                    if (!checkPhone.test(this.phone)) {
+                        this.showText('手机号格式错误!')
+                        return false;
+                    }
+                    $.ajax({
+                        url: 'http://localhost:3000/get/getCheckCode',
+                        data: { 'phone': phone },
+                        dataType: 'json',
+                        type: 'get',
+                        success: function (res) {
+                            console.log('获取验证码', res.checkCode)
+                            _this.resCode = res.checkCode
+                        }
+                    })
+                    let num = 60;
+                    let timer = setInterval(() => {
+                        this.time = `${num--}后重新发`
+                        if (num === -1) {
+                            clearInterval(timer);
+                            this.time = '获取验证码'
+                            this.showCode = true;
+                        }
+                    }, 1000);
+                },
                 // 点击按钮离开车位
                 shanchu() {
                     console.log('Leave', this.id)
+                    let checkPhone = /^[1][3,4,5,6,7,8][0-9]{9}$/;
                     var that = this;
+                    if (!this.phone) {
+                        this.showText('手机号不能为空!')
+                        return false;
+                    }
+                    if (!checkPhone.test(this.phone)) {
+                        this.showText('手机号格式错误!')
+                        return false;
+                    }
+                    if (!this.checkCode) {
+                        this.showText('请填写验证码!')
+                        return false;
+                    }
+                    if (Number(this.checkCode) !== this.resCode) {
+                        this.showText('验证码错误!')
+                        return false;
+                    }
                     $.ajax({
                         url: 'http://localhost:3000/get/getSingleCarInfo',
                         data: { parkID: that.id },
                         type: 'get',
                         success: function (res) {
                             console.log('getSingleCarInfo', res)
+                            let phone = res.data[0].owner_phone;
                             let sign = res.data[0].License_num;
                             let time = new Date().toLocaleString();
                             let name = res.data[0].owner_name;
                             let number = MillisecondToDate(new Date().getTime() - Number(res.data[0].timestamps));
                             that.parkTime = transform(Number(res.data[0].timestamps), new Date().getTime())
                             that.money = money(number);
-                            console.log(number, that.parkTime, that.money)
+                            if (phone !== that.phone) {
+                                that.showText('手机号不正确!')
+                                return false;
+                            }
                             $.ajax({
                                 url: 'http://localhost:3000/add/AddOutInfo',
                                 data: { 'name': name, 'sign': sign, 'time': time },
                                 dataType: 'json',
                                 type: 'POST',
                                 success: function (res) {
-                                    console.log('AddEntryInfo', res)
+                                    console.log('AddOutInfo', res)
                                     $.ajax({
                                         url: 'http://localhost:3000/delete/SCCarInfo',
                                         data: { 'parkID': that.id },
@@ -335,13 +479,13 @@
                     })
                 },
                 // 点击确认
-                confirm(){
+                confirm() {
                     this.showCodeImg = true;
                     this.show = false;
                     setTimeout(() => {
                         this.showCodeImg = false;
                         setTimeout(() => {
-                            parent.postMessage( {msg: true}, '*');
+                            parent.postMessage({ msg: true }, '*');
                         }, 2000);
                     }, 5000);
                 }
@@ -350,6 +494,16 @@
         <div class="main">
             <div class="flex" v-if="show">
                 <div class="images" v-if="hidden"></div>
+                <div class="field" v-if="hidden">
+                    手机号
+                    <input name="phone" type="text" v-model="phone" placeholder="请输入手机号">
+                </div>
+                <div class="field" v-if="hidden">
+                    验证码
+                    <input name="checkCode" type="text" v-model="checkCode" placeholder="请输入验证码">
+                    <span v-if="showCode" class="getCode" style="font-size: 10px;" @click="getcode">{{time}}</span>
+                    <span v-if="!showCode" class="getCode" style="font-size: 10px;">{{time}}</span>
+                </div>
                 <div @click="shanchu" class="button" v-if="hidden">确定离开</div>
                 <div v-if="!hidden">
                     <div class="images1"></div>
@@ -370,6 +524,7 @@
                     <p class="code-msg">您已成功缴费，请放心离开停车场，祝您旅途愉快!</p>
                 </div>    
             </div>
+            <div class="toast" v-if="showToast">{{toastInfo}}</div>
         </div>
         `
         })
@@ -386,9 +541,7 @@
                     var key = item.split('=')[0];
                     this.argObj[key] = item.split('=')[1];
                 }
-                // console.log(argObj)
                 this.add = this.argObj.name === 'true' ? true : false;
-                // console.log(this.add)
             }
         })
     </script>

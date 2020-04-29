@@ -43,4 +43,3 @@ function transform(faultDate, completeTime) {
     }
     return time;
 }
-console.log(transform(48947823,78947823))
