@@ -10,7 +10,7 @@ function money(time) {
         result = (time * 5).toFixed(1)
     }
     if (time > 24) {
-        result = ((time / 24) * 50).toFixed(1)
+        result = ((time / 24) * 30).toFixed(1)
     }
     return result
 }

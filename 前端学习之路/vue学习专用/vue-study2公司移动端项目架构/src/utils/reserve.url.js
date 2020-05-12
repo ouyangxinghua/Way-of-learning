@@ -67,6 +67,6 @@ export function getApproveItem(data, type, callFunc) {
 
 // 优化公司代码
 // export function get(data, type, callFunc){
-//     var fn = (callFunc && (callFunc.constructor === Function)) ? callFunc : ''
-//     return fetchData('/ApprReserveInterface/api/hardware/loadBus.v', data, type, fn)
+//     var args = (callFunc && (callFunc.constructor === Function)) ? [data,type,callFunc] : [data,type]
+//     return fetchData('/ApprReserveInterface/api/hardware/loadBus.v', ...args)
 // }

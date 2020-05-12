@@ -57,7 +57,8 @@ git branch -d <branchname> → 删除本地branchname分支
 git push origin --delete <branchName>  删除远程分支操作
 
 
-11. git 里的标签tag   用法(https://blog.csdn.net/u013399093/article/details/50511462)
+11. git 里的标签tag   
+https://blog.csdn.net/u013399093/article/details/50511462  git 标签的用法
 https://blog.csdn.net/cbuy888/article/details/89491142      Git的tag作用和使用场景以及branch的区别
 https://www.cnblogs.com/walls/p/9077958.html        Git打标签与版本控制规范
 
