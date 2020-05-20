@@ -96,6 +96,9 @@
 </head>
 
 <body>
+    <div id="app2">
+
+    </div>
     <div id="app">
         <div v-if="add">
             <Snap :id="argObj.parkID" :add="argObj.parkID"/>
@@ -197,6 +200,10 @@
         </div>
         `
         })
+        var extend = Vue.extend({
+            name: 'extend',
+            template: `<div>欧阳</div>`
+        })
         Vue.component('Name', {
             data() {
                 return {
@@ -209,14 +216,15 @@
             mounted(){
                 // console.log('333')
             },
+            components: {
+                extend: extend
+            },
             template: `
         <div>
             {{name}}
+            <extend></extend>
         </div>
         `
-        })
-        Vue.extend({
-            template: `<div>欧阳</div>`
         })
         new Vue({
             el: '#app',

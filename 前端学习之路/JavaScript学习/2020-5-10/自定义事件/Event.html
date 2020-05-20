@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义事件</title>
+</head>
+
+<body>
+    <!-- https://cloud.tencent.com/developer/article/1591475  自定义事件 -->
+    <!-- https://juejin.im/post/5cc6ee96f265da036706b53f  js使用dispatchEvent派发自定义事件 -->
+    <div id="app">ouyang</div>
+    <script>
+        let myEvent = new Event('ouyang', { bubbles: true, cancelable: false })
+        window.addEventListener('ouyang', function(e){
+            console.log('ouyang事件', e)
+        }, false)
+        window.dispatchEvent(myEvent);
+    </script>
+<!-- 
+    <div id="div"></div>
+
+    <script>
+        var elem = document.querySelector('#div');
+        var event = document.createEvent('Event');
+        console.log(event)
+        // 定义事件名称myEvent
+        event.initEvent('myEvent', true, true);
+        // 监听myEvent
+        elem.addEventListener('myEvent', function (e) {
+            console.log(e);
+        }, false);
+        // console.log(event)
+        // 使用目标对象去派发事件，可以是元素节点/事件对象
+        // elem.dispatchEvent(event);
+        // document.addEventListener('click', function(e){
+        //     console.log(e)
+        // },false)
+    </script> -->
+
+</body>
+
+</html>

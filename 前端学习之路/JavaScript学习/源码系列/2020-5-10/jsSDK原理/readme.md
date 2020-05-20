@@ -1,0 +1,1 @@
+http://www.fly63.com/article/detial/1267   h5 与原生 app 交互的原理

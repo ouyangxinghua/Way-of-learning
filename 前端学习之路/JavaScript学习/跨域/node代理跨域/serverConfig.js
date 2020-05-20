@@ -16,7 +16,10 @@ module.exports = {
         '/':{
             target:"http://localhost:4000",
             changeOrigin:true,
-            ws:true
+            ws:true,
+            pathRewrite: {
+                '/ouyang': ''    // 重写请求
+            },
         }
     }
 }

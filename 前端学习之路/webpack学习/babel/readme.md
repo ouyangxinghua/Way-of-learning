@@ -22,7 +22,7 @@ development   开发阶段
 
 - babel-core  核心的转译库
   npm run build "babel ...."
-  babel-cli
+  babel-cli  (babel index.js -d build 命令)
   babel-preset-env .babelrc(配置文件)
   {
       "presets": ["env"]

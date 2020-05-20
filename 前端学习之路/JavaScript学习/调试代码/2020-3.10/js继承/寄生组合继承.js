@@ -16,7 +16,7 @@ function Parent(age) {
 (function () {
     // 为什么不直接Parent.prototype = Person.prototype呢？ 因为这样的话，
     // 当我们想给 Child 的prototype里面添加共享属性或者方法时，如果其 prototype 指向的是 Parent 的 prototype，
-    // 那么在 Child 的 prototype 里添加的属性和方法也会反映在 Parent 的 prototype 里面，
+    // 那么在 Child 的 prototype 里添加的属性和方法也会反映在 Parent 的 prototype 里面，既Parent.prototype.constructor = Parent虽然修复了Parent的，但是同时也影响到了Person.
     // 这明显是不合理的，这样做的后果是当我们只想使用 Parent 时，也能看见 Child 往里面扔的方法和属性。
     // 所以需要每个构造函数都需要持有自己专用的prototype对象
     let con = Parent.prototype.constructor  //保存子类的constructor属性
@@ -25,10 +25,13 @@ function Parent(age) {
     Parent.prototype = new Super();     //将实例作为子类的原型
     Parent.prototype.constructor  = con  //把constructor改回原来的
 })();
-
+// 上面这一步也可简化，利用Object.create()来实现
+// Parent.prototype = Object.create(Person.prototype) // 核心  通过创建中间对象，子类原型和父类原型，就会隔离开。不是同一个啦，有效避免了方式4的缺点。
+// Parent.prototype.constructor = Parent;
 
 var result = new Parent(23);
 console.log(result.name);
 console.log(result.friends);
 console.log(result.getName());
 console.log(result.age);
+

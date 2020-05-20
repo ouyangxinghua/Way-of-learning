@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            position: relative;
+            width: 252px;
+            height: 352px;
+            margin-top: 100px;
+            background-color: rgba(0,0,0,0.8);
+            border-radius:0px 0px 5px 5px;
+        }
+        .triangle{
+            top: -12px;
+            right: 80px;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-color: transparent transparent rgba(0,0,0,0.8) transparent; /*利用border画三角形的核心代码*/
+            border-width: 6px 6px 6px 6px;
+        }
+        .content {
+            /* https://www.cnblogs.com/xuan52rock/p/4434183.html CSS3 Transform的perspective属性*/
+            transform: perspective(150px) rotateX(180deg);  
+            /* backface-visibility 属性定义当元素不面向屏幕时是否可见。 */
+            /* backface-visibility:hidden;  */
+            height: 100%;
+            position: relative;
+            background-color: #fff;
+            text-align: center;
+            line-height: 352px;
+        }
+        .content::after{
+            content: "";
+            width: 100px;
+            height: 1px;
+            background-color: #fff;
+            transform: scaleY(0.5); /*0.5px的线*/
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+        }
+        .Trapezoid {
+            width: 100px;
+            height: 100px;
+            border-style: solid;
+            border-color: transparent transparent red transparent; /*利用border梯形的核心代码*/
+            border-width: 60px 60px 60px 60px;
+        }
+        .oblique-triangle {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-color: transparent transparent rgba(0,0,0,0.8) transparent; /*利用border画三角形的核心代码*/
+            border-width: 15px 15px 15px 15px;
+            transform: skewX(60deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- 斜的三角形气泡 -->
+    <div class="oblique-triangle">
+
+    </div>
+    <div class="main">
+        <div class="triangle"></div>
+        <div class="content">
+            3D透视
+        </div>
+    </div>
+    <div class="Trapezoid">
+
+    </div>
+</body>
+</html>

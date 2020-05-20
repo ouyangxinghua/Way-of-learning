@@ -1,0 +1,1 @@
+"use strict";require("core-js/modules/es6.promise"),require("core-js/modules/es6.object.to-string"),require("@babel/runtime/helpers/classCallCheck"),require("@babel/runtime/helpers/createClass");console.log((function(){console.log("React框架真牛皮!")})),new Promise((function(e,o){setTimeout((function(){e("yes")}))})).then((function(e){console.log(e)}));

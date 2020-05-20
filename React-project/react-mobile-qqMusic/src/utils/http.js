@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {Toast} from 'antd-mobile';
+import { Toast } from 'antd-mobile';
 const instance=axios.create({
   //超时时间
   timeout:3000,
