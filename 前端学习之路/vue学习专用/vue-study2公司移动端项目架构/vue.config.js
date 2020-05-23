@@ -4,6 +4,7 @@ module.exports = {
         : '/',
     // 将构建好的文件输出到哪里
     outputDir: 'study',
+    lintOnSave: false,  //用来控制是否关闭eslint校验
     pages: {
         reserve: {
             // page 的入口
@@ -58,7 +59,20 @@ module.exports = {
         loaderOptions: {
             sass: {
                 data: `@import '@/assets/scss/utils.scss';`
+            },
+            // https://blog.csdn.net/u013379933/article/details/84107878   https://www.cnblogs.com/taohuaya/p/10274993.html  vue-cli2、vue-cli3的postcss-pxtorem插件 px转换rem
+            postcss: {
+                plugins: [
+                    require('postcss-plugin-px2rem')({ // 把px单位换算成rem单位
+                        rootValue: 75,
+                        exclude: /(node_modules)/,
+                        unitPrecision: 5, // 最小精度，小数点位数
+                        propList: ['*'],  // !不匹配属性（这里是字体相关属性不转换）
+                        minPixelValue: 2,
+                        // selectorBlackList: ['weui', 'mu'], // 忽略转换正则匹配项
+                    })
+                ]
             }
-        }
+        },
     }
 }

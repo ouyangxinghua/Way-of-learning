@@ -106,7 +106,7 @@ export default {
     top: 0;
     left: 0;
     background-image: linear-gradient(
-      right,
+      to left,
       rgba(255, 255, 255, 0),
       rgba(255, 255, 255, 1)
     );
@@ -116,7 +116,7 @@ export default {
     top: 0;
     right: 0;
     background-image: linear-gradient(
-      left,
+      to right,
       rgba(255, 255, 255, 0),
       rgba(255, 255, 255, 1)
     );

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>登录</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="./images/left.png" alt="" class="header-left-img"><span class="header-left-span">返回</span>
+        </div>
+        <div class="header-center">登录</div>
+        <div class="header-right">
+            <img src="./images/right.png" alt="" class="header-right-img">
+        </div>
+    </header>
+    <main>
+        <div class="main-header">
+            <img src="./images/icon-头像@2x.png" alt="" class="main-header-img">
+            <p class="main-header-p">移动审批</p>
+        </div>
+        <form method="post" action="">
+            <div class="main-header-form">
+                <div class="form-border border-1px">
+                    <img src="./images/用户名@2x.png" alt="" class="form-img">
+                    <input type="text" name="name" placeholder="请输入用户名" />
+                </div>
+                <div class="form-border border-1px">
+                    <img src="./images/密码@2x.png" alt="" class="form-img">
+                    <input type="password" name="password" placeholder="请输入密码" />
+                </div>
+                <div class="checkcode-form border-1px">
+                    <img src="./images/验证码@2x.png" alt="" class="form-img">
+                    <input type="text" name="checkcode" placeholder="请输入验证码" />
+                    <img src="./images/验证码示例@2x.png" alt="" class="code-img">
+                </div>
+                <div class="memory-form" onclick="selected()">
+                    <img src="./images/未勾选@2x.png" alt="" class="memory-form-img">记住用户名
+                </div>
+                <div class="button-form">
+                    <input type="submit" value="登录" class="form-button">
+                </div>
+            </div>
+        </form>
+    </main>
+    <section class="prompt" style="display: none;">
+        <div class="prompt-main">
+            <p class="prompt-title">提示</p>
+            <p class="prompt-content">用户名或密码错误</p>
+            <div class="prompt-button" onclick="confirm()">确定</div>
+        </div>
+    </section>
+    <script>
+        var isselect = false;//是否已勾选
+        // 移动端适配js代码，动态修改html根字体代码
+        (function () {
+            function autoRootFontSize() {
+                document.documentElement.style.fontSize = Math.min(screen.width, document.documentElement.getBoundingClientRect().width) / 750 * 200 + 'px';
+            }
+            window.addEventListener('resize', autoRootFontSize);
+            autoRootFontSize();
+        })();
+        // 弹窗确定按钮点击事件
+        function confirm(){
+            let ele = document.getElementsByClassName('prompt')[0]
+            ele.style.display = 'none'
+        }
+        // 记住用户名点击
+        function selected(){
+            let ele = document.getElementsByClassName('memory-form-img')[0];
+            if(isselect){
+                ele.src = './images/未勾选@2x.png'
+            }else {
+                ele.src = './images/已勾选@2x.png'
+            }
+            isselect = !isselect;
+        }
+    </script>
+</body>
+
+</html>
