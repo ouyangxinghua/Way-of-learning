@@ -1,0 +1,1 @@
+// https://juejin.im/post/5cc7d8f56fb9a031f61d838e  从设计模式角度分析Promise：手撕Promise并不难

@@ -24,6 +24,11 @@ module.exports = {
     // 请求代理
     devServer: {
         proxy: {
+            '/MobileBooking': {
+                target: 'http://127.0.0.1:3080/',
+                ws: true,
+                changeOrigin: true
+            },
             '/ApprReserveInterface': { // 预约接口包
                 target: 'http://192.168.0.152:8888',
                 ws: true,

@@ -17,6 +17,7 @@
     <div class="postcss-pxtorem">ouyangxinghua</div>
     <!-- <i class="iconfont" style="color: #fff">{{who === '实时链路' ? &#xe66d; : &#xxxxx;}}</i> -->
     <div class="icon" v-html="value">{{value}}</div>
+    <img :src="rwmURL | imgFilter" alt="二维码" />
   </div>
 </template>
 
@@ -40,8 +41,22 @@ export default {
       ],
       // data: ['阶段一','阶段二', '阶段三', '阶段四','1'],
       selected: "1",
-      value: ""
+      value: "",
+      rwmURL: "http://zwfw.guilin.gov.cn:80/ApprReserveInterface/api/takenumber/download/QRCode.v?myNum=XAB013"
     };
+  },
+  filters: {
+    /**
+     * 二维码链接过滤
+     */
+    imgFilter(url) {
+      if (!url) {
+        return "";
+      }
+      let arr = url.split("/ApprReserveInterface");
+      return "/MobileBooking/ApprReserveInterface" + arr[1];
+      // return arr[0] + "/MobileBooking/ApprReserveInterface" + arr[1];
+    }
   },
   created() {
     this.initFont()

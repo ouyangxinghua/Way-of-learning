@@ -3,11 +3,11 @@
   "version": "1.0",
   "description": "Build an Extension!",
   "permissions": [
-    "activeTab", 
-    "declarativeContent", 
+    "activeTab",
+    "declarativeContent",
     "storage",
     "contextMenus",
-    "webRequest", 
+    "webRequest",
     "webRequestBlocking",
     "tabs",
     "contextMenus",
@@ -15,11 +15,15 @@
     "https://*/*"
   ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "background.js"
+    ],
     "persistent": true
   },
-  "omnibox": { "keyword" : "nt" },
-  "page_action": {
+  "omnibox": {
+    "keyword": "nt"
+  },
+  "browser_action": {
     "default_title": "萌萌图片提取插件",
     "default_popup": "popup.html",
     "default_icon": {
@@ -29,7 +33,11 @@
       "128": "images/icon128.png"
     }
   },
-  "web_accessible_resources": ["js/inject.js", "images/**", "ajax_interceptor.js"],
+  "web_accessible_resources": [
+    "js/inject.js",
+    "images/**",
+    "ajax_interceptor.js"
+  ],
   "icons": {
     "16": "images/icon16.png",
     "32": "images/icon32.png",
@@ -40,17 +48,21 @@
     "page": "options.html",
     "open_in_tab": false
   },
-  "content_scripts": [{
-    "matches": [
+  "content_scripts": [
+    {
+      "matches": [
         "http://*/*",
         "https://*/*"
-    ],
-    "js": [
+      ],
+      "js": [
         "lib/jquery3.4.min.js",
         "content_script.js"
-    ],
-    "css": ["base.css"]
-  }],
+      ],
+      "css": [
+        "base.css"
+      ]
+    }
+  ],
   "commands": {
     "flip-tabs-forward": {
       "suggested_key": {
@@ -74,7 +86,7 @@
       "description": "Toggle Tags"
     }
   },
-  "chrome_url_overrides" : {
+  "chrome_url_overrides": {
     "newtab": "override_page.html"
   },
   "manifest_version": 2
