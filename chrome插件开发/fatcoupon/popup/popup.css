@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    width:360px;
+    min-height:300px;
+  }
+   
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+  }
+  
+   
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: left;
+    background-color: #f9f9f9;
+    margin: 15px 10px;
+    width: 100%;
+  }
+  
+  .code{
+    color: #505050;
+    border: 1px solid #dadada;
+    display: inline-block;
+    padding: 6px 10px;
+    font-size: 12px;
+    max-width: 220px;
+    word-break: break-word;
+    font-weight: 600;
+    user-select: all;
+    border-radius: 3px;
+    background-color: #eeeeee;
+  }
+
+  .button {
+    background-color: #FF7227; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+  }

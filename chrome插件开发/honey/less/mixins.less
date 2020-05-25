@@ -1,0 +1,167 @@
+//  ===== Mixins.less ========================================================
+//  Styles & Calculations which are included into other elements
+//  ==========================================================================
+   
+
+// Border Box sizing
+// -------------------------
+.bb-sizing() {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+// CSS3 Techniques
+// -------------------------
+.css-trans(@trans1) {
+	-webkit-transition: @trans1;
+	   -moz-transition: @trans1;
+	    -ms-transition: @trans1;
+	     -o-transition: @trans1;
+	        transition: @trans1;
+}
+
+.css-trans(@trans1, @trans2) {
+	-webkit-transition: @trans1, @trans2;
+	   -moz-transition: @trans1, @trans2;
+	    -ms-transition: @trans1, @trans2;
+	     -o-transition: @trans1, @trans2;
+	        transition: @trans1, @trans2;
+}
+
+.css-trans(@trans1, @trans2, @trans3) {
+	-webkit-transition: @trans1, @trans2, @trans3;
+	   -moz-transition: @trans1, @trans2, @trans3;
+	    -ms-transition: @trans1, @trans2, @trans3;
+	     -o-transition: @trans1, @trans2, @trans3;
+	        transition: @trans1, @trans2, @trans3;
+}
+
+.css-tform(@tform) {
+	-webkit-transform: @tform;
+	   -moz-transform: @tform;
+	    -ms-transform: @tform;
+	     -o-transform: @tform;
+	        transform: @tform;
+}
+
+.css-tform-orig(@orig) {
+	-webkit-transform-origin: @orig;
+	   -moz-transform-origin: @orig;
+	    -ms-transform-origin: @orig;
+	     -o-transform-origin: @orig;
+	        transform-origin: @orig;
+}
+
+.css-tform-style(@style) {
+	-webkit-transform-style: @style;
+	   -moz-transform-style: @style;
+	    -ms-transform-style: @style;
+	     -o-transform-style: @style;
+	        transform-style: @style;
+}
+
+.css-bface() {
+	-webkit-backface-visibility: hidden;
+       -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+         -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+
+.css-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	   -moz-box-shadow: @shadow;
+	    -ms-box-shadow: @shadow;
+	     -o-box-shadow: @shadow;
+	        box-shadow: @shadow;
+}
+
+.css-shadow(@shadow1, @shadow2) {
+	-webkit-box-shadow: @shadow1, @shadow2;
+	   -moz-box-shadow: @shadow1, @shadow2;
+	    -ms-box-shadow: @shadow1, @shadow2;
+	     -o-box-shadow: @shadow1, @shadow2;
+	        box-shadow: @shadow1, @shadow2;
+}
+
+.css-brad(@br) {
+	-webkit-border-radius: @br;
+	   -moz-border-radius: @br;
+	    -ms-border-radius: @br;
+	     -o-border-radius: @br;
+	        border-radius: @br;
+}
+
+.css-brad-top(@br) {
+	-webkit-border-top-left-radius: @br;
+	   -moz-border-radius-topleft: @br;
+	        border-top-left-radius: @br;
+	-webkit-border-top-right-radius: @br;
+	   -moz-border-radius-topright: @br;
+	        border-top-right-radius: @br;
+}
+
+.css-brad-bot(@br) {
+	-webkit-border-bottom-left-radius: @br;
+	   -moz-border-radius-bottomleft: @br;
+	        border-bottom-left-radius: @br;
+	-webkit-border-bottom-right-radius: @br;
+	   -moz-border-radius-bottomright: @br;
+	        border-bottom-right-radius: @br;
+}
+
+.css-brad-left(@br) {
+	-webkit-border-top-left-radius: @br;
+	   -moz-border-radius-topleft: @br;
+	        border-top-left-radius: @br;
+	-webkit-border-bottom-left-radius: @br;
+	   -moz-border-radius-bottomleft: @br;
+	        border-bottom-left-radius: @br;
+}
+
+.css-brad-right(@br) {
+	-webkit-border-top-right-radius: @br;
+	   -moz-border-radius-topright: @br;
+	        border-top-right-radius: @br;
+	-webkit-border-bottom-right-radius: @br;
+	   -moz-border-radius-bottomright: @br;
+	        border-bottom-right-radius: @br;
+}
+
+.css-grad(@startColor, @endColor) {
+	background-color: @startColor;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+	background-image: -webkit-linear-gradient(top, @startColor, @endColor);
+	background-image: -moz-linear-gradient(top, @startColor, @endColor);
+	background-image: -o-linear-gradient(top, @startColor, @endColor);
+	background-image: -ms-linear-gradient(top, @startColor, @endColor);
+	background-image: linear-gradient(top, @startColor, @endColor);
+}
+
+.css-grad-button(@startColor, @endColor) {
+	background-color: @startColor;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(fade(@startColor, 0%)), to(@endColor));
+	background-image: -webkit-linear-gradient(top, fade(@startColor, 0%), @endColor);
+	background-image: -moz-linear-gradient(top, fade(@startColor, 0%), @endColor);
+	background-image: -o-linear-gradient(top, fade(@startColor, 0%), @endColor);
+	background-image: -ms-linear-gradient(top, fade(@startColor, 0%), @endColor);
+	background-image: linear-gradient(top, fade(@startColor, 0%), @endColor);
+}
+
+.css-anim(@animName) {
+	-webkit-animation-name: @animName;
+	   -moz-animation-name: @animName;
+	    -ms-animation-name: @animName;
+	     -o-animation-name: @animName;
+	        animation-name: @animName;
+}
+
+
+// File Icon Extension Coloring
+// ----------------------------
+.file-icon-color(@color) {
+	background-color: @color;
+	border-color: darken(@color, 15%);
+}

@@ -1,0 +1,43 @@
+<html>
+	<head>
+    	<link rel="stylesheet" type="text/css" href="css/honey.css">
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+		<script src="js/vendor/jquery2.0.js"></script>
+		<script src="js/vendor/chosen.min.js"></script>
+		<script src="js/vendor/flexibleArea.js"></script>
+		<script src="js/vendor/bootstrap.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/honey.js"></script>
+	</head>
+	<body>
+		<form action="" method="POST" id="new-post" class="out" accept-charset="utf-8">
+			<header>
+				<span id="userImage"><img src="" alt="" /></span>
+				<span id="user"></span>
+			</header>
+			<section class="addpostmode">
+				<div class="titlewrap">
+					<input type="text" name="url_title" value="" id="title" placeholder="Add a Title">
+					<input type="text" name="url_source" value="" id="url" disabled="disabled">
+				</div>
+				<div class="descriptionwrap">
+					<textarea name="url_description" id="description" placeholder="Enter a Description..."></textarea>
+				</div>
+				<select data-placeholder="Add groups to share this with" id="groups" multiple></select>
+			</section>
+            <section class="addgroupmode">
+                <img class="addgroupmode__hero" src="http://local.honey.is/static/_dev/img/svg/groups.svg">
+                <h3 class="addgroupmode__title">Organize with groups.</h3>
+                <p class="addgroupmode__desc">Organize your Honey posts into groups for departments, interests, or project teams.</p>
+                <a href="" class="addgroupmode__link btn small outline" style="float:none;">Create Group</a>
+            </section>
+			<footer class="addpostmode">
+				<span id="cancel">Cancel</span>
+				<input id="post-type" type="hidden" name="type" value="url" />
+				<input id="post-repost" type="hidden" name="repost" value="0" />
+				<input type="submit" id="submit" class="blue button" value="Post">
+			</footer>
+		</form>
+		<div id="loading" class=""></div>
+	</body>
+</html>

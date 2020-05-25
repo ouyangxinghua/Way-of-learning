@@ -1,0 +1,171 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+	"manifest_version": 2,
+	"name": "FatCoupon",
+	"version": "0.0.2.4",
+	"description": "FatCoupon: Get the most out of the deal",
+	"author": "FatCoupon.com",
+	"icons":
+	{
+		"16": "./assets/logos/ku-logo-16.png",
+		"48": "./assets/logos/ku-logo-48.png",
+		"128": "./assets/logos/ku-logo-128.png"		 
+	},
+	"background":
+	{
+		
+		"page": "background/background.html",
+		"persistent": true
+		
+	},
+	"browser_action": 
+	{
+		"default_icon": "./assets/logos/ku-logo-48.png",
+		"default_title": "Get the most out of the deals-By Fatcoupon",
+		"default_popup": "./popup/popup.html"
+	},
+
+	"permissions":
+	[ 
+	    "tabs",
+		"activeTab",
+		"webRequest",
+		"webRequestBlocking",
+		"storage", 
+		"https://*.nike.com/*", 
+		"https://*.macys.com/*" ,
+		"https://*.adidas.com/*" ,
+		"https://*.newbalance.com/*" ,
+		"https://*.reebok.com/*" ,
+		"https://*.forever21.com/*" ,
+		"https://*.maccosmetics.com/*" ,
+		"https://*.journeys.com/*" ,
+		"https://*.dell.com/*" ,
+		"https://*.gnc.com/*",
+		"https://*.ae.com/*"  ,
+		"https://*.calvinklein.us/*"  ,
+		"https://*.asos.com/*"  ,
+		"https://*.underarmour.com/*"  ,
+		"https://*.shoes.com/*"  ,
+		"https://*.saksoff5th.com/*"  ,
+		"https://*.nordstrom.com/*"  ,
+		"https://*.nordstromrack.com/*"  ,
+		"https://*.coach.com/*"  ,
+		"https://*.michaelkors.com/*"  ,
+		"https://*.finishline.com/*"  ,
+		"https://*.footlocker.com/*"  ,
+		"https://*.urbanoutfitters.com/*"  ,
+		"https://*.amazon.com/*"  ,
+		"https://*.ebay.com/*"  ,
+		"https://*.bestbuy.com/*"  ,
+		"https://*.clinique.com/*"  ,
+		"https://*.thenorthface.com/*"  ,
+		"https://*.columbia.com/*"  ,
+		"https://*.neimanmarcus.com/*"  ,
+		"https://*.target.com/*"  ,
+		"https://*.sunglasshut.com/*",  
+		"https://*.sephora.com/*"  ,
+		"https://*.ulta.com/*"  ,
+		"https://*.bathandbodyworks.com/*" ,
+		"https://*.bloomingdales.com/*"  ,
+		"https://*.abercrombie.com/*"  ,
+		"https://*.pacsun.com/*"  ,
+		"https://*.kohls.com/*"  ,
+		"https://*.converse.com/*"  ,
+		"https://*.bobbibrowncosmetics.com/*"  ,
+		"https://*.esteelauder.com/*"  ,
+		"https://*.kiehls.com/*"  ,
+		"https://*.drmartens.com/*"  ,
+		"https://*.lenovo.com/*"  ,
+		"https://*.hm.com/*"  ,
+		"https://*.katespade.com/*"  ,
+		"https://*.kennethcole.com/*"  ,
+		"https://*.toryburch.com/*"  ,
+		"https://*.levi.com/*"  ,
+		"https://*.loccitane.com/*" ,  
+		"https://*.backcountry.com/*"  ,
+		"https://*.patagonia.com/*"  ,
+		"https://*.tillys.com/*"  ,
+		"https://*.vitacost.com/*"  ,
+		"https://*.champssports.com/*"  ,
+		"https://*.carters.com/*"  ,
+		"https://*.dickssportinggoods.com/*"  ,
+		"https://*.hibbett.com/*"  ,
+		"https://*.jimmyjazz.com/*" ,  
+		"https://*.famousfootwear.com/*"  ,
+		"https://*.fossil.com/*"  ,
+		"https://*.gap.com/*"  ,
+		"https://*.guess.com/*"  ,
+		"https://*.loft.com/*"  ,
+		"https://*.zippo.com/*"  ,
+		"https://*.topshop.com/*"  ,
+		"https://*.jcrew.com/*"  ,
+		"https://*.sneakersnstuff.com/*"  ,
+		"https://*.ray-ban.com/*"  ,
+		"https://*.rei.com/*"  ,
+		"https://*.tjx.com/*"  ,
+		"https://*.ugg.com/*"  ,
+		"https://*.hotels.com/*" ,
+		"https://*.eastbay.com/*" ,
+		"https://*.shoebacca.com/*" ,
+		"https://*.keenfootwear.com/*" ,
+		"https://*.hunterboots.com/*" ,
+		"https://*.rakuten.com/*" ,
+		"https://*.acer.com/*" ,
+		"https://*.americanapparel.com/*" ,
+		"https://*.elfcosmetics.com/*" ,
+		"https://*.crocs.com/*",
+		"https://*.kipling-usa.com/*",
+		"https://*.foreo.com/*",
+		"https://*.juicycouture.com/*",
+		"https://*.bebe.com/*",
+		"https://*.c21stores.com/*",
+		"https://*.belk.com/*",
+		"https://*.1800contacts.com/*",
+		"https://*.puma.com/*"
+
+	],
+
+	"content_scripts": 
+	[
+		{
+		 
+			"matches": [ "https://*.nike.com/*", "https://*.macys.com/*" , "https://*.adidas.com/*" ,"https://*.newbalance.com/*" ,"https://*.reebok.com/*" ,"https://*.forever21.com/*" ,	"https://*.maccosmetics.com/*", 	"https://*.journeys.com/*" ,"https://*.dell.com/*"  , "https://*.gnc.com/*" ,"https://*.ae.com/*", "https://*.calvinklein.us/*" ,"https://*.asos.com/*"  ,  "https://*.underarmour.com/*" , "https://*.shoes.com/*"  , "https://*.saksoff5th.com/*"  , "https://*.nordstrom.com/*"   ,"https://*.nordstromrack.com/*" ,"https://*.coach.com/*",  "https://*.michaelkors.com/*", 	"https://*.finishline.com/*" ,	"https://*.footlocker.com/*" ,	"https://*.urbanoutfitters.com/*"   ,	"https://*.amazon.com/*" ,	"https://*.ebay.com/*" ,"https://*.bestbuy.com/*"  ,"https://*.clinique.com/*"    ,"https://*.thenorthface.com/*"   ,"https://*.columbia.com/*"  ,"https://*.neimanmarcus.com/*" ,   	"https://*.target.com/*"  ,"https://*.sunglasshut.com/*"  ,   "https://*.sephora.com/*"  , "https://*.ulta.com/*"  ,	"https://*.bathandbodyworks.com/*" ,"https://*.bloomingdales.com/*"   , "https://*.abercrombie.com/*" ,"https://*.pacsun.com/*" ,"https://*.kohls.com/*" ,	"https://*.converse.com/*"  ,"https://*.bobbibrowncosmetics.com/*"   ,"https://*.kiehls.com/*"   , "https://*.esteelauder.com/*" ,	"https://*.drmartens.com/*"  ,	"https://*.lenovo.com/*", "https://*.hm.com/*"   ,"https://*.katespade.com/*" ,"https://*.kennethcole.com/*"  ,"https://*.toryburch.com/*"   ,"https://*.levi.com/*"  ,"https://*.loccitane.com/*"  ,"https://*.backcountry.com/*" ,"https://*.patagonia.com/*" ,	"https://*.tillys.com/*" ,"https://*.vitacost.com/*"  , "https://*.champssports.com/*"   ,	"https://*.carters.com/*"    ,"https://*.dickssportinggoods.com/*"   ,"https://*.hibbett.com/*" ,"https://*.jimmyjazz.com/*"    ,"https://*.famousfootwear.com/*"   , 	"https://*.fossil.com/*" ,"https://*.gap.com/*", "https://*.guess.com/*"   ,	"https://*.loft.com/*" ,"https://*.zippo.com/*" ,"https://*.topshop.com/*"  ,"https://*.jcrew.com/*"   ,"https://*.sneakersnstuff.com/*"   ,"https://*.ray-ban.com/*" ,	"https://*.rei.com/*" ,"https://*.tjx.com/*" ,"https://*.ugg.com/*", "https://*.hotels.com/*"  ,"https://*.eastbay.com/*"    , "https://*.shoebacca.com/*" , "https://*.keenfootwear.com/*" , "https://*.hunterboots.com/*"  ,
+			"https://*.rakuten.com/*"  , "https://*.acer.com/*", "https://*.americanapparel.com/*" , "https://*.elfcosmetics.com/*" ,"https://*.crocs.com/*","https://*.kipling-usa.com/*",  "https://*.foreo.com/*",
+			"https://*.juicycouture.com/*","https://*.bebe.com/*",	"https://*.c21stores.com/*","https://*.belk.com/*",
+			"https://*.1800contacts.com/*", 	"https://*.puma.com/*"
+		],
+
+			"match_about_blank": false,
+			"js": [
+				"js/jquery-1.8.3.min.js", 
+				"js/bililiteRange.js", 
+				"js/jquery.sendkeys.js", 
+				"js/jquery.simulate-keys.js",
+				"js/progressbar/jquery-asProgress.min.js",  
+				"const/const.js", 
+				"js/common.js", 			
+				"content/content-script.js"
+			],
+			 
+			"css": [
+				 "css/custom.css",
+				 "js/progressbar/css/asProgress.min.css"
+				],
+		 
+			"run_at": "document_end"
+		}
+	],
+	
+	"web_accessible_resources": 
+	[
+		"js/jquery-1.8.3.min.js", 
+		"inject/inject.js",
+		"const/const.js",
+		"inject/pop.html",
+		"inject/mask.html",
+		"inject/nike-coupon.html",
+		"css/custom.css"
+	]
+}

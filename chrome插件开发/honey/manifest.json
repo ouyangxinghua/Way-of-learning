@@ -1,0 +1,32 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 2,
+  "name": "Honey",
+  "description": "The fastest way to share a link with your co-workers on Honey.",
+  "homepage_url": "https://honey.is",
+  "version": "1.5.0",
+  "icons": {
+     "128": "images/icon128.png",
+     "48": "images/icon48.png"
+  },
+  "browser_action": {
+    "default_icon": "images/icon38.png",
+    "default_popup": "popup.html",
+    "default_title": "Share to Honey"
+  },
+  "background": {
+     "page": "background.html"
+  },
+  "content_scripts": [ {
+    "js": [ "js/content.js" ],
+    "matches": [ "http://*/*", "https://*/*" ]
+   }
+  ],
+  "permissions": [
+    "http://localhost/",
+    "tabs",
+    "contextMenus",
+    "*://*.honey.is/*"
+  ]
+}

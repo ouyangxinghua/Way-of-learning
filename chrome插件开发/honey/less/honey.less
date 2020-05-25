@@ -1,0 +1,222 @@
+/*
+Description:	Honey Chrome Extension
+Author:			Wes Hatch, Adam Becker
+Author URI:		http://hugeinc.com
+Version:		0.1
+
+		◡◠ ✥ ◠◡
+
+	Table of Contents:
+ 
+		Layout
+		General Styles
+			typograpy
+			inputs
+			buttons
+			helpers
+		Section Styles
+			header
+			main
+			drop down
+			footer
+			loading
+*/
+
+/*  ---------------------------------------------------------
+	SET UP, VARIBLES
+	-------------------------------------------------------*/
+@import "variables.less";
+@import "mixins.less";
+
+@font-face {
+	font-family: 'Pictos';
+	src:url('../fonts/pictos-webfont.eot');
+	src:url('../fonts/pictos-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/pictos-webfont.woff') format('woff'),
+		url('../fonts/pictos-webfont.ttf') format('truetype'),
+		url('../fonts/pictos-webfont.svg#Pictos') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+* { 
+	margin:0; padding:0;
+	position:relative; background-repeat:no-repeat;
+	-moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; 
+	font-family:"Open Sans", sans-serif;
+}
+
+html { width:455px; height:360px; overflow: hidden; }
+
+body { width:455px; height:360px; margin:0; padding:0; overflow:hidden; /*font-family:"Proxima Nova Bold", sans-serif;*/ background:#f0f0f0; }
+
+
+/*  ---------------------------------------------------------
+	LAYOUT
+	-------------------------------------------------------*/
+header { padding:18px; }
+header, footer { font-size:12px; color:#adadad; line-height:24px; background:#efefef; }
+footer { padding:18px; text-align:right; border-top:1px solid #e0e0e0; }
+section { background:#fff; }
+
+
+/*  ---------------------------------------------------------
+	GENERAL STYLES
+	-------------------------------------------------------*/
+
+/* --- typography --- */
+
+/* --- inputs --- */
+input[type="text"], 
+textarea,
+select {
+	width:100%; color:#666; padding:18px; font-family:"Open Sans", sans-serif; font-size:15px; line-height:24px; border:0; background:#fff;
+}
+textarea { height:auto; max-height:112px; height:64px; resize:none;
+ //-webkit-transition:height 0.15s ease-out; transition:height 0.15s ease-out;
+}
+input[type="text"]:focus, textarea:focus { outline:none }
+::-webkit-input-placeholder { color:#a8a8a8; }
+
+/* --- buttons --- */
+.button { width:120px; display:inline-block; color:#fff; font-family:"Open Sans", sans-serif; font-size:12px; font-weight:700; text-align:center; text-transform:uppercase; text-decoration: none; padding:12px 0; cursor:pointer; border:0; border-radius:2px;
+ /*-webkit-appearance:none; -webkit-transition: all 0.15s ease-out; transition: all 0.15s ease-out; */
+}
+.button.blue {
+	background:#0da4d0;
+	border-bottom:solid 3px #0d87aa;
+	&[disabled=disabled] {
+		background: darken(@buttonGrayBackColor, 12%);
+		border-bottom-color: darken(@buttonGrayBackColor, 18%);
+	}
+}
+.button.gray {
+	color: @buttonGrayFontColor;
+	background: @buttonGrayBackColor;
+}
+.button:hover:not([disabled]).blue { background-color:#17b4e2; }
+
+/* --- icons --- */
+.icon {
+	color: inherit;
+	font-family: 'Pictos', sans-serif;
+	font-size: inherit;
+	font-weight: normal;
+	text-transform: none !important;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* --- helpers --- */
+.warning { border:2px solid red; }
+
+
+/*  ---------------------------------------------------------
+	SECTION STYLES
+	-------------------------------------------------------*/
+
+/* --- header --- */
+#user { margin-right:4px; color:#292929; font-weight:600; /* semi bold */ }
+#userImage img { border-radius:2px; height:24px; float:left; margin-right:9px; }
+
+/* --- main --- */
+#title { font-size:22px; color:#292929; padding-bottom:8px; }
+#url { font-size:11px; color:#949494; padding-top:0; height:30px;}
+#groups li, #groups option { cursor:pointer; }
+form { -webkit-transition:opacity .4s ease; transition:opacity .4s ease; opacity:1; }
+section > div { border-top:1px solid #e0e0e0; }
+/*
+.overlay {
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+	border-top: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	//display: none;
+	h2 {
+		color: @blue;
+		font-size: 32px;
+		font-weight: 400;
+		margin-top: 94px;
+	}
+	p {
+		color: #666;
+		font-size: 14px;
+	}
+}
+*/
+.descriptionwrap { padding-right:0 !important; }
+
+/* --- drop down --- */
+/*
+.chzn-choices { list-style:none; padding:12px 30px; }
+.chzn-choices::after { content:''; display:block; height:0; visibility:hidden; clear:both; }
+.chzn-container { font-size:13px; position: relative; display: inline-block; vertical-align:middle; 
+	background:url('../images/arrow-down.png') 424px 50% no-repeat; 
+}
+.chzn-container.chzn-with-drop { background-image:url('../images/arrow-up.png');  }
+//.chzn-container::after { content:''; position:absolute; width:24px; height:24px; left:424px; top:50%; margin-top:-12px; background:url('../images/arrow-down.png') 50% 50% no-repeat; }
+//.chzn-container.chzn-with-drop::after { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
+
+.chzn-container .chzn-drop { position:absolute; top:100%; left:-9999px; z-index:1010; width:100%; border-top:1px solid #e0e0e0; background: #fff; }
+.chzn-container.chzn-with-drop .chzn-drop { left: 0; }
+//.chzn-container.chzn-with-drop .chzn-drop { left: 0; position:relative; }
+
+.chzn-container .chzn-results { max-height:128px; overflow-x:hidden; overflow-y:auto; -webkit-overflow-scrolling:touch;}
+.chzn-container .chzn-results li { display:none; padding:4px 30px; list-style:none; }
+.chzn-container .chzn-results .active-result { cursor:pointer; display:list-item;}
+.chzn-container .chzn-results .highlighted { background-image: -webkit-linear-gradient(top, #3875d7 20%, #2a62bc 90%); background-image:linear-gradient(#3875d7 20%, #2a62bc 90%); color: #fff; }
+.chzn-container .chzn-results .no-results {background: #f4f4f4;  display: list-item;}
+.chzn-container-multi .chzn-choices .search-choice { float:left; height:32px; color:#666; font-size:12px; line-height:14px; padding:8px 26px 6px 8px; margin:4px 8px 4px 0; cursor:default; -webkit-border-radius:2px; border-radius:2px; background-color:#ededed; border:1px solid #cccccc; z-index:10; }
+.chzn-container-multi .chzn-choices .default { padding:8px 0 !important; color:#aaa; }
+.chzn-container-multi .chzn-choices .search-choice .search-choice-close { display:block; position:absolute; right:4px; top:8px; width:13px; height:13px; background:url('../images/close.png') no-repeat; }
+.chzn-container-multi .chzn-choices .search-choice .search-choice-close:hover { }
+.chzn-container-multi .chzn-choices .search-field { white-space:nowrap; float:left; }
+.chzn-container-multi .chzn-choices .search-field input { padding:8px; }
+.chzn-container-multi .chzn-drop .result-selected { display: none; }
+*/
+
+
+/* --- footer --- */
+#cancel { cursor:pointer; font-size:12px; font-weight:600; text-transform:uppercase; margin-right:25px; }
+#social a { display:block; width:45px; height:45px; position:absolute; top:0; right:0; }
+
+
+/* --- loading --- */
+.out { opacity:0; }
+.fade { opacity: 0.4; }
+#loading { width:91px; height:91px; margin:-45px 0 0 -45px; opacity:0; position:absolute; left:50%; top:50%; z-index:-1; background:url('../images/loading_bee.gif') no-repeat center center; 
+	/* -webkit-transition:-webkit-transform 0.4s cubic-bezier(0.4, 0.46, 0.32, 1.275), opacity 0.3s ease; transition:transform 0.4s cubic-bezier(0.4, 0.46, 0.32, 1.275), opacity 0.3s ease; -webkit-transform:scale(0.8); transform: scale(0.8); */
+}
+#loading.in { z-index:2000; opacity:1; /* -webkit-transform: scale(1); */ }
+
+/*
+#posting-bg {
+	background-color: rgba(255, 255, 255, 0.8);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	z-index: -1;
+	-webkit-transition: opacity 0.3s ease;
+			transition: opacity 0.3s ease;
+	&.in {
+		opacity: 1;
+		z-index: 2;
+	}
+}
+*/
+
+
+/*  ---------------------------------------------------------
+	INCLUDES (chosen, bootstrap, etc.)
+	-------------------------------------------------------*/
+@import "chosen.less";
+@import "bootstrap.less";

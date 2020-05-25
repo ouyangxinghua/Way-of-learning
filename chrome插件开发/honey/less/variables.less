@@ -1,0 +1,209 @@
+//  ===== Variables.less =====================================================
+//  Variables to be used throughout other less files
+//  ==========================================================================
+   
+   
+// COLOR & TYPE
+// --------------------------------------------------
+
+
+// Base Colors
+// -------------------------
+@lgray8:	#f8f6f6;
+@lgray7:	#f3f3f3;
+@lgray6:	#f1efef;
+@lgray5:	#edecec;
+@lgray4:	#d4d4d4;
+@lgray3:	#b4b2b2;
+@lgray2:	#c8c6c6;
+@lgray1:	#ababab;
+@lgray:		#9e9e9e;
+@gray:		#666;
+@dgray:		#515050;
+@dgray1:	#333;
+@dgray2:	#292929;
+@dgray3:	#242424;
+@dgray4:	#1f1f1f;
+@dgray5:	#111;
+
+@blue:		#0da4d0;
+@blue2:		#07a0ef;
+@pink:		#ff5454;
+@red:		red;
+@green:		#8bb335;
+@green2:	#13941c;
+@orange:	#fba012;
+
+@newlgray:	#e2e3e4;
+
+
+// Base Color Declarations
+// -------------------------
+@bodyBackColor:			@lgray7;
+						
+@headerBackColor:		@dgray3;
+						
+@postsBackColor:		#fff;
+@postsBackHoverColor:	@lgray8;
+@postsBorderColor:		@lgray5;
+
+
+// Input Color Declarations
+// -------------------------
+@genInpBackColor:		#efefef;
+
+@newCommBackColor:		@lgray6;
+@newCommBorderColor:	darken(@newCommBackColor, 7%);
+@newCommFocusBackColor:	lighten(@newCommBackColor, 3%);
+
+@errorFontColor:		@notifBackColor;
+
+
+// Icon Color Declarations
+// - standard approach is to inherit color
+// ---------------------------------------
+@sideFavIconColor:		@lgray2;
+@sideFavIconActColor:	@pink;
+
+@fileIconBackColor:		@lgray7;
+@fileIconLinkColor:		@blue2;
+@fileIconPDFColor:		red;
+@fileIconPSDColor:		#0361e2;
+@fileIconXLSColor:		#389a02;
+
+
+// Type Base Declarations
+// -------------------------
+@baseFont:					'proxima-nova', sans-serif;
+@baseFontSize:				16px;
+@baseFontSizeStrip:			~`parseInt('@{baseFontSize}')`;
+@baseFontColor:				@gray;
+@baseFontWeight:			400;
+							
+@headingFontColor:			@dgray1;
+@headingFontWeight:			400;
+
+@navFontColor:				#989898;
+@navFontWeight:				700;
+@navFontHoverColor:			#fff;
+							
+@metaTxtFontColor:			@lgray3;
+@metaTxtFontWeight:			400;
+							
+@metaNumFontColor:			@lgray2;
+@metaNumFontWeight:			400;
+
+
+// Link Color Declarations
+// -------------------------
+@shareSmallColor:			@blue;
+@shareHoverBackColor:		@shareSmallColor;
+
+@favHoverBackColor:			@sideFavIconActColor;
+
+@hideDetColor:				@lgray1;
+@hideDetHoverColor:			darken(@lgray1, 20%);
+@hideDetWeight:				700;
+
+@deleteGroupColor:			@lgray;
+@deleteGroupHoverColor:		@gray;
+
+
+// Button & Utility Element Color Declarations
+// -------------------------------------------
+@sepLineColor:				@lgray5;
+
+@buttonFontWeight:			700;
+
+@buttonLightBackColor:		#fff;
+@buttonLightFontColor:		@lgray1;
+@buttonLightBorderColor:	@lgray4;
+
+@buttonGrayBackColor:		darken(@bodyBackColor, 5%);
+@buttonGrayFontColor:		darken(@baseFontColor, 5%);
+
+@buttonDarkBackColor:		darken(@headerBackColor, 3.53%);
+@buttonDarkFontColor:		@navFontColor;
+@buttonDarkFontHoverColor:	@navFontHoverColor;
+
+@buttonFollowActFontColor:	#fff;
+@buttonFollowActStartColor:	@green2;
+@buttonFollowActEndColor:	darken(saturate(@green2, 33%), 13%);
+@buttonFollowActBrdColor:	@green2;
+
+@buttonOrangeFontColor:		#fff;
+@buttonOrangeStartColor:	@orange;
+@buttonOrangeEndColor:		darken(saturate(@buttonOrangeStartColor, 33%), 13%);
+@buttonOrangeBrdColor:		@buttonOrangeEndColor;
+
+@postActsBackColor:			@lgray7;
+@postActsFontColor:			@lgray;
+@postActsHoverFontColor:	#fff;
+
+@newPostFontColor:			#fff;
+@newPostBackColor:			@blue;
+@newPostStartColor:			@blue;
+@newPostEndColor:			darken(saturate(@newPostStartColor, 33%), 13%);
+@newPostBrdColor:			@newPostEndColor;
+
+
+// Sub Header Declarations
+// -----------------------------
+@subheaderBackColor:		@dgray2;
+@subnavBackColor:			@dgray3;
+							
+@subheaderNameColor:		#fff;
+@subheaderNameWeight:		300;
+@subheaderDescColor:		darken(@gray, 2.5%);
+@subheaderDescWeight:		600;
+
+
+// Profile List Color Declarations
+// -------------------------------
+@profileItemBackColor:		@postsBackColor;
+@profileItemBottomColor:	darken(@postsBackColor, 2%);
+
+@profileItemNameWeight:		600;
+
+
+// Modal Window Color Declarations
+// -------------------------------
+@modalBackColor:			@dgray5;
+
+@modalMainFontColor:		#fff;
+
+@modalInpBackColor:			#fff;
+
+@modalSelectFontWeight:		600;
+
+
+// Tooltips
+@zindexTooltip:    			1030;
+				   			
+@tooltipColor:     			#fff;
+@tooltipBackground:			#000;
+@tooltipArrowWidth:			5px;
+@tooltipArrowColor:			@tooltipBackground;
+
+@tooltipErrorBack:			@red;
+@tooltipAttentionBack:		@newPostBackColor;
+
+// Popover  Declarations
+// -------------------------------
+@zindexPopover:           1100;
+
+@popoverBackground:       #fff;
+@popoverTitleBackground:  @lgray8;
+@popoverArrowColor:       @lgray8;
+@popoverArrowWidth:       6px;
+
+// Special enhancement for popovers
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+@popoverArrowOuterColor:  rgba(0,0,0,.25);
+
+
+// Top Nav Notification Declarations
+// ---------------------------------
+@notifFontColor:			#fff;
+
+@notifBackColor:			#ff5454;

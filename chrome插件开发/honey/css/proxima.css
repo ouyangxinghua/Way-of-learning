@@ -1,0 +1,47 @@
+/*
+@license
+ * MyFonts Webfont Build ID 916360, 2011-08-10T11:53:46-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Proxima Nova S Cond Bold
+ * URL:http://new.myfonts.com/fonts/marksimonson/proxima-nova/scond-bold/
+ * Foundry: Mark Simonson
+ * Copyright: Copyright (c) Mark Simonson, 2005. All rights reserved.
+ * License: http://www.myfonts.com/viewlicense?1056
+ * Licensed pageviews: 10,000,000/month
+ * CSS font-family: ProximaNovaSCond-Bold
+ * CSS font-weight: normal
+ * CSS font-style: normal
+ * 
+ * Webfont: Proxima Nova A Cond Bold
+ * URL:http://new.myfonts.com/fonts/marksimonson/proxima-nova/acond-bold/
+ * Foundry: Mark Simonson
+ * Copyright: Copyright (c) Mark Simonson, 2005. All rights reserved.
+ * License: http://www.myfonts.com/viewlicense?1056
+ * Licensed pageviews: 10,000,000/month
+ * CSS font-family: ProximaNovaACond-Bold
+ * CSS font-weight: normal
+ * CSS font-style: normal
+ * 
+ * Webfont: Proxima Nova Cond Bold
+ * URL:http://new.myfonts.com/fonts/marksimonson/proxima-nova/cond-bold/
+ * Foundry: Mark Simonson
+ * Copyright: Copyright (c) Mark Simonson, 2005. All rights reserved.
+ * License: http://www.myfonts.com/viewlicense?1056
+ * Licensed pageviews: 10,000,000/month
+ * CSS font-family: ProximaNovaCond-Bold
+ * CSS font-weight: normal
+ * CSS font-style: normal
+ * 
+ * (c) 2011 Bitstream Inc
+*/
+
+
+ @font-face {font-family: 'Proxima Nova';			src: url('../fonts/style_148555.eot?#iefix') format('embedded-opentype'),url('webfonts/woff/style_148555.woff') format('woff'),url('webfonts/ttf/style_148555.ttf') format('truetype'),url('webfonts/svg/style_148555.svg#ProximaNovaSCond-Bold') format('svg');}
+ @font-face {font-family: 'Proxima Nova Semi-Bold';	src: url('webfonts/eot/style_148553.eot?#iefix') format('embedded-opentype'),url('webfonts/woff/style_148553.woff') format('woff'),url('webfonts/ttf/style_148553.ttf') format('truetype'),url('webfonts/svg/style_148553.svg#ProximaNovaACond-Bold') format('svg');}
+ @font-face {font-family: 'Proxima Nova Bold';		src: url('webfonts/eot/style_148551.eot?#iefix') format('embedded-opentype'),url('webfonts/woff/style_148551.woff') format('woff'),url('webfonts/ttf/style_148551.ttf') format('truetype'),url('webfonts/svg/style_148551.svg#ProximaNovaCond-Bold') format('svg');}

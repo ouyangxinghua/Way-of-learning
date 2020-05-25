@@ -1,0 +1,389 @@
+#cornerContent {
+	display: inline-block;
+	position: relative;
+	overflow: visible;
+	margin-top: 16px;
+	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+	box-sizing: content-box;
+	margin-left: 4px;
+	margin-right: 16px;
+	border-radius: 4px;
+	pointer-events: auto;
+	background-color: #fafafa;
+}
+
+.kupangzi-shadow {
+	animation: initial;
+	transition: opacity 0.2s ease 0s;
+	color: initial;
+	font: initial;
+	font-feature-settings: initial;
+	font-kerning: initial;
+	font-variation-settings: initial;
+	text-orientation: initial;
+	text-rendering: initial;
+	-webkit-font-smoothing: initial;
+	-webkit-locale: initial;
+	-webkit-text-orientation: initial;
+	-webkit-writing-mode: initial;
+	writing-mode: initial;
+	zoom: initial;
+	place-content: initial;
+	place-items: initial;
+	place-self: initial;
+	alignment-baseline: initial;
+	backdrop-filter: initial;
+	backface-visibility: initial;
+	background: initial;
+	background-blend-mode: initial;
+	baseline-shift: initial;
+	block-size: initial;
+	border-block-end: initial;
+	border-block-start: initial;
+	border: initial;
+	border-radius: initial;
+	border-collapse: initial;
+	border-inline-end: initial;
+	border-inline-start: initial;
+	bottom: initial;
+	box-shadow: initial;
+	box-sizing: initial;
+	break-after: initial;
+	break-before: initial;
+	break-inside: initial;
+	buffered-rendering: initial;
+	caption-side: initial;
+	caret-color: initial;
+	clear: initial;
+	clip: initial;
+	clip-path: initial;
+	clip-rule: initial;
+	color-interpolation: initial;
+	color-interpolation-filters: initial;
+	color-rendering: initial;
+	columns: initial;
+	column-fill: initial;
+	gap: initial;
+	column-rule: initial;
+	column-span: initial;
+	contain: initial;
+	content: initial;
+	counter-increment: initial;
+	counter-reset: initial;
+	cursor: initial;
+	cx: initial;
+	cy: initial;
+	d: initial;
+	display: initial;
+	dominant-baseline: initial;
+	empty-cells: initial;
+	fill: initial;
+	fill-opacity: initial;
+	fill-rule: initial;
+	filter: initial;
+	flex: initial;
+	flex-flow: initial;
+	float: initial;
+	flood-color: initial;
+	flood-opacity: initial;
+	grid: initial;
+	grid-area: initial;
+	height: initial;
+	hyphens: initial;
+	image-rendering: initial;
+	inline-size: initial;
+	isolation: initial;
+	left: initial;
+	letter-spacing: initial;
+	lighting-color: initial;
+	line-break: initial;
+	list-style: initial;
+	margin-block-end: initial;
+	margin-block-start: initial;
+	margin: initial;
+	margin-inline-end: initial;
+	margin-inline-start: initial;
+	marker: initial;
+	mask: initial;
+	mask-type: initial;
+	max-block-size: initial;
+	max-height: initial;
+	max-inline-size: initial;
+	max-width: initial;
+	min-block-size: initial;
+	min-height: initial;
+	min-inline-size: initial;
+	min-width: initial;
+	mix-blend-mode: initial;
+	object-fit: initial;
+	object-position: initial;
+	offset: initial;
+	opacity: 1;
+	order: initial;
+	orphans: initial;
+	outline: initial;
+	outline-offset: initial;
+	overflow-anchor: initial;
+	overflow-wrap: initial;
+	overflow: initial;
+	overscroll-behavior: initial;
+	padding-block-end: initial;
+	padding-block-start: initial;
+	padding: initial;
+	padding-inline-end: initial;
+	padding-inline-start: initial;
+	page: initial;
+	paint-order: initial;
+	perspective: initial;
+	perspective-origin: initial;
+	pointer-events: none;
+	position: fixed;
+	quotes: initial;
+	r: initial;
+	resize: initial;
+	right: 0px;
+	rx: initial;
+	ry: initial;
+	scroll-behavior: initial;
+	scroll-margin-block: initial;
+	scroll-margin: initial;
+	scroll-margin-inline: initial;
+	scroll-padding-block: initial;
+	scroll-padding: initial;
+	scroll-padding-inline: initial;
+	scroll-snap-align: initial;
+	scroll-snap-stop: initial;
+	scroll-snap-type: initial;
+	shape-image-threshold: initial;
+	shape-margin: initial;
+	shape-outside: initial;
+	shape-rendering: initial;
+	size: initial;
+	speak: initial;
+	stop-color: initial;
+	stop-opacity: initial;
+	stroke: initial;
+	stroke-dasharray: initial;
+	stroke-dashoffset: initial;
+	stroke-linecap: initial;
+	stroke-linejoin: initial;
+	stroke-miterlimit: initial;
+	stroke-opacity: initial;
+	stroke-width: initial;
+	tab-size: initial;
+	table-layout: initial;
+	text-align: initial;
+	text-align-last: initial;
+	text-anchor: initial;
+	text-combine-upright: initial;
+	text-decoration: initial;
+	text-decoration-skip-ink: initial;
+	text-indent: initial;
+	text-overflow: initial;
+	text-shadow: initial;
+	text-size-adjust: initial;
+	text-transform: initial;
+	text-underline-position: initial;
+	top: 0px;
+	touch-action: initial;
+	transform: initial;
+	transform-box: initial;
+	transform-origin: initial;
+	transform-style: initial;
+	user-select: initial;
+	vector-effect: initial;
+	vertical-align: initial;
+	visibility: visible;
+	-webkit-app-region: initial;
+	-webkit-appearance: initial;
+	border-spacing: initial;
+	-webkit-border-image: initial;
+	-webkit-box-align: initial;
+	-webkit-box-decoration-break: initial;
+	-webkit-box-direction: initial;
+	-webkit-box-flex: initial;
+	-webkit-box-ordinal-group: initial;
+	-webkit-box-orient: initial;
+	-webkit-box-pack: initial;
+	-webkit-box-reflect: initial;
+	-webkit-font-size-delta: initial;
+	-webkit-highlight: initial;
+	-webkit-hyphenate-character: initial;
+	-webkit-line-break: initial;
+	-webkit-line-clamp: initial;
+	-webkit-margin-collapse: initial;
+	-webkit-margin-bottom-collapse: initial;
+	-webkit-margin-top-collapse: initial;
+	-webkit-mask-box-image: initial;
+	-webkit-mask: initial;
+	-webkit-mask-composite: initial;
+	-webkit-perspective-origin-x: initial;
+	-webkit-perspective-origin-y: initial;
+	-webkit-print-color-adjust: initial;
+	-webkit-rtl-ordering: initial;
+	-webkit-ruby-position: initial;
+	-webkit-tap-highlight-color: initial;
+	-webkit-text-combine: initial;
+	-webkit-text-decorations-in-effect: initial;
+	-webkit-text-emphasis: initial;
+	-webkit-text-emphasis-position: initial;
+	-webkit-text-fill-color: initial;
+	-webkit-text-security: initial;
+	-webkit-text-stroke: initial;
+	-webkit-transform-origin-x: initial;
+	-webkit-transform-origin-y: initial;
+	-webkit-transform-origin-z: initial;
+	-webkit-user-drag: initial;
+	-webkit-user-modify: initial;
+	white-space: initial;
+	widows: initial;
+	width: initial;
+	will-change: initial;
+	word-break: initial;
+	word-spacing: initial;
+	x: initial;
+	y: initial;
+	z-index: 2147483647;
+}
+
+* {
+	font-family: SuisseIntl, "Open Sans", sans-serif;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	margin: 0px;
+}
+
+div {
+	color: #505050;
+	font-weight: 500;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+	color: #2074e4;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+input[type=password]::-ms-reveal {
+	display: none;
+}
+.c025 {
+    padding: 14px 0px;
+    margin-top: 0px;
+    border-top: 1px solid #eeeeee;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #eeeeee;
+}
+.c027 {
+    color: #808080;
+    display: flex;
+    padding: 0px 10px;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.c029 {
+    margin-top: 6px;
+}.c0213 {
+    font-weight: 600;
+}
+#kupangzi_pop .h-btn.h-flexible {
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+}
+#kupangzi_pop .h-btn {
+    background: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: .2s;
+	text-shadow: none;
+	
+}
+
+#kupangzi_pop .h-btn-copy {
+    color: #fff;
+    font-weight: 600;
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    -webkit-transition: .2s;
+    transition: .2s;
+    white-space: nowrap;
+    font-family: SuisseIntl;
+    letter-spacing: normal;
+    font-stretch: normal;
+    font-style: normal;
+    text-shadow: none!important;
+    text-transform: none!important;
+    cursor: pointer;
+}
+
+#kupangzi_pop .h-btn.h-primary {
+    background-color: #ff7227!important;
+	border-color: #ff7227!important;
+	height: 40px !important;
+
+}
+*[id^='honey'] * {
+    font-family: SuisseIntl,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+#kupangzi_pop .h-btn.h-size42 .h-btn-copy {
+    font-size: 16px;
+	margin: 10px;
+	height: 0px;
+    line-height: 0px;
+}
+#kupangzi_mask .h-btn.h-size42 .h-btn-copy {
+    font-size: 16px;
+	margin: 10px;
+	height: 0px;
+    line-height: 0px;
+}
+
+#kupangzi_pop .h-btn-content-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+ 
+#kupangzi_mask .h-btn-content-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}

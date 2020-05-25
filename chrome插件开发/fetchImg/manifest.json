@@ -1,6 +1,6 @@
 {
   "name": "萌萌芽图片提取插件",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Build an Extension!",
   "permissions": [
     "activeTab",

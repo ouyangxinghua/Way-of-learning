@@ -79,9 +79,9 @@
                 for (let i = 0; i < this.arr.taskNewsVos.length; i++) {
                     // 以下代码并不能让show和id动态更新
                     // this.ajaxData.taskNewsVos[i].id = i + 1;
-                    // this.ajaxData.taskNewsVos[i].show = true;
+                    this.ajaxData.taskNewsVos[i].show = true;
                     // 解决方案如下，利用vue原型方法$set来实现监听，把这些属性全部转为 getter/setter,在属性被访问和修改时通知变化。
-                    this.$set(this.ajaxData.taskNewsVos, i, { id: i + 1, show: true, ...this.ajaxData.taskNewsVos[i] });
+                    // this.$set(this.ajaxData.taskNewsVos, i, { id: i + 1, show: true, ...this.ajaxData.taskNewsVos[i] });
                     // this.control.push({
                     //     show: true
                     // })
@@ -129,7 +129,7 @@
 </html>
 
 <!-- vue.$set原理 -->
-https://www.cnblogs.com/heavenYJJ/p/9559439.html
+<!-- https://www.cnblogs.com/heavenYJJ/p/9559439.html
 https://www.cnblogs.com/shy1766IT/p/11043253.html
 
 function set (target: Array<any> | Object, key: any, val: any): any {
@@ -162,4 +162,4 @@ function set (target: Array<any> | Object, key: any, val: any): any {
     defineReactive(ob.value, key, val)
     ob.dep.notify()
     return val
-  }
+  } -->

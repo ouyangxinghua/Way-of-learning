@@ -4,15 +4,15 @@ const systems = {
   c: '微信'
 }
 
-chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({color: '#3aa757'}, function() {
+chrome.runtime.onInstalled.addListener(function () {
+  chrome.storage.sync.set({ color: '#3aa757' }, function () {
     console.log("The color is green.");
   });
   // 类似于什么时候激活浏览器插件图标这种感觉
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
+  chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
     chrome.declarativeContent.onPageChanged.addRules([{
       conditions: [new chrome.declarativeContent.PageStateMatcher({
-        pageUrl: {hostSuffix: '.com'},
+        pageUrl: { hostSuffix: '.com' },
       })
       ],
       actions: [new chrome.declarativeContent.ShowPageAction()]
@@ -37,7 +37,7 @@ chrome.runtime.onInstalled.addListener(function() {
 // });
 
 // 用来控制在用户搜索的时候, 可以通过插件指定的关键字跳转到我们控制的url上
-chrome.omnibox.onInputEntered.addListener(function(text) {
+chrome.omnibox.onInputEntered.addListener(function (text) {
   // Encode user input for special characters , / ? : @ & = + $ #
   var newURL = 'https://www.google.com/search?q=' + encodeURIComponent(text);
   chrome.tabs.create({ url: newURL });
@@ -45,10 +45,10 @@ chrome.omnibox.onInputEntered.addListener(function(text) {
 
 // 谷歌自定义命令快捷键
 const MainPageUrl = 'https://bbs.hupu.com/all-gambia'
-chrome.commands.onCommand.addListener(function(command) {
+chrome.commands.onCommand.addListener(function (command) {
   console.log(command)
   if (command === 'toggle-tags') {
-    chrome.tabs.create({"url": MainPageUrl, "selected": true});
+    chrome.tabs.create({ "url": MainPageUrl, "selected": true });
   }
   // chrome.tabs.query({currentWindow: true}, function(tabs) {
   //   // Sort tabs according to their index in the window.
@@ -65,10 +65,28 @@ chrome.commands.onCommand.addListener(function(command) {
 });
 
 chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
+  function (request, sender, sendResponse) {
     console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
+      "from a content script:" + sender.tab.url :
+      "from the extension");
     if (request.greeting == "hello")
-      sendResponse({farewell: "goodbye"});
-  });
+      sendResponse({ farewell: "goodbye" });
+});
+// 桌面通知
+// chrome.notifications.create(null, {
+// 	type: 'basic',
+// 	iconUrl: 'images/1.png',
+// 	title: '这是标题',
+// 	message: '您刚才点击了自定义右键菜单！'
+// });
+
+// background.js
+// function test()
+// {
+// 	alert('我是background！');
+// }
+
+// // popup.js
+// var bg = chrome.extension.getBackgroundPage();
+// bg.test(); // 访问bg的函数
+// alert(bg.document.body.innerHTML); // 访问bg的DOM
