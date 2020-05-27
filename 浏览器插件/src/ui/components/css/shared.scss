@@ -1,0 +1,85 @@
+// **************************************************
+// ATTENTION: all styles of extension should be put
+// inside this tag to prevent influence to outer page
+// **************************************************
+fatcoupon-content {
+  @import "../../../../node_modules/bootstrap/scss/bootstrap";
+
+  @font-face {
+    font-family: 'AvenirNext';
+    font-weight: 400;
+    src:  url('chrome-extension://__MSG_@@extension_id__/assets/fonts/woff/AvenirNext-Regular.woff') format('woff'),
+          url('chrome-extension://__MSG_@@extension_id__/assets/fonts/ttf/AvenirNext-Regular.woff')  format('truetype')
+  }
+  @font-face {
+    font-family: 'AvenirNext';
+    font-weight: 500;
+    src:  url('chrome-extension://__MSG_@@extension_id__/assets/fonts/woff/AvenirNext-Medium.woff') format('woff'),
+          url('chrome-extension://__MSG_@@extension_id__/assets/fonts/ttf/AvenirNext-Medium.woff')  format('truetype')
+  }
+  @font-face {
+    font-family: 'AvenirNext';
+    font-weight: 600;
+    src:  url('chrome-extension://__MSG_@@extension_id__/assets/fonts/woff/AvenirNext-DemiBold.woff') format('woff'),
+          url('chrome-extension://__MSG_@@extension_id__/assets/fonts/ttf/AvenirNext-DemiBold.woff')  format('truetype')
+  }
+  @font-face {
+    font-family: 'AvenirNext';
+    font-weight: 700;
+    src:  url('chrome-extension://__MSG_@@extension_id__/assets/fonts/woff/AvenirNext-Bold.woff') format('woff'),
+          url('chrome-extension://__MSG_@@extension_id__/assets/fonts/ttf/AvenirNext-Bold.woff')  format('truetype')
+  }
+
+  font-family: AvenirNext, Arial, sans-serif;
+
+  @import "Sidebar";
+  @import "ApplyPopup";
+
+  .icon-logo {
+    background: url('chrome-extension://__MSG_@@extension_id__/assets/images/kupangzi_logo@2x.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .icon-close {
+    background: url('chrome-extension://__MSG_@@extension_id__/assets/images/close@2x.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .icon-money {
+    background: url('chrome-extension://__MSG_@@extension_id__/assets/images/icon-dollar@2x.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .icon-sale {
+    background: url('chrome-extension://__MSG_@@extension_id__/assets/images/sale@2x.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .button {
+    width: 100%;
+    border-radius:3px;
+    padding: 10px;
+
+    .icon {
+      margin-right: 4px;
+      width: 18px;
+      height: 18px;
+    }
+
+    &.button-social {
+      border: 1px solid rgb(202, 202, 202);
+      color: rgb(67, 67, 67);
+      font-weight: 600;
+    }
+
+    &.button-primary {
+      background: rgb(0, 160, 230);
+      color: rgb(255, 255, 255);
+      font-weight: 500;
+    }
+  }
+}

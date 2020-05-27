@@ -1,0 +1,17 @@
+{
+  "data": {
+    "data": {
+      "coupons": [{
+        "id": "1",
+        "code": "SOMECOUPON1"
+      },{
+        "id": "2",
+        "code": "SOMECOUPON2"
+      },{
+        "id": "3",
+        "code": "uni15cspd-52ON-XY9U-OTL3-MB5IR"
+      }],
+      "localScript": "StoreConnector_Adidas_Reebok.js"
+    }
+  }
+}

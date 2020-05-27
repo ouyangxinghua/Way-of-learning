@@ -1,0 +1,17 @@
+{
+  "data": {
+    "data": {
+      "coupons": [{
+        "id": "1",
+        "code": "C21SHIP11"
+      },{
+        "id": "2",
+        "code": "SUMMER40"
+      },{
+        "id": "3",
+        "code": "D092319A-ER4YOBLGEO"
+      }],
+      "localScript": "StoreConnector_C21stores.js"
+    }
+  }
+}

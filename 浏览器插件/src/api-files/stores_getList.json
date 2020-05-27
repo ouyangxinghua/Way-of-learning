@@ -1,0 +1,40 @@
+{
+  "data": {
+    "data": [{
+        "id": "ad",
+        "name": "Adidas",
+        "domain": "www.adidas.com",
+        "urls": [
+          "www.adidas.com"
+        ]
+      },{
+        "id": "c21",
+        "name": "Century 21",
+        "domain": "www.c21stores.com",
+        "urls": [
+          "www.c21stores.com"
+        ]
+    },{
+        "id": "ck",
+        "name": "Calvin Klein",
+        "domain": "www.calvinklein.us",
+        "urls": [
+          "www.calvinklein.us"
+        ]
+    },{
+        "id": "f21",
+        "name": "Forever 21",
+        "domain": "www.forever21.com",
+        "urls": [
+          "www.forever21.com"
+        ]
+    },{
+        "id": "jn",
+        "name": "Journeys",
+        "domain": "www.journeys.com",
+        "urls": [
+          "www.journeys.com"
+        ]
+    }]
+  }
+}

@@ -1,4 +1,11 @@
 # webpack用法总结
+https://blog.csdn.net/csm0912/article/details/88795369 
+
+# loader 和 plugin的区别
+（1）loader用于对模块源码的转换,主要用来处理非javascript模块 如：.vue文件 .scss文件 Typescript文件等等
+（2）目的在于解决loader无法实现的其他事，从打包优化和压缩，到重新定义环境变量。plugin是一个扩展器，它丰富了webpack本身，
+针对是loader结束后，webpack打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听webpack打包过程中的某些节点，执行广泛的任务
+
 
 1. 常用插件plugin的作用
 

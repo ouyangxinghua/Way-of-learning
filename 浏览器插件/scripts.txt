@@ -1,0 +1,7 @@
+(async() => {
+    let response = await fetch('https://apis.fatcoupon.com/api/extension/stores').then((r) => r.json());
+    console.log(response.data.data.reverse().map((s) => s.urls).flat().map((s) => `    "*://$\{s\}/"`).join(",\\n"))
+})()}
+
+// "build obfuscated extension for freelancers (should be run on our side!)": "webpack --config webpack.config.ext.freelancers.js         --colors --display-error-details --display-chunks --env.target=extension --env.mode=development --env.script=local",
+    // "build stores which use obfuscated modules.js and extension - require only /src/.../stores folder! (to be run on freelancer side)": "webpack --config webpack.config.stores.js --colors --display-error-details --display-chunks --env.target=extension --env.mode=development --env.script=local"

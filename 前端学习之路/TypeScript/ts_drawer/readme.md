@@ -1,0 +1,1 @@
+tsc drawer.ts -t es5  才可编译

@@ -1,0 +1,234 @@
+#sidebar-container {
+  z-index: 2147483647;
+  position: fixed;
+  top: 0;
+  right: 100px;
+  margin: 0;
+  width: 360px;
+  height: 520px;
+  border-radius: 2px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #FFFFFF;
+  box-shadow: 0 0 13px 1px rgba(156,156,156,0.5);
+
+  transition: opacity 0.3s linear;
+
+  &:not(.show) {
+    right: -500px;
+    opacity: 0;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 60px;
+    border-bottom: 1px solid #E5E5E5;
+
+    .title {
+      font-size: 18px;
+      font-weight: 500;
+      color: rgba(46,46,46,1);
+      line-height: 25px;
+    }
+
+    .icon-close {
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      width: 11px;
+      height: 11px;
+
+      cursor: pointer;
+    }
+  }
+
+  .body {
+    flex-grow: 1;
+
+    .coupons {
+      text-align: center;
+
+      .icon-logo {
+        margin-top: 22px;
+        width: 182px;
+        height: 182px;
+        margin-left: calc(50% - 91px);
+      }
+
+      .awesome {
+        font-size: 22px;
+        font-weight: 600;
+        color: rgb(26,26,26);
+        line-height: 30px;
+        margin-top: 16px;
+      }
+
+      .coupon-codes {
+        font-size:17px;
+        font-weight: 600;
+        color: rgba(26,26,26,1);
+        line-height: 23px;
+
+        margin-top: 24px;
+        margin-left: 45px;
+        margin-right: 45px;
+        text-align: initial;
+
+        .label {
+          font-weight: 600;
+          color: rgb(134,134,134);
+        }
+
+        .amount {
+          font-weight: 700;
+          color: rgb(0,160,230);
+          float: right;
+        }
+      }
+
+      .apply-coupon {
+        position: absolute;
+        left: 25px;
+        bottom: 28px;
+        width: calc(100% - 50px);
+
+        button {
+          width: 100%;
+          height: 50px;
+
+          font-size: 17px;
+          line-height: 23px;
+          color: rgb(255, 255, 255);
+          background-color: rgb(0,160,230);
+          border-color: rgb(0,160,230);
+        }
+      }
+    }
+
+    .no-coupons {
+      text-align: center;
+
+      .icon-sale {
+        margin-top: 74px;
+        width: 73px;
+        height: 73px;
+        margin-left: calc(50% - 32px);
+      }
+
+      .title {
+        font-size: 22px;
+        font-weight: 600;
+        color: rgb(26,26,26);
+        line-height: 30px;
+
+        margin-top: 46px;
+        margin-left: 41px;
+        margin-right: 41px;
+      }
+
+      .description {
+        font-size: 15px;
+        font-weight: 500;
+        color: rgb(151,151,151);
+        line-height: 20px;
+
+        margin-top: 4px;
+        margin-left: 34px;
+        margin-right: 34px;
+      }
+    }
+
+    .auth {
+      display: flex;
+      padding: 23px 46px;
+      flex-direction: column;
+      height: 100%;
+
+      .main {
+        flex-grow: 1;
+
+        .title {
+          font-weight:600;
+          color:rgba(59,59,59,1);
+          margin-bottom: 24px;
+        }
+
+        .button {
+          margin: 5px 0;
+        }
+
+        .or {
+          margin: 25px 0;
+          text-align: center;
+          border-bottom: 1px solid #dbdbdb;
+          line-height: 0.1px;
+
+          span {
+            padding: 0 9px;
+            background: white;
+            font-size: 14px;
+            font-weight: 600;
+            color: #afafaf;
+          }
+        }
+
+        .terms {
+          margin-top: 15px;
+          font-size: 13px;
+          font-weight: 500;
+          color: rgb(144, 144, 144);
+          line-height: 18px;
+        }
+      }
+
+      .footer {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(59, 59, 59);
+        line-height: 19px;
+
+        a {
+          color: rgb(77, 117, 252);
+        }
+      }
+    }
+  }
+}
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}

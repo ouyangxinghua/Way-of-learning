@@ -1,0 +1,17 @@
+{
+  "data": {
+    "data": {
+      "coupons": [{
+        "id": "1",
+        "code": "SOMECOUPON1"
+      },{
+        "id": "2",
+        "code": "SOMECOUPON2"
+      },{
+        "id": "3",
+        "code": "UNIPQ5V0MX"
+      }],
+      "localScript": "StoreConnector_Forever21.js"
+    }
+  }
+}

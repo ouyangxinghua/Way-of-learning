@@ -1,0 +1,48 @@
+{
+  "manifest_version": 2,
+  "name": "FatCoupon",
+  "version": "0.1.5",
+  "description": "FatCoupon: Save the most with the largest collection of coupons",
+  "author": "stationfuk",
+  "icons": {
+    "16":  "assets/icons/active/16.png",
+    "32":  "assets/icons/active/32.png",
+    "48":  "assets/icons/active/48.png",
+    "64":  "assets/icons/active/64.png",
+    "128": "assets/icons/active/128.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["js/ext-loader.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": {
+      "16":  "assets/icons/inactive/16.png",
+      "32":  "assets/icons/inactive/32.png",
+      "48":  "assets/icons/inactive/48.png",
+      "64":  "assets/icons/inactive/64.png",
+      "128": "assets/icons/inactive/128.png"
+    },
+    "default_title": "Fatcoupon"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["js/fatcoupon.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    "/modules.js",
+    "/stores/*",
+    "/non-obfuscated-modules/*",
+    "/api-files/*",
+    "/assets/fonts/*",
+    "/assets/icons/*",
+    "/assets/images/*"
+  ]
+}

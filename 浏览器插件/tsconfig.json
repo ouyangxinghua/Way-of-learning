@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "module": "esnext",
+        "target": "ES6",
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "emitDecoratorMetadata": false
+    }
+}

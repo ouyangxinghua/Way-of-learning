@@ -17,7 +17,7 @@
     <div class="postcss-pxtorem">ouyangxinghua</div>
     <!-- <i class="iconfont" style="color: #fff">{{who === '实时链路' ? &#xe66d; : &#xxxxx;}}</i> -->
     <div class="icon" v-html="value">{{value}}</div>
-    <img :src="rwmURL | imgFilter" alt="二维码" />
+    <!-- <img :src="rwmURL | imgFilter" alt="二维码" /> -->
   </div>
 </template>
 
@@ -45,6 +45,16 @@ export default {
       rwmURL: "http://zwfw.guilin.gov.cn:80/ApprReserveInterface/api/takenumber/download/QRCode.v?myNum=XAB013"
     };
   },
+  computed: {
+    tokenid () {
+      return this.$store.state.tokenid
+    }
+  },
+  watch: {
+    tokenid(val){
+      this.ajaxTokenid()
+    }
+  },
   filters: {
     /**
      * 二维码链接过滤
@@ -59,9 +69,15 @@ export default {
     }
   },
   created() {
+    if(this.tokenid){
+      this.ajaxTokenid()
+    }
     this.initFont()
   },
   methods: {
+    ajaxTokenid(){
+      console.log('-----', this.tokenid)
+    },
     event1(data) {
       //   console.log('111', data)
       this.selected = String(data);

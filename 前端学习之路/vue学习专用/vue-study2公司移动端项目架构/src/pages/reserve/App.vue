@@ -33,6 +33,11 @@ export default {
         BaseHeader
     },
     methods: {
+        getTokenid(){
+            setTimeout(() => {
+                this.$store.commit('setTokenid', 'tokeniddasd');
+            }, 40)
+        },
         goBack() {
             this.$router.go(-1)
         },
@@ -47,6 +52,7 @@ export default {
         }
     },
     created() {
+        this.getTokenid()
         this.checkEnv();
     }
 };

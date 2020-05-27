@@ -1,0 +1,17 @@
+{
+  "data": {
+    "data": {
+      "coupons": [{
+        "id": "1",
+        "code": "SOMECOUPON1"
+      },{
+        "id": "2",
+        "code": "SUMMER"
+      },{
+        "id": "3",
+        "code": "CK10UNIB80J"
+      }],
+      "localScript": "StoreConnector_CalvinKlein.js"
+    }
+  }
+}
