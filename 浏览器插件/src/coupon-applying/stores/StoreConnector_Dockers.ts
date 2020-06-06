@@ -13,7 +13,7 @@
         Cookies,
     } = importer;
 
-    class StoreConnector_Champion extends StoreConnector {
+    class StoreConnector_Dockers extends StoreConnector {
 
         metadata = {
             pageSelector: "#divPromoArea",

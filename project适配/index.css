@@ -65,6 +65,9 @@ header {
     padding: 0.13rem 0;
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 .border-1px::after {
     content: "";
@@ -100,14 +103,14 @@ header {
     top: 0.047rem;
 }
 .memory-form-img {
+    position: relative;
+    top: 0.01rem;
     width: 0.15rem;
     height: 0.15rem;
     margin-right: 0.1rem;
 }
 .memory-form {
     margin-top: 0.2rem;
-    display: flex;
-    align-items: center;
     color: #666666;
 }
 .form-button {

@@ -17,6 +17,7 @@
     <div class="postcss-pxtorem">ouyangxinghua</div>
     <!-- <i class="iconfont" style="color: #fff">{{who === '实时链路' ? &#xe66d; : &#xxxxx;}}</i> -->
     <div class="icon" v-html="value">{{value}}</div>
+    <div>{{defineReact.no}}</div>
     <!-- <img :src="rwmURL | imgFilter" alt="二维码" /> -->
   </div>
 </template>
@@ -42,7 +43,11 @@ export default {
       // data: ['阶段一','阶段二', '阶段三', '阶段四','1'],
       selected: "1",
       value: "",
-      rwmURL: "http://zwfw.guilin.gov.cn:80/ApprReserveInterface/api/takenumber/download/QRCode.v?myNum=XAB013"
+      rwmURL: "http://zwfw.guilin.gov.cn:80/ApprReserveInterface/api/takenumber/download/QRCode.v?myNum=XAB013",
+      defineReact: {
+        // no: ''
+      },
+      // tokenid: ''
     };
   },
   computed: {
@@ -69,6 +74,10 @@ export default {
     }
   },
   created() {
+    setTimeout(() => {
+      // this.defineReact.no = '靳萌瑶'
+      this.$set(this.defineReact, 'no', '靳萌瑶')
+    }, 2000)
     if(this.tokenid){
       this.ajaxTokenid()
     }
