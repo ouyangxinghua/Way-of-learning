@@ -43,6 +43,14 @@ module.exports = {
                 target: 'http://192.168.0.152:8888',
                 ws: true,
                 changeOrigin: true
+            },
+            '/':{
+                target:"http://localhost:4000",
+                changeOrigin:true,
+                ws:true,
+                // pathRewrite: {
+                //     '/ouyang': ''    // 重写请求
+                // },
             }
         }
     },

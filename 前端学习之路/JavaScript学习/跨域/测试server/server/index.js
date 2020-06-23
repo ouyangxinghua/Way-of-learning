@@ -7,15 +7,15 @@ const router = require('koa-router')();
 // res set
 app.use(async (ctx, next) => {
   // 允许哪个域名请求
-  // ctx.set('Access-Control-Allow-Origin', "http://127.0.0.1:5500")
+  ctx.set('Access-Control-Allow-Origin', "*")
   // 服务器支持的头部 x-custom
-  ctx.set('Access-Control-Allow-Headers', 'X-custom,content-type');
+  // ctx.set('Access-Control-Allow-Headers', 'X-custom,content-type');
   // 支持的方法
   ctx.set("Access-Control-Allow-Methods", "POST,GET");
   // 允许 携带 cookie
   // 设置为 允许的时候 Access-Control-Allow-origin 需要是一个具体的域名
   // 不能是 *  如果不携带cookies的话，就可以设置为 *
-  ctx.set("Access-Control-Allow-Credentials", true);
+  // ctx.set("Access-Control-Allow-Credentials", true);
   // ctx.cookies.set(
   //   'cid', 
   //   'xinghua',
@@ -31,8 +31,8 @@ app.use(async (ctx, next) => {
   await next();
 })
 router.get('/cors', async function (ctx) {
-  let a = ctx.cookies.get('cid')
-  console.log('cookie', a, ctx.request.origin);
+  // let a = ctx.cookies.get('cid')
+  // console.log('cookie', a, ctx.request.origin);
   ctx.body = [
     { title: 'node.js 入门到精通', createTime: '2018-12-12' },
     { title: 'php 入门到精通', createTime: '2018-11-11' },

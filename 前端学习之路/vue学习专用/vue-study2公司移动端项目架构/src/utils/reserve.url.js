@@ -66,7 +66,12 @@ export function getApproveItem(data, type, callFunc) {
 }
 
 // 优化公司代码
-// export function get(data, type, callFunc){
-//     var args = (callFunc && (callFunc.constructor === Function)) ? [data,type,callFunc] : [data,type]
-//     return fetchData('/ApprReserveInterface/api/hardware/loadBus.v', ...args)
-// }
+export function get(data, type, callFunc){
+    var args = (callFunc && (callFunc.constructor === Function)) ? [data,type,callFunc] : [data,type]
+    return fetchData('/ApprReserveInterface/api/hardware/loadBus.v', ...args)
+}
+
+export function cors(data, type, callFunc){
+    var args = (callFunc && (callFunc.constructor === Function)) ? [data,type,callFunc] : [data,type]
+    return fetchData('/cors', ...args)
+}

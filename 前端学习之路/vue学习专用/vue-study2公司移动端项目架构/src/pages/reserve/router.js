@@ -10,6 +10,7 @@ const NotFoundComponent = () => import('@/components/public/NotFound404.vue')
 // 首页
 const Index = () => import('./views/index.vue');
 const Vmodel = () => import('./views/v-model.vue');
+const promise = () => import('./views/promise.vue');
 
 Vue.use(Router)
 
@@ -42,6 +43,15 @@ const router = new Router({
             component: Vmodel,
             meta: {
                 title: 'vmodel原理',
+                requireAuth: false // 添加该字段，表示进入这个路由是需要登录的
+            }
+        },
+        {
+            path: '/jmy',
+            name: 'jinmengyao',
+            component: promise,
+            meta: {
+                title: 'promise',
                 requireAuth: false // 添加该字段，表示进入这个路由是需要登录的
             }
         }
